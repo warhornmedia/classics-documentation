@@ -1,0 +1,28 @@
+--- 
+title: "Warhorn Media Style Guide"
+description: "This guide contains all the decisions we have made about style in various contexts."
+params:
+  build: "1"
+  version: "0.1"
+  project: "style-guide"
+cover-image: ""
+url: "https://warhornmedia.github.io/style-guide"
+always_allow_html: yes
+site: bookdown::bookdown_site
+documentclass: book
+---
+
+```{r, include=FALSE} 
+if (!dir.exists("classics-template-files")) {
+download.file(url="https://github.com/warhornmedia/classics-template-files/archive/master.zip", destfile = "classics-template-files.zip")
+unzip(zipfile = "classics-template-files.zip", overwrite = TRUE)
+file.remove("classics-template-files.zip")
+file.rename("classics-template-files-master", "classics-template-files")
+}
+```
+
+# Preface
+
+This guide is meant to be a repository of information on both *what* we have decided in terms of various style decisions, as well as *how* to accomplish those decisions. Currently the documentation is limited to books, and in particular, those in the Warhorn Classics collection. However, it is possible that additional information will be added both for other kinds of books and for the WarhornMedia.com website. 
+
+Speaking of WarhornMedia.com... post titles are to be in sentence caps. Consider it documented. :)

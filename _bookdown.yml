@@ -1,0 +1,5 @@
+book_filename: "Warhorn_Style_Guide"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true

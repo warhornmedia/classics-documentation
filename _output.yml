@@ -1,0 +1,31 @@
+bookdown::gitbook:
+  split_by: section
+  config:
+    toc:
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">Warhorn Media Style Guide</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    fontsettings:
+      theme: white
+      family: serif
+      size: 2
+    edit: https://github.com/warhornmedia/style-guide/edit/master/%s
+    sharing:
+      facebook: yes
+      github: no
+      twitter: yes
+      linkedin: no
+      weibo: no
+      instapaper: no
+      vk: no
+      all: no
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: classics-template-files/latex/preamble.tex
+    before_body: classics-template-files/latex/before_body.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
