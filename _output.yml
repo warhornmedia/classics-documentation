@@ -1,6 +1,8 @@
 bookdown::gitbook:
   split_by: rmd
   config:
+    toolbar:
+      static
     toc:
       scroll_highlight: yes
       before: |
