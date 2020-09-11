@@ -153,8 +153,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="01-classics.html"><a href="01-classics.html#poetry"><i class="fa fa-check"></i><b>1.4</b> Poetry</a></li>
 <li class="chapter" data-level="1.5" data-path="01-classics.html"><a href="01-classics.html#foreign-languages"><i class="fa fa-check"></i><b>1.5</b> Foreign languages</a></li>
-<li class="chapter" data-level="1.6" data-path="01-classics.html"><a href="01-classics.html#images"><i class="fa fa-check"></i><b>1.6</b> Images</a></li>
-<li class="chapter" data-level="1.7" data-path="01-classics.html"><a href="01-classics.html#footnotes"><i class="fa fa-check"></i><b>1.7</b> Footnotes</a></li>
+<li class="chapter" data-level="1.6" data-path="01-classics.html"><a href="01-classics.html#typos"><i class="fa fa-check"></i><b>1.6</b> Typos</a></li>
+<li class="chapter" data-level="1.7" data-path="01-classics.html"><a href="01-classics.html#images"><i class="fa fa-check"></i><b>1.7</b> Images</a></li>
+<li class="chapter" data-level="1.8" data-path="01-classics.html"><a href="01-classics.html#footnotes"><i class="fa fa-check"></i><b>1.8</b> Footnotes</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -289,33 +290,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Greek:</strong></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="01-classics.html#cb15-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">μυστηριον</span><span class="co">]</span>{lang=el}</span></code></pre></div>
 </div>
-<div id="images" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Images</h2>
+<div id="typos" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Typos</h2>
+<p>Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="01-classics.html#cb16-1" aria-hidden="true"></a><span class="co">&lt;!-- Original typo: &quot;profssing&quot; --&gt;</span></span></code></pre></div>
+<p>Stylistic changes, such as switching from British to American quotes are not considered typos and do not need to be noted.</p>
+<p>However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.</p>
+</div>
+<div id="images" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Images</h2>
 <p>Images are likely to be rare, but when used, Pandoc’s built-in functionality is not enough. Images are to be placed in a sub-folder called “images” and included using knitr commands:</p>
 <p><strong>Centered and 50% width image:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="01-classics.html#cb16-1" aria-hidden="true"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
-<span id="cb16-2"><a href="01-classics.html#cb16-2" aria-hidden="true"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
-<span id="cb16-3"><a href="01-classics.html#cb16-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="01-classics.html#cb17-1" aria-hidden="true"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
+<span id="cb17-2"><a href="01-classics.html#cb17-2" aria-hidden="true"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
+<span id="cb17-3"><a href="01-classics.html#cb17-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
 <p>Here is what it looks like when used:</p>
 <p><img src="images/sepialogo.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="footnotes" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Footnotes</h2>
+<div id="footnotes" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Footnotes</h2>
 <p>Insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document.</p>
 <p><strong>Simple footnote:</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="01-classics.html#cb17-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^1]</span></span>
-<span id="cb17-2"><a href="01-classics.html#cb17-2" aria-hidden="true"></a></span>
-<span id="cb17-3"><a href="01-classics.html#cb17-3" aria-hidden="true"></a><span class="ot">[^1]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
-<span id="cb17-4"><a href="01-classics.html#cb17-4" aria-hidden="true"></a></span>
-<span id="cb17-5"><a href="01-classics.html#cb17-5" aria-hidden="true"></a>Now the main text of the book continues.</span></code></pre></div>
-<p><strong>Multi-paragraph footnote:</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="01-classics.html#cb18-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^2]</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="01-classics.html#cb18-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^1]</span></span>
 <span id="cb18-2"><a href="01-classics.html#cb18-2" aria-hidden="true"></a></span>
-<span id="cb18-3"><a href="01-classics.html#cb18-3" aria-hidden="true"></a><span class="ot">[^2]: </span>Another footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb18-3"><a href="01-classics.html#cb18-3" aria-hidden="true"></a><span class="ot">[^1]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
 <span id="cb18-4"><a href="01-classics.html#cb18-4" aria-hidden="true"></a></span>
-<span id="cb18-5"><a href="01-classics.html#cb18-5" aria-hidden="true"></a>  Simply put two spaces before the next paragraph(s) to indicate that the footnote is continuing.</span>
-<span id="cb18-6"><a href="01-classics.html#cb18-6" aria-hidden="true"></a>  </span>
-<span id="cb18-7"><a href="01-classics.html#cb18-7" aria-hidden="true"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
+<span id="cb18-5"><a href="01-classics.html#cb18-5" aria-hidden="true"></a>Now the main text of the book continues.</span></code></pre></div>
+<p><strong>Multi-paragraph footnote:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="01-classics.html#cb19-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^2]</span></span>
+<span id="cb19-2"><a href="01-classics.html#cb19-2" aria-hidden="true"></a></span>
+<span id="cb19-3"><a href="01-classics.html#cb19-3" aria-hidden="true"></a><span class="ot">[^2]: </span>Another footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb19-4"><a href="01-classics.html#cb19-4" aria-hidden="true"></a></span>
+<span id="cb19-5"><a href="01-classics.html#cb19-5" aria-hidden="true"></a>  Simply put two spaces before the next paragraph(s) to indicate that the footnote is continuing.</span>
+<span id="cb19-6"><a href="01-classics.html#cb19-6" aria-hidden="true"></a>  </span>
+<span id="cb19-7"><a href="01-classics.html#cb19-7" aria-hidden="true"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
 
 </div>
 </div>
@@ -385,7 +393,8 @@ gitbook.start({
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
-}
+},
+"toolbar": "static"
 });
 });
 </script>
