@@ -135,7 +135,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="book-structure.html"><a href="book-structure.html"><i class="fa fa-check"></i><b>2.1</b> Book structure</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="book-structure.html"><a href="book-structure.html#parts-chapters-sections-and-more"><i class="fa fa-check"></i><b>2.1.1</b> Parts, chapters, sections, and more</a></li>
+<li class="chapter" data-level="2.1.1" data-path="book-structure.html"><a href="book-structure.html#chapters-sections-and-more"><i class="fa fa-check"></i><b>2.1.1</b> Chapters, sections, and more</a></li>
+<li class="chapter" data-level="2.1.2" data-path="book-structure.html"><a href="book-structure.html#file-structure"><i class="fa fa-check"></i><b>2.1.2</b> File structure</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="formatting.html"><a href="formatting.html"><i class="fa fa-check"></i><b>2.2</b> Formatting</a>
 <ul>
@@ -177,21 +178,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="book-structure" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Book structure</h2>
-<div id="parts-chapters-sections-and-more" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Parts, chapters, sections, and more</h3>
+<div id="chapters-sections-and-more" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Chapters, sections, and more</h3>
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
-<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate. Each chapter is specified with a # followed by the title of the chapter:</p>
+<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>The start of a chapter is specified in the text with a # followed by the title of the chapter:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="book-structure.html#cb1-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
-<p>Chapters can be broken down further into sections and sub-sections, etc. using additional levels of headers:</p>
+<p>Chapters can be broken down further into sections and sub-sections, etc. using additional levels of headers and titles:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="book-structure.html#cb2-1" aria-hidden="true"></a><span class="fu">## This is a section.</span></span>
 <span id="cb2-2"><a href="book-structure.html#cb2-2" aria-hidden="true"></a></span>
 <span id="cb2-3"><a href="book-structure.html#cb2-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
 <span id="cb2-4"><a href="book-structure.html#cb2-4" aria-hidden="true"></a></span>
-<span id="cb2-5"><a href="book-structure.html#cb2-5" aria-hidden="true"></a><span class="fu">#### Here is a sub-sub-section</span></span></code></pre></div>
-<p>Chapters, sections and subsection will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the chapter name.</p>
-<p>A new .rmd (or .md) file should be created for each chapter, and the file must begin with the title of the chapter as outlined above. The various files will all be combined into a book</p>
-<p>each markdown file is treated as its own</p>
+<span id="cb2-5"><a href="book-structure.html#cb2-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span></code></pre></div>
+<div id="numbering" class="section level4" number="2.1.1.1">
+<h4><span class="header-section-number">2.1.1.1</span> Numbering</h4>
+<p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally the introduction is not numbered.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="book-structure.html#cb3-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
+<span id="cb3-2"><a href="book-structure.html#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="book-structure.html#cb3-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
+<p>Or perhaps the subsections in the book are not numbered:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="book-structure.html#cb4-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
+<span id="cb4-2"><a href="book-structure.html#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="book-structure.html#cb4-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
+<span id="cb4-4"><a href="book-structure.html#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="book-structure.html#cb4-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
 </div>
+</div>
+<div id="file-structure" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> File structure</h3>
+<p><strong>Note:</strong> Supposedly the first file must begin with either a chapter (“# Chapter name”) or a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error.</p>
+<p>The online version of the book will be split up into separate files, not just one long web page. The split will happen at each new .rmd file.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
+<p>Each file must begin with the title of the chapter as outlined above. The various files will all be combined into a book, ordered by filename, so use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics cover page. Here is an example list of files in the order they will end up in the book.</p>
+<pre><code>index.Rmd
+00-preface.Rmd
+01-The-Sacraments-In-General.Rmd
+02-The-Sacrament-of-Baptism.Rmd
+03-The-Sacrament-of-the-Lords-Supper.Rmd</code></pre>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>It is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents will not include “part” information, so these should be avoided, if possible, or tested thoroughly, so you know what each file type does.<a href="book-structure.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="book-structure.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
