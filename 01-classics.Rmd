@@ -4,31 +4,69 @@ Warhorn Classics uses Bookdown to create all its online versions of books. For t
 
 ## Book structure
 
-### Parts, chapters, sections, and more
+### Chapters, sections, and more
 
 The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.
 
-By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate. Each chapter is specified with a # followed by the title of the chapter:
+By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate.[^1]
+
+[^1]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you know what each file type does.
+
+The start of a chapter is specified in the text with a # followed by the title of the chapter:
 
 ```markdown
 # A Long-expected chapter title
 ```
 
-Chapters can be broken down further into sections and sub-sections, etc. using additional levels of headers:
+Chapters can be broken down further into sections and sub-sections, etc. using additional levels of headers and titles:
 
 ```markdown
 ## This is a section.
 
 ### Here is a sub-section.
 
-#### Here is a sub-sub-section
+#### And now a sub-sub-section
 ```
 
-Chapters, sections and subsection will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the chapter name.
+#### Numbering
 
-A new .rmd (or .md) file should be created for each chapter, and the file must begin with the title of the chapter as outlined above. The various files will all be combined into a book
+Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the line. For example, generally the introduction is not numbered.
 
-each markdown file is treated as its own 
+```markdown
+# Introduction {-}
+
+Text of the introduction goes here...
+```
+
+Or perhaps the subsections in the book are not numbered:
+
+```markdown
+# How to write a book
+
+## Getting started
+
+### Arranging your pencils {-}
+```
+
+### File structure
+
+**Note:** Supposedly the first file must begin with either a chapter ("# Chapter name") or a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error.
+
+The online version of the book will be split up into separate files, not just one long web page. The split will happen at each new .rmd file.[^2] Thus, in most cases a new .rmd file should be created for each chapter. 
+
+Each file must begin with the title of the chapter as outlined above. The various files will all be combined into a book, ordered by filename, so use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics cover page. Here is an example list of files in the order they will end up in the book.
+
+[^2]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
+
+```
+index.Rmd
+00-preface.Rmd
+01-The-Sacraments-In-General.Rmd
+02-The-Sacrament-of-Baptism.Rmd
+03-The-Sacrament-of-the-Lords-Supper.Rmd
+```
+
+
 
 
 ## Formatting
