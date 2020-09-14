@@ -141,9 +141,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="01-classics.html"><a href="01-classics.html#formatting"><i class="fa fa-check"></i><b>1.2</b> Formatting</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="01-classics.html"><a href="01-classics.html#overview"><i class="fa fa-check"></i><b>1.2.1</b> Overview</a></li>
-<li class="chapter" data-level="1.2.2" data-path="01-classics.html"><a href="01-classics.html#bold"><i class="fa fa-check"></i><b>1.2.2</b> Bold</a></li>
-<li class="chapter" data-level="1.2.3" data-path="01-classics.html"><a href="01-classics.html#small-caps"><i class="fa fa-check"></i><b>1.2.3</b> Small caps</a></li>
-<li class="chapter" data-level="1.2.4" data-path="01-classics.html"><a href="01-classics.html#centering-text"><i class="fa fa-check"></i><b>1.2.4</b> Centering text</a></li>
+<li class="chapter" data-level="1.2.2" data-path="01-classics.html"><a href="01-classics.html#italics"><i class="fa fa-check"></i><b>1.2.2</b> Italics</a></li>
+<li class="chapter" data-level="1.2.3" data-path="01-classics.html"><a href="01-classics.html#bold"><i class="fa fa-check"></i><b>1.2.3</b> Bold</a></li>
+<li class="chapter" data-level="1.2.4" data-path="01-classics.html"><a href="01-classics.html#small-caps"><i class="fa fa-check"></i><b>1.2.4</b> Small caps</a></li>
+<li class="chapter" data-level="1.2.5" data-path="01-classics.html"><a href="01-classics.html#centering-text"><i class="fa fa-check"></i><b>1.2.5</b> Centering text</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="01-classics.html"><a href="01-classics.html#special-characters"><i class="fa fa-check"></i><b>1.3</b> Special characters</a>
 <ul>
@@ -225,23 +226,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="overview" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Overview</h3>
 <p>Formatting should not be used for structural elements such as headers or captions. Our templates will style those elements according to a standard design. Formatting should only be done where the formatting is essential to the text. For example, bold or italics that the author is using for emphasis should be included, whereas if a (sub)section heading is italicized in the source book, that is a question of design.</p>
-<p>Formatting is accomplished by using R-markdown. Basically, you can use anything that <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc supports</a>. Where Pandoc supports multiple options, we have generally chosen a specific method. If you want to
-### Italics</p>
+<p>Formatting is accomplished by using R-markdown. Basically, you can use anything that <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc supports</a>. Where Pandoc supports multiple options, we have generally chosen a specific method. If you need to use something not mentioned below, please suggest it be added here.</p>
+</div>
+<div id="italics" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Italics</h3>
 <p><em>Italicized text</em> is indicated by surrounding it with single asterisks.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="01-classics.html#cb6-1" aria-hidden="true"></a>Here are *a couple* in italics.</span></code></pre></div>
 </div>
-<div id="bold" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Bold</h3>
+<div id="bold" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Bold</h3>
 <p><strong>Bold text</strong> is indicated by surrounding it with double asterisks.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="01-classics.html#cb7-1" aria-hidden="true"></a>Here are **a few words** in bold.</span></code></pre></div>
 </div>
-<div id="small-caps" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Small caps</h3>
+<div id="small-caps" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Small caps</h3>
 <p>I cannot think of any other circumstance where smallcaps should be used except the word <span class="smallcaps">Lord</span>.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="01-classics.html#cb8-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">Lord</span><span class="co">]</span>{.smallcaps}</span></code></pre></div>
 </div>
-<div id="centering-text" class="section level3" number="1.2.4">
-<h3><span class="header-section-number">1.2.4</span> Centering text</h3>
+<div id="centering-text" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Centering text</h3>
 <p>I cannot think of a place where text would need to be centered in the text of a book.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="01-classics.html#cb9-1" aria-hidden="true"></a>::: {.center}</span>
 <span id="cb9-2"><a href="01-classics.html#cb9-2" aria-hidden="true"></a>Republished by Warhorn Classics</span>
