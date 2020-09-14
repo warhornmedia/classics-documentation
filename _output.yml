@@ -2,7 +2,7 @@ bookdown::gitbook:
   split_by: rmd
   config:
     toolbar:
-      static
+      position: static
     toc:
       scroll_highlight: yes
       before: |
