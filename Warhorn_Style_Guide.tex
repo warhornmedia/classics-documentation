@@ -108,7 +108,7 @@
 \setcounter{secnumdepth}{5}
 % DEFINE PHYSICAL DOCUMENT SETTINGS HD
 % media settings
-\usepackage[paperwidth=5.5in, paperheight=8.5in]{geometry}
+\usepackage[paperwidth=5.5in, paperheight=8in]{geometry}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -117,6 +117,26 @@
   \thm@preskip=8pt plus 2pt minus 4pt
   \thm@postskip=\thm@preskip
 }
+
+\usepackage{titling}
+\usepackage{pdfpages}
+\IfFileExists{./cover.pdf}{
+  \newcommand{\myCover}{./cover.pdf}}
+  {\IfFileExists{./cover.jpg}{
+    \newcommand{\myCover}{./cover.jpg}}
+    {\IfFileExists{./cover.png}{
+      \newcommand{\myCover}{./cover.png}}{}
+    }
+  }
+\@ifundefined{myCover}
+{}
+{
+\pretitle{\begin{center}\includepdf{\myCover}}
+\posttitle{\end{center}\setcounter{page}{0}}
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+}
+\clearpage\pagenumbering{roman}
 
 \newenvironment{poetry}[0]{\par\leftskip=2em\rightskip=2em}{\par\medskip}
 
@@ -139,6 +159,7 @@
 \maketitle
 
 \mainmatter
+\pagenumbering{roman}
 
 {
 \setcounter{tocdepth}{1}
@@ -324,6 +345,20 @@ Because backslashes are are special characters, if one needs to appear for some 
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{comments}{%
+\section{Comments}\label{comments}}
+
+If you ever need to leave a comment in the source but you don't want it to appear in the built books, you can use the following format. It is the standard HTML comment, but with an extra dash to open it. These comments will not even show up in the HTML source. If you use a regular HTML comment with just two dashes, they will show up in the HTML source.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\textless{}!{-}{-}{-}}
+\CommentTok{your comment goes here}
+\CommentTok{and here}
+\CommentTok{{-}{-}\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{poetry}{%
 \section{Poetry}\label{poetry}}
 
@@ -418,13 +453,17 @@ Insert the text of footnotes directly under the paragraph where the footnote occ
 
 \textbf{Multi-paragraph footnote:}
 
+Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.\footnote{Here is my multiparagraph footnote, just to prove that it works.
+
+  See? Second paragraph works just fine. :)}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{Longer footnotes can also appear in books.}\OtherTok{[\^{}2]}
 
 \OtherTok{[\^{}2]: }\NormalTok{Another footnote. It is possible to have multiple paragraphs in a footnote.}
 
-\NormalTok{  Simply put two spaces before the next paragraph(s) to indicate that the footnote is continuing.}
+\InformationTok{    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.}
   
 \NormalTok{Here is the next paragraph of the book. It is no longer part of the footnote.}
 \end{Highlighting}
