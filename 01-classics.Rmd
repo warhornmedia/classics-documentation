@@ -140,6 +140,16 @@ Because backslashes are are special characters, if one needs to appear for some 
 Two backslashes \\ will appear in the output of the book as a single backslash.
 ```
 
+## Comments
+
+If you ever need to leave a comment in the source but you don't want it to appear in the built books, you can use the following format. It is the standard HTML comment, but with an extra dash to open it. These comments will not even show up in the HTML source. If you use a regular HTML comment with just two dashes, they will show up in the HTML source.
+
+```markdown
+<!---
+your comment goes here
+and here
+-->
+```
 
 ## Poetry
 
@@ -223,12 +233,18 @@ Now the main text of the book continues.
 
 **Multi-paragraph footnote:**
 
+Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.[^3]
+
+[^3]: Here is my multiparagraph footnote, just to prove that it works.
+
+    See? Second paragraph works just fine. :)
+
 ```markdown
 Longer footnotes can also appear in books.[^2]
 
 [^2]: Another footnote. It is possible to have multiple paragraphs in a footnote.
 
-  Simply put two spaces before the next paragraph(s) to indicate that the footnote is continuing.
+    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.
   
 Here is the next paragraph of the book. It is no longer part of the footnote.
 ```

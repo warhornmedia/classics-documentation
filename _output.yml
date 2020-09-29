@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  split_by: rmd
+  split_by: chapter
   config:
     toolbar:
       position: static
