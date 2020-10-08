@@ -83,7 +83,7 @@ index.Rmd
 
 Note that the numbers at the beginning of each filename are *only* used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.
 
-The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^1] Thus, in most cases a new .rmd file should be created for each chapter. Each .rmd file must begin with the title of the chapter it contains. (The proper syntax is described in [Internal book structure] below.)[^2] 
+The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^1] Thus, in most cases a new .rmd file should be created for each chapter. Each .rmd file must begin with the title of the chapter it contains. (The proper syntax is described in the next section.)[^2] 
 
 [^1]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
 
