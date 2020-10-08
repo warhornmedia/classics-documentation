@@ -4,10 +4,11 @@ Warhorn Classics uses Bookdown to create all its online versions of books. For t
 
 ## Creating a new book
 
+Once you've followed the instructions and created a new book from the book template, you will need to understand what the files do and how to proceed in customizing the book. The first section below outlines each of the files and what needs to be changed in them when creating a new book. 
 
-### Files in a book project
+### What are all these files?
 
-If the name of a field is **bold** below, that means you need to modify that field when you create a new book from the template.
+Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is **bold** below, that means you need to customize that field for a new book.
 
 .gitignore
 : Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings.
@@ -15,12 +16,15 @@ If the name of a field is **bold** below, that means you need to modify that fie
 .travis.yml
 : Imports the actual travis build instructions from the classics-template-files project, and contains the encrypted personal access token that allows TravisCI to push the built books back to GitHub. If you followed the instructions for the template book, you shouldn't need to do anything else to this file.
 
+01-Basic-instructions.Rmd
+: Contains the content of the first chapter of the template book. **Should be deleted or renamed** and its content replaced with the first chapter of the new book. See 
+
 _bookdown.yml
 : contains some settings for bookdown. 
 : 
 : Contents:
 : 
-:  - **book_filename:** Change this to give book downloads, such as PDFs, appropriate filenames. Don't use spaces. Standard: author’s last name followed by short title, like so: \n
+:  - **book_filename:** Change this to give book downloads, such as PDFs, appropriate filenames. Don't use spaces. Standard: author’s last name followed by short title, like so: \
     `book_filename: "Ryle-Duties_of_Parents"`
 :  
 : Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
@@ -59,18 +63,42 @@ README.md
 book_project.Rproj 
 : This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
 
+images (folder)
+: This folder **should be deleted** unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
 
-### Book structure
 
-#### Chapters, sections, and more
+#### Adding book content
+
+To add content to the book, simply add Rmd files. 
+
+All the Rmd files will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. Here is an example list of files in the order they will end up in the book. 
+
+```
+index.Rmd
+00-preface.Rmd
+01-The-Sacraments-In-General.Rmd
+02-The-Sacrament-of-Baptism.Rmd
+03-The-Sacrament-of-the-Lords-Supper.Rmd
+```
+
+Note that the numbers at the beginning of each filename are *only* used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.
+
+The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^1] Thus, in most cases a new .rmd file should be created for each chapter. Each .rmd file must begin with the title of the chapter it contains. (The proper syntax is described in [Internal book structure] below.)[^2] 
+
+[^1]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
+
+[^2]: Supposedly the first file must begin with either a chapter ("# Chapter name") *or* a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.
+
+
+### Chapters, sections, and more
 
 The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.
 
-By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate.[^1]
+By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate.[^3]
 
-[^1]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you are sure that what you want is happening in each output type. This is currently untested in our projects. If you test it, please let us know what you find out.
+[^3]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you are sure that what you want is happening in each output type. This is currently untested in our projects. If you test it, please let us know what you find out.
 
-The start of a chapter is specified in the text with a # followed by the title of the chapter:
+The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:
 
 ```markdown
 # A Long-expected chapter title
@@ -86,7 +114,7 @@ Chapters can be broken down further into sections and sub-sections, etc. using a
 #### And now a sub-sub-section
 ```
 
-##### Numbering
+#### Numbering (or not)
 
 Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the line. For example, generally an introduction should not be numbered:
 
@@ -106,26 +134,19 @@ Or perhaps the subsections in the book are not numbered:
 ### Arranging your pencils {-}
 ```
 
-#### File structure
+#### Assigning IDs to sections and chapters
 
-The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^2] Thus, in most cases a new .rmd file should be created for each chapter. 
+Chapters and sections can be assigned custom ids to make it easier to [reference][References] them:
 
-Each file must begin with the title of the chapter as outlined above.[^3] The various files will all be combined into a book, ordered by filename, so use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. Here is an example list of files in the order they will end up in the book. 
-
-[^2]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
-
-[^3]: Supposedly the first file must begin with either a chapter ("# Chapter name") *or* a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead if necessary to split the book into appropriate-length pages.
-
-```
-index.Rmd
-00-preface.Rmd
-01-The-Sacraments-In-General.Rmd
-02-The-Sacrament-of-Baptism.Rmd
-03-The-Sacrament-of-the-Lords-Supper.Rmd
+```markdown
+# My very long chapter title that I don't want to have to type often {#long-chapter}
 ```
 
-Note that the numbers at the beginning of each filename are *only* used to get the files into the proper order in the book. It is handy to prevent confusion during editing if they can correspond to the chapter number, but it is not necessary.
+It is possible to assign an ID *and* specify that a section is not to be numbered like so:
 
+```markdown
+## Section forty-five {- #sec-45}
+```
 
 ## Formatting
 
@@ -226,6 +247,29 @@ An over-payment of delight?"
 :::
 ```
 
+## Links
+
+Links are easily added using standard markdown like so:
+
+```markdown
+This text needs a link [here](http://google.com).
+```
+
+## References 
+
+If the author refers to another chapter or section of his book, we can add a link to it without an actual url. All that is necessary is that the we know the chapter or section name. There are two ways to link at that point. If the title of the section or chapter is used verbatim in the text, we can simply surround it in brackets and it will link automatically:
+
+```markdown
+Here is how I would add a link to the section tited [Foreign languages].
+```
+
+Otherwise, if the exact title isn't used, simply bracket the words you want to link, and then add another set of brackets with the name of the section you want to link to like so:
+
+```markdown
+Here is how I would add a link to the section about [non-english content][Foreign languages].
+```
+
+If the section is actually we can We can then either simply include the name in brackets and it will automatically link to the section of chapter with that name
 
 ## Foreign languages
 
