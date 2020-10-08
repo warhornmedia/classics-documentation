@@ -67,7 +67,7 @@ images (folder)
 : This folder **should be deleted** unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
 
 
-#### Adding book content
+### Adding book content
 
 To add content to the book, simply add Rmd files. 
 
@@ -96,7 +96,7 @@ The primary structure in Warhorn Classics books is determined by various levels 
 
 By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate.[^3]
 
-[^3]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you are sure that what you want is happening in each output type. This is currently untested in our projects. If you test it, please let us know what you find out.
+[^3]: The bookdown documentation says it is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents do not get any "part" information, so we do not support this option in our books. 
 
 The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:
 
