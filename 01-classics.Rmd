@@ -321,7 +321,7 @@ knitr::include_graphics("images/sepialogo.png")
 
 ## Footnotes
 
-Footnotes can added to any content in a book, including section headings or chapter titles. The syntax is the same in any case, as seen below. Please insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document.
+Footnotes can added to any content in a book, including section headings or chapter titles. The syntax is the same in any case, as seen below. Please insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. Footnotes within a single Rmd file *must* have unique names.
 
 **Simple footnote:**
 
