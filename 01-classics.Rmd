@@ -2,15 +2,73 @@
 
 Warhorn Classics uses Bookdown to create all its online versions of books. For technical questions about how to accomplish something that is not covered in this guide, [this book](https://bookdown.org/yihui/bookdown/) will likely answer the question or put you on the path to finding out.
 
-## Book structure
+## Creating a new book
 
-### Chapters, sections, and more
+
+### Files in a book project
+
+If the name of a field is **bold** below, that means you need to modify that field when you create a new book from the template.
+
+.gitignore
+: Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings.
+
+.travis.yml
+: Imports the actual travis build instructions from the classics-template-files project, and contains the encrypted personal access token that allows TravisCI to push the built books back to GitHub. If you followed the instructions for the template book, you shouldn't need to do anything else to this file.
+
+_bookdown.yml
+: contains some settings for bookdown. 
+: 
+: Contents:
+: 
+:  - **book_filename:** Change this to give book downloads, such as PDFs, appropriate filenames. Don't use spaces. Standard: author’s last name followed by short title, like so: \n
+    `book_filename: "Ryle-Duties_of_Parents"`
+:  
+: Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
+
+_output.yml
+: Contains a number of settings for the various output formats. You shouldn’t need to make changes to this file.
+
+cover.jpg
+: **Should be replaced** with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported. 
+
+DESCRIPTION
+: A necessary file for bookdown to work properly on Travis CI. Ignore.
+
+index.Rmd
+: Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
+: 
+: Contents:
+: 
+:  - **title, author, and date** must all be changed and should be self-explanatory
+:  - **description:** Short description of the book. Don't use copyrighted content here. Write your own description. This field is useful for SEO. Also, it is displayed together with the cover image when the book is shared on certain social media.
+:  - **params:**
+:    - **scans:** Enter a link to scanned images of the original public domain work on Google books, Archive.org, or elsewhere.
+:    - build: This can be any number. Change the build number if you ever want to force the book to rebuild but haven’t changed anything else. It’s used for no other purpose.
+:  - **cover-image:** the name of the image file being used as the cover for the book. Make sure to include the extension, such as cover.jpg, or cover.png.
+:  - **url:** the page where the book is hosted. [Currently](https://github.com/rstudio/bookdown/issues/963) must end with a “/“. 
+:  - **output:**
+      - **bookdown::gitbook:**
+        - **config:**
+          - **toc:**
+            - **before:** This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
+          - **edit:** where the edit link on each page points to. Should be the GitHub project URL, followed by “/edit/master/%s”
+
+README.md
+: The description of the repo that will be displayed on the Github project page. **Update this** with some simple info and a link to the readable book. 
+
+book_project.Rproj 
+: This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
+
+
+### Book structure
+
+#### Chapters, sections, and more
 
 The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.
 
 By default, the top level of structure is called a "chapter." However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where "chapter" is not appropriate.[^1]
 
-[^1]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you know what each file type does.
+[^1]: It is [also possible](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers) to split a book into "parts" made up of multiple chapters, as well as add a special "part" called "appendix." However, ebooks and Word documents will not include "part" information, so these should be avoided, if possible, or tested thoroughly, so you are sure that what you want is happening in each output type. This is currently untested in our projects. If you test it, please let us know what you find out.
 
 The start of a chapter is specified in the text with a # followed by the title of the chapter:
 
@@ -28,9 +86,9 @@ Chapters can be broken down further into sections and sub-sections, etc. using a
 #### And now a sub-sub-section
 ```
 
-#### Numbering
+##### Numbering
 
-Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the line. For example, generally the introduction is not numbered.
+Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the line. For example, generally an introduction should not be numbered:
 
 ```markdown
 # Introduction {-}
@@ -48,15 +106,15 @@ Or perhaps the subsections in the book are not numbered:
 ### Arranging your pencils {-}
 ```
 
-### File structure
+#### File structure
 
-**Note:** Supposedly the first file must begin with either a chapter ("# Chapter name") or a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error.
+The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^2] Thus, in most cases a new .rmd file should be created for each chapter. 
 
-The online version of the book will be split up into separate files, not just one long web page. The split will happen at each new .rmd file.[^2] Thus, in most cases a new .rmd file should be created for each chapter. 
-
-Each file must begin with the title of the chapter as outlined above. The various files will all be combined into a book, ordered by filename, so use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics cover page. Here is an example list of files in the order they will end up in the book.
+Each file must begin with the title of the chapter as outlined above.[^3] The various files will all be combined into a book, ordered by filename, so use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. Here is an example list of files in the order they will end up in the book. 
 
 [^2]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
+
+[^3]: Supposedly the first file must begin with either a chapter ("# Chapter name") *or* a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead if necessary to split the book into appropriate-length pages.
 
 ```
 index.Rmd
@@ -66,7 +124,7 @@ index.Rmd
 03-The-Sacrament-of-the-Lords-Supper.Rmd
 ```
 
-
+Note that the numbers at the beginning of each filename are *only* used to get the files into the proper order in the book. It is handy to prevent confusion during editing if they can correspond to the chapter number, but it is not necessary.
 
 
 ## Formatting
@@ -219,7 +277,7 @@ knitr::include_graphics("images/sepialogo.png")
 
 ## Footnotes
 
-Insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document.
+Footnotes can added to any content in a book, including section headings or chapter titles. The syntax is the same in any case, as seen below. Please insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document.
 
 **Simple footnote:**
 
@@ -233,9 +291,9 @@ Now the main text of the book continues.
 
 **Multi-paragraph footnote:**
 
-Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.[^3]
+Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.[^4]
 
-[^3]: Here is my multiparagraph footnote, just to prove that it works.
+[^4]: Here is my multiparagraph footnote, just to prove that it works.
 
     See? Second paragraph works just fine. :)
 
@@ -247,4 +305,16 @@ Longer footnotes can also appear in books.[^2]
     Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.
   
 Here is the next paragraph of the book. It is no longer part of the footnote.
+```
+
+**Footnote in section or chapter title:**
+
+```markdown
+# My Awesome Chapter Five[^1]
+
+[^1]: This is a footnote on a chapter title.
+
+## Chapter Five Section 1[^2]
+
+[^2]: Here's my footnote on a section title.
 ```
