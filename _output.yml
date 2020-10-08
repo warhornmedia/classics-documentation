@@ -15,19 +15,12 @@ bookdown::gitbook:
       size: 2
     edit: https://github.com/warhornmedia/style-guide/edit/master/%s
     sharing:
-      facebook: yes
+      facebook: no
       github: no
-      twitter: yes
+      twitter: no
       linkedin: no
       weibo: no
       instapaper: no
       vk: no
       all: no
-    download: ["pdf"]
-bookdown::pdf_book:
-  includes:
-    in_header: classics-template-files/latex/preamble.tex
-    before_body: classics-template-files/latex/before_body.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
+    download: []
