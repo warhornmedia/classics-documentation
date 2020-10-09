@@ -260,7 +260,7 @@ This text needs a link [here](http://google.com).
 If the author refers to another chapter or section of his book, we can add a link to it without an actual url. All that is necessary is that the we know the chapter or section name. There are two ways to link at that point. If the title of the section or chapter is used verbatim in the text, we can simply surround it in brackets and it will link automatically:
 
 ```markdown
-Here is how I would add a link to the section tited [Foreign languages].
+Here is how I would add a link to the section titled [Foreign languages].
 ```
 
 Otherwise, if the exact title isn't used, simply bracket the words you want to link, and then add another set of brackets with the name of the section you want to link to like so:
@@ -321,14 +321,20 @@ knitr::include_graphics("images/sepialogo.png")
 
 ## Footnotes
 
-Footnotes can added to any content in a book, including section headings or chapter titles. The syntax is the same in any case, as seen below. Please insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. Footnotes within a single Rmd file *must* have unique names.
+Footnotes can added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below). 
 
-**Simple footnote:**
+Please put footnotes in the source directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. [Because of (potential) bugs](https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741), every footnote in the book *must* have a unique name.[^fnnaming]
+
+[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named.* They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
+
+The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named "01.01". The third footnote in the fifth chapter would be "05.03". A footnote in the intro could be named "intro.01".
+
+**Simple footnote syntax:**
 
 ```markdown
-Footnotes are often found at the end of a sentence like so.[^1]
+Footnotes are often found at the end of a sentence like so.[^01.01]
 
-[^1]: Here is the footnote's content, in its own paragraph with a blank line above and below.
+[^01.01]: Here is the footnote's content, in its own paragraph with a blank line above and below.
 
 Now the main text of the book continues.
 ```
@@ -337,28 +343,20 @@ Now the main text of the book continues.
 
 Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.[^4]
 
+
 [^4]: Here is my multiparagraph footnote, just to prove that it works.
 
     See? Second paragraph works just fine. :)
 
 ```markdown
-Longer footnotes can also appear in books.[^2]
+Longer footnotes can also appear in books.[^01.02]
 
-[^2]: Another footnote. It is possible to have multiple paragraphs in a footnote.
+[^01.02]: Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.
 
     Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.
   
 Here is the next paragraph of the book. It is no longer part of the footnote.
 ```
 
-**Footnote in section or chapter title:**
-
-```markdown
-# My Awesome Chapter Five[^1]
-
-[^1]: This is a footnote on a chapter title.
-
-## Chapter Five Section 1[^2]
-
-[^2]: Here's my footnote on a section title.
-```
+**Warning**: Multi-paragraph footnotes *cannot* occur inside bold or italic text or chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: "! Paragraph ended before \text@command was complete."
+ 
