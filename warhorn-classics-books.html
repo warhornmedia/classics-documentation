@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#creating-a-new-book"><i class="fa fa-check"></i><b>1.1</b> Creating a new book</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#what-are-all-these-files"><i class="fa fa-check"></i><b>1.1.1</b> What are all these files?</a></li>
-<li class="chapter" data-level="1.1.2" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#chapters-sections-and-more"><i class="fa fa-check"></i><b>1.1.2</b> Chapters, sections, and more</a></li>
+<li class="chapter" data-level="1.1.2" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#adding-book-content"><i class="fa fa-check"></i><b>1.1.2</b> Adding book content</a></li>
+<li class="chapter" data-level="1.1.3" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#chapters-sections-and-more"><i class="fa fa-check"></i><b>1.1.3</b> Chapters, sections, and more</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#formatting"><i class="fa fa-check"></i><b>1.2</b> Formatting</a>
 <ul>
@@ -293,8 +294,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dd>This folder <strong>should be deleted</strong> unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
 </dd>
 </dl>
-<div id="adding-book-content" class="section level4" number="1.1.1.1">
-<h4><span class="header-section-number">1.1.1.1</span> Adding book content</h4>
+</div>
+<div id="adding-book-content" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Adding book content</h3>
 <p>To add content to the book, simply add Rmd files.</p>
 <p>All the Rmd files will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. Here is an example list of files in the order they will end up in the book.</p>
 <pre><code>index.Rmd
@@ -305,9 +307,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Note that the numbers at the beginning of each filename are <em>only</em> used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.</p>
 <p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Thus, in most cases a new .rmd file should be created for each chapter. Each .rmd file must begin with the title of the chapter it contains. (The proper syntax is described in the next section.)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
-</div>
-<div id="chapters-sections-and-more" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Chapters, sections, and more</h3>
+<div id="chapters-sections-and-more" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Chapters, sections, and more</h3>
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
 <p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
@@ -318,8 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="warhorn-classics-books.html#cb3-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
 <span id="cb3-4"><a href="warhorn-classics-books.html#cb3-4" aria-hidden="true"></a></span>
 <span id="cb3-5"><a href="warhorn-classics-books.html#cb3-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span></code></pre></div>
-<div id="numbering-or-not" class="section level4" number="1.1.2.1">
-<h4><span class="header-section-number">1.1.2.1</span> Numbering (or not)</h4>
+<div id="numbering-or-not" class="section level4" number="1.1.3.1">
+<h4><span class="header-section-number">1.1.3.1</span> Numbering (or not)</h4>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="warhorn-classics-books.html#cb4-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
 <span id="cb4-2"><a href="warhorn-classics-books.html#cb4-2" aria-hidden="true"></a></span>
@@ -331,8 +332,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-4"><a href="warhorn-classics-books.html#cb5-4" aria-hidden="true"></a></span>
 <span id="cb5-5"><a href="warhorn-classics-books.html#cb5-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
 </div>
-<div id="assigning-ids-to-sections-and-chapters" class="section level4" number="1.1.2.2">
-<h4><span class="header-section-number">1.1.2.2</span> Assigning IDs to sections and chapters</h4>
+<div id="assigning-ids-to-sections-and-chapters" class="section level4" number="1.1.3.2">
+<h4><span class="header-section-number">1.1.3.2</span> Assigning IDs to sections and chapters</h4>
 <p>Chapters and sections can be assigned custom ids to make it easier to <a href="warhorn-classics-books.html#references">reference</a> them:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="warhorn-classics-books.html#cb6-1" aria-hidden="true"></a><span class="fu"># My very long chapter title that I don&#39;t want to have to type often {#long-chapter}</span></span></code></pre></div>
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
@@ -420,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="references" class="section level2" number="1.7">
 <h2><span class="header-section-number">1.7</span> References</h2>
 <p>If the author refers to another chapter or section of his book, we can add a link to it without an actual url. All that is necessary is that the we know the chapter or section name. There are two ways to link at that point. If the title of the section or chapter is used verbatim in the text, we can simply surround it in brackets and it will link automatically:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="warhorn-classics-books.html#cb18-1" aria-hidden="true"></a>Here is how I would add a link to the section tited <span class="co">[</span><span class="ot">Foreign languages</span><span class="co">]</span>.</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="warhorn-classics-books.html#cb18-1" aria-hidden="true"></a>Here is how I would add a link to the section titled <span class="co">[</span><span class="ot">Foreign languages</span><span class="co">]</span>.</span></code></pre></div>
 <p>Otherwise, if the exact title isn’t used, simply bracket the words you want to link, and then add another set of brackets with the name of the section you want to link to like so:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="warhorn-classics-books.html#cb19-1" aria-hidden="true"></a>Here is how I would add a link to the section about <span class="co">[</span><span class="ot">non-english content</span><span class="co">][Foreign languages]</span>.</span></code></pre></div>
 <p>If the section is actually we can We can then either simply include the name in brackets and it will automatically link to the section of chapter with that name</p>
@@ -452,33 +453,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="footnotes" class="section level2" number="1.11">
 <h2><span class="header-section-number">1.11</span> Footnotes</h2>
-<p>Footnotes can added to any content in a book, including section headings or chapter titles. The syntax is the same in any case, as seen below. Please insert the text of footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. Footnotes within a single Rmd file <em>must</em> have unique names.</p>
-<p><strong>Simple footnote:</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^1]</span></span>
+<p>Footnotes can added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
+<p>Please put footnotes in the source directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named “01.01”. The third footnote in the fifth chapter would be “05.03”. A footnote in the intro could be named “intro.01”.</p>
+<p><strong>Simple footnote syntax:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
 <span id="cb24-2"><a href="warhorn-classics-books.html#cb24-2" aria-hidden="true"></a></span>
-<span id="cb24-3"><a href="warhorn-classics-books.html#cb24-3" aria-hidden="true"></a><span class="ot">[^1]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
+<span id="cb24-3"><a href="warhorn-classics-books.html#cb24-3" aria-hidden="true"></a><span class="ot">[^01.01]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
 <span id="cb24-4"><a href="warhorn-classics-books.html#cb24-4" aria-hidden="true"></a></span>
 <span id="cb24-5"><a href="warhorn-classics-books.html#cb24-5" aria-hidden="true"></a>Now the main text of the book continues.</span></code></pre></div>
 <p><strong>Multi-paragraph footnote:</strong></p>
-<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^2]</span></span>
+<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
 <span id="cb25-2"><a href="warhorn-classics-books.html#cb25-2" aria-hidden="true"></a></span>
-<span id="cb25-3"><a href="warhorn-classics-books.html#cb25-3" aria-hidden="true"></a><span class="ot">[^2]: </span>Another footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb25-3"><a href="warhorn-classics-books.html#cb25-3" aria-hidden="true"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
 <span id="cb25-4"><a href="warhorn-classics-books.html#cb25-4" aria-hidden="true"></a></span>
 <span id="cb25-5"><a href="warhorn-classics-books.html#cb25-5" aria-hidden="true"></a><span class="in">    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.</span></span>
 <span id="cb25-6"><a href="warhorn-classics-books.html#cb25-6" aria-hidden="true"></a>  </span>
 <span id="cb25-7"><a href="warhorn-classics-books.html#cb25-7" aria-hidden="true"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
-<p><strong>Footnote in section or chapter title:</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="warhorn-classics-books.html#cb26-1" aria-hidden="true"></a><span class="fu"># My Awesome Chapter Five[^1]</span></span>
-<span id="cb26-2"><a href="warhorn-classics-books.html#cb26-2" aria-hidden="true"></a></span>
-<span id="cb26-3"><a href="warhorn-classics-books.html#cb26-3" aria-hidden="true"></a><span class="ot">[^1]: </span>This is a footnote on a chapter title.</span>
-<span id="cb26-4"><a href="warhorn-classics-books.html#cb26-4" aria-hidden="true"></a></span>
-<span id="cb26-5"><a href="warhorn-classics-books.html#cb26-5" aria-hidden="true"></a><span class="fu">## Chapter Five Section 1[^2]</span></span>
-<span id="cb26-6"><a href="warhorn-classics-books.html#cb26-6" aria-hidden="true"></a></span>
-<span id="cb26-7"><a href="warhorn-classics-books.html#cb26-7" aria-hidden="true"></a><span class="ot">[^2]: </span>Here&#39;s my footnote on a section title.</span></code></pre></div>
+<p><strong>Warning</strong>: Multi-paragraph footnotes <em>cannot</em> occur inside bold or italic text or chapter or section headers, because of <a href="https://github.com/jgm/pandoc/issues/6733">a bug</a> in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: “! Paragraph ended before was complete.”</p>
 
 </div>
 </div>
+
 
 
 
@@ -494,9 +491,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="1">
 <li id="fn1"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="warhorn-classics-books.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Supposedly the first file must begin with either a chapter (“# Chapter name”) <em>or</em> a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.<a href="warhorn-classics-books.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>It is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents will not include “part” information, so these should be avoided, if possible, or tested thoroughly, so you are sure that what you want is happening in each output type. This is currently untested in our projects. If you test it, please let us know what you find out.<a href="warhorn-classics-books.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
-<p>See? Second paragraph works just fine. :)<a href="warhorn-classics-books.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The bookdown documentation says it is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents do not get any “part” information, so we do not support this option in our books.<a href="warhorn-classics-books.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Technically footnotes aren’t numbered in our source. They are <em>named.</em> They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.<a href="warhorn-classics-books.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
+<p>See? Second paragraph works just fine. :)<a href="warhorn-classics-books.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
