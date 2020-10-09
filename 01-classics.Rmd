@@ -358,5 +358,4 @@ Longer footnotes can also appear in books.[^01.02]
 Here is the next paragraph of the book. It is no longer part of the footnote.
 ```
 
-**Warning**: Multi-paragraph footnotes *cannot* occur inside bold or italic text or chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: "! Paragraph ended before \text@command was complete."
- 
+**Warning**: Multi-paragraph footnotes *cannot* occur inside bold or italic text or chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
