@@ -339,7 +339,7 @@ Footnotes are often found at the end of a sentence like so.[^01.01]
 Now the main text of the book continues.
 ```
 
-If the structure of the book demands a more detailed naming of footnotes, it may be appropriate to lengthen the names of footnotes for the sake of clarity. For example, footnotes in chapter 1, section 1, of a book might be named "01.01.01", "01.01.02", etc. The most important thing is that each footnote have a unique name.
+If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity's sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: "01.01.01", "01.01.02", etc., throughout chapter 1, section 1; then "01.02.01", "01.02.02", etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.
 
 **Multi-paragraph footnote:**
 
