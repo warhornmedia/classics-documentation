@@ -325,7 +325,7 @@ Footnotes can added to any content in a book, including section headings or chap
 
 Please put footnotes in the source directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. [Because of (potential) bugs](https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741), every footnote in the book *must* have a unique name.[^fnnaming]
 
-[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named.* They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
+[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named*. They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
 
 The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named "01.01". The third footnote in the fifth chapter would be "05.03". A footnote in the intro could be named "intro.01".
 
@@ -338,6 +338,8 @@ Footnotes are often found at the end of a sentence like so.[^01.01]
 
 Now the main text of the book continues.
 ```
+
+If the structure of the book demands a more detailed naming of footnotes, it may be appropriate to lengthen the names of footnotes for the sake of clarity. For example, footnotes in chapter 1, section 1, of a book might be named "01.01.01", "01.01.02", etc. The most important thing is that each footnote have a unique name.
 
 **Multi-paragraph footnote:**
 
