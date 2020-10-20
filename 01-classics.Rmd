@@ -232,45 +232,21 @@ and here
 
 ## Poetry
 
-Poetry should be designated as such so it can be styled differently from the rest of the text
+Poetry should be designated as such so it can be styled differently from the rest of the text:
 
 ```markdown
 ::: {.poetry}
-Oh when a mother meets on high
-
-The babe she lost in infancy,
-
-Hath she not then for pains and fears,
-
-\ \ \ \ The day of woe, the watchful night,
-
-For all her sorrows, all her tears,
-
-\ \ \ \ An over-payment of delight?
+- Oh when a mother meets on high
+- The babe she lost in infancy,
+- Hath she not then for pains and fears,
+- \ \ \ \ The day of woe, the watchful night,
+- For all her sorrows, all her tears,
+- \ \ \ \ An over-payment of delight?
 :::
 ```
 
-Note that each line of poetry should be followed by a double return, as if it were its own paragraph. If a line of poetry should appear indented in its final form, precede the indented line with non-breaking spaces, which are entered as spaces preceded by backslashes.
+Precede each line of poetry with a hyphen and a space. If a line of poetry should appear indented in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.
 
-If reproducing multiple stanzas of poetry, just wrap each stanza in the poetry `div`:
-
-```markdown
-::: {.poetry}
-This is the first
-
-Stanza of poetry
-
-With three lines.
-:::
-
-::: {.poetry}
-This is the second
-
-Stanza of poetry
-
-Also with three lines.
-:::
-```
 
 ## Links
 
