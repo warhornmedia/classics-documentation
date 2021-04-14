@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Warhorn Classics Books | Warhorn Media Style Guide</title>
   <meta name="description" content="This guide contains all the decisions we have made about style in various contexts." />
-  <meta name="generator" content="bookdown 0.21.2 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Warhorn Classics Books | Warhorn Media Style Guide" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,7 @@
   
 <link rel="prev" href="index.html"/>
 
-<script src="libs/header-attrs-2.4.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,8 +49,8 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +117,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -157,12 +158,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#comments"><i class="fa fa-check"></i><b>1.4</b> Comments</a></li>
 <li class="chapter" data-level="1.5" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#poetry"><i class="fa fa-check"></i><b>1.5</b> Poetry</a></li>
-<li class="chapter" data-level="1.6" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#links"><i class="fa fa-check"></i><b>1.6</b> Links</a></li>
-<li class="chapter" data-level="1.7" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#references"><i class="fa fa-check"></i><b>1.7</b> References</a></li>
-<li class="chapter" data-level="1.8" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#foreign-languages"><i class="fa fa-check"></i><b>1.8</b> Foreign languages</a></li>
-<li class="chapter" data-level="1.9" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#typos"><i class="fa fa-check"></i><b>1.9</b> Typos</a></li>
-<li class="chapter" data-level="1.10" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#images"><i class="fa fa-check"></i><b>1.10</b> Images</a></li>
-<li class="chapter" data-level="1.11" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#footnotes"><i class="fa fa-check"></i><b>1.11</b> Footnotes</a></li>
+<li class="chapter" data-level="1.6" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#links"><i class="fa fa-check"></i><b>1.6</b> Links</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#assigning-ids"><i class="fa fa-check"></i><b>1.6.1</b> Assigning implicit or explicit ID names</a></li>
+<li class="chapter" data-level="1.6.2" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#external-links"><i class="fa fa-check"></i><b>1.6.2</b> External links</a></li>
+<li class="chapter" data-level="1.6.3" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#references"><i class="fa fa-check"></i><b>1.6.3</b> References (ie internal links)</a></li>
+<li class="chapter" data-level="1.6.4" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#footnotes"><i class="fa fa-check"></i><b>1.6.4</b> Footnotes</a></li>
+<li class="chapter" data-level="1.6.5" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#endnotes"><i class="fa fa-check"></i><b>1.6.5</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#foreign-languages"><i class="fa fa-check"></i><b>1.7</b> Foreign languages</a></li>
+<li class="chapter" data-level="1.8" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#typos-in-the-original"><i class="fa fa-check"></i><b>1.8</b> Typos in the original</a></li>
+<li class="chapter" data-level="1.9" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#images"><i class="fa fa-check"></i><b>1.9</b> Images</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -313,12 +319,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="warhorn-classics-books.html#cb2-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
-<p>Chapters can be broken down further into sections and sub-sections, etc. using additional levels of headers and titles:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="warhorn-classics-books.html#cb3-1" aria-hidden="true"></a><span class="fu">## This is a section.</span></span>
+<p>The chapter title will be given an &lt;h1&gt; tag in HTML, with similar results in other formats.</p>
+<p>Chapters can be broken down further into sections, sub-sections, etc. up to 6 levels total, using additional levels of headers and titles:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="warhorn-classics-books.html#cb3-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
 <span id="cb3-2"><a href="warhorn-classics-books.html#cb3-2" aria-hidden="true"></a></span>
 <span id="cb3-3"><a href="warhorn-classics-books.html#cb3-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
 <span id="cb3-4"><a href="warhorn-classics-books.html#cb3-4" aria-hidden="true"></a></span>
-<span id="cb3-5"><a href="warhorn-classics-books.html#cb3-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span></code></pre></div>
+<span id="cb3-5"><a href="warhorn-classics-books.html#cb3-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
+<span id="cb3-6"><a href="warhorn-classics-books.html#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="warhorn-classics-books.html#cb3-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
 <div id="numbering-or-not" class="section level4" number="1.1.3.1">
 <h4><span class="header-section-number">1.1.3.1</span> Numbering (or not)</h4>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
@@ -331,13 +340,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-3"><a href="warhorn-classics-books.html#cb5-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
 <span id="cb5-4"><a href="warhorn-classics-books.html#cb5-4" aria-hidden="true"></a></span>
 <span id="cb5-5"><a href="warhorn-classics-books.html#cb5-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
-</div>
-<div id="assigning-ids-to-sections-and-chapters" class="section level4" number="1.1.3.2">
-<h4><span class="header-section-number">1.1.3.2</span> Assigning IDs to sections and chapters</h4>
-<p>Chapters and sections can be assigned custom ids to make it easier to <a href="warhorn-classics-books.html#references">reference</a> them:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="warhorn-classics-books.html#cb6-1" aria-hidden="true"></a><span class="fu"># My very long chapter title that I don&#39;t want to have to type often {#long-chapter}</span></span></code></pre></div>
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="warhorn-classics-books.html#cb7-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="warhorn-classics-books.html#cb6-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
+</div>
+<div id="ids" class="section level4" number="1.1.3.2">
+<h4><span class="header-section-number">1.1.3.2</span> IDs</h4>
+<p>Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the references section.</p>
 </div>
 </div>
 </div>
@@ -351,24 +359,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="italics" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Italics</h3>
 <p><em>Italicized text</em> is indicated by surrounding it with single asterisks.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="warhorn-classics-books.html#cb8-1" aria-hidden="true"></a>Here are *a couple* in italics.</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="warhorn-classics-books.html#cb7-1" aria-hidden="true"></a>Here are *a couple* in italics.</span></code></pre></div>
 </div>
 <div id="bold" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Bold</h3>
 <p><strong>Bold text</strong> is indicated by surrounding it with double asterisks.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="warhorn-classics-books.html#cb9-1" aria-hidden="true"></a>Here are **a few words** in bold.</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="warhorn-classics-books.html#cb8-1" aria-hidden="true"></a>Here are **a few words** in bold.</span></code></pre></div>
 </div>
 <div id="small-caps" class="section level3" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> Small caps</h3>
 <p>I cannot think of any other circumstance where smallcaps should be used except the word <span class="smallcaps">Lord</span>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="warhorn-classics-books.html#cb10-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">Lord</span><span class="co">]</span>{.smallcaps}</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="warhorn-classics-books.html#cb9-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">Lord</span><span class="co">]</span>{.smallcaps}</span></code></pre></div>
 </div>
 <div id="centering-text" class="section level3" number="1.2.5">
 <h3><span class="header-section-number">1.2.5</span> Centering text</h3>
 <p>I cannot think of a place where text would need to be centered in the text of a book.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="warhorn-classics-books.html#cb11-1" aria-hidden="true"></a>::: {.center}</span>
-<span id="cb11-2"><a href="warhorn-classics-books.html#cb11-2" aria-hidden="true"></a>Republished by Warhorn Classics</span>
-<span id="cb11-3"><a href="warhorn-classics-books.html#cb11-3" aria-hidden="true"></a>:::</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="warhorn-classics-books.html#cb10-1" aria-hidden="true"></a>::: {.center}</span>
+<span id="cb10-2"><a href="warhorn-classics-books.html#cb10-2" aria-hidden="true"></a>Republished by Warhorn Classics</span>
+<span id="cb10-3"><a href="warhorn-classics-books.html#cb10-3" aria-hidden="true"></a>:::</span></code></pre></div>
 </div>
 </div>
 <div id="special-characters" class="section level2" number="1.3">
@@ -377,101 +385,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="non-breaking-spaces" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Non-breaking spaces</h3>
 <p>Non-breaking spaces prevent two words from being split onto separate lines. There are a variety of cases in which they are necessary, including Scripture references. They are formed by putting a backslash prior to a regular space.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="warhorn-classics-books.html#cb12-1" aria-hidden="true"></a>1\ Peter\ 1:3 </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="warhorn-classics-books.html#cb11-1" aria-hidden="true"></a>1\ Peter\ 1:3 </span></code></pre></div>
 </div>
 <div id="line-breaks" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Line breaks</h3>
 <p>Sometimes, you may need to specify that text should start on a new line but remain part of the same paragraph. This can be accomplished by putting a single backslash at the end of a line.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="warhorn-classics-books.html#cb13-1" aria-hidden="true"></a>This paragraph will continue \</span>
-<span id="cb13-2"><a href="warhorn-classics-books.html#cb13-2" aria-hidden="true"></a>on the next line.</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="warhorn-classics-books.html#cb12-1" aria-hidden="true"></a>This paragraph will continue \</span>
+<span id="cb12-2"><a href="warhorn-classics-books.html#cb12-2" aria-hidden="true"></a>on the next line.</span></code></pre></div>
 </div>
 <div id="backslashes" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Backslashes</h3>
-<p>Because backslashes are are special characters, if one needs to appear for some reason in the actual text of a book, it must be ‘escaped’ using another backslash.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="warhorn-classics-books.html#cb14-1" aria-hidden="true"></a>Two backslashes <span class="sc">\\</span> will appear in the output of the book as a single backslash.</span></code></pre></div>
+<p>Because backslashes are are special characters, if one needs to appear for some reason in the actual text of a book, it must be ‘escaped’ using another backslash. In other words, put two backslashes like so in the markdown followed by the output:</p>
+<p>Markdown:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="warhorn-classics-books.html#cb13-1" aria-hidden="true"></a>Here is a backslash <span class="sc">\\</span> in the middle of a sentence. </span></code></pre></div>
+<p>Output:
+Here is a backslash \ in the middle of a sentence.</p>
 </div>
 </div>
 <div id="comments" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Comments</h2>
 <p>If you ever need to leave a comment in the source but you don’t want it to appear in the built books, you can use the following format. It is the standard HTML comment, but with an extra dash to open it. These comments will not even show up in the HTML source. If you use a regular HTML comment with just two dashes, they will show up in the HTML source.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="warhorn-classics-books.html#cb15-1" aria-hidden="true"></a><span class="co">&lt;!---</span></span>
-<span id="cb15-2"><a href="warhorn-classics-books.html#cb15-2" aria-hidden="true"></a><span class="co">your comment goes here</span></span>
-<span id="cb15-3"><a href="warhorn-classics-books.html#cb15-3" aria-hidden="true"></a><span class="co">and here</span></span>
-<span id="cb15-4"><a href="warhorn-classics-books.html#cb15-4" aria-hidden="true"></a><span class="co">--&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="warhorn-classics-books.html#cb14-1" aria-hidden="true"></a><span class="co">&lt;!---</span></span>
+<span id="cb14-2"><a href="warhorn-classics-books.html#cb14-2" aria-hidden="true"></a><span class="co">your comment goes here</span></span>
+<span id="cb14-3"><a href="warhorn-classics-books.html#cb14-3" aria-hidden="true"></a><span class="co">and here</span></span>
+<span id="cb14-4"><a href="warhorn-classics-books.html#cb14-4" aria-hidden="true"></a><span class="co">--&gt;</span></span></code></pre></div>
 </div>
 <div id="poetry" class="section level2" number="1.5">
 <h2><span class="header-section-number">1.5</span> Poetry</h2>
 <p>Poetry should be designated as such so it can be styled differently from the rest of the text:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="warhorn-classics-books.html#cb16-1" aria-hidden="true"></a>::: {.poetry}</span>
-<span id="cb16-2"><a href="warhorn-classics-books.html#cb16-2" aria-hidden="true"></a><span class="ss">- </span>Oh when a mother meets on high</span>
-<span id="cb16-3"><a href="warhorn-classics-books.html#cb16-3" aria-hidden="true"></a><span class="ss">- </span>The babe she lost in infancy,</span>
-<span id="cb16-4"><a href="warhorn-classics-books.html#cb16-4" aria-hidden="true"></a><span class="ss">- </span>Hath she not then for pains and fears,</span>
-<span id="cb16-5"><a href="warhorn-classics-books.html#cb16-5" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ The day of woe, the watchful night,</span>
-<span id="cb16-6"><a href="warhorn-classics-books.html#cb16-6" aria-hidden="true"></a><span class="ss">- </span>For all her sorrows, all her tears,</span>
-<span id="cb16-7"><a href="warhorn-classics-books.html#cb16-7" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ An over-payment of delight?</span>
-<span id="cb16-8"><a href="warhorn-classics-books.html#cb16-8" aria-hidden="true"></a>:::</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="warhorn-classics-books.html#cb15-1" aria-hidden="true"></a>::: {.poetry}</span>
+<span id="cb15-2"><a href="warhorn-classics-books.html#cb15-2" aria-hidden="true"></a><span class="ss">- </span>Oh when a mother meets on high</span>
+<span id="cb15-3"><a href="warhorn-classics-books.html#cb15-3" aria-hidden="true"></a><span class="ss">- </span>The babe she lost in infancy,</span>
+<span id="cb15-4"><a href="warhorn-classics-books.html#cb15-4" aria-hidden="true"></a><span class="ss">- </span>Hath she not then for pains and fears,</span>
+<span id="cb15-5"><a href="warhorn-classics-books.html#cb15-5" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ The day of woe, the watchful night,</span>
+<span id="cb15-6"><a href="warhorn-classics-books.html#cb15-6" aria-hidden="true"></a><span class="ss">- </span>For all her sorrows, all her tears,</span>
+<span id="cb15-7"><a href="warhorn-classics-books.html#cb15-7" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ An over-payment of delight?</span>
+<span id="cb15-8"><a href="warhorn-classics-books.html#cb15-8" aria-hidden="true"></a>:::</span></code></pre></div>
 <p>Precede each line of poetry with a hyphen and a space. If a line of poetry should appear indented in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.</p>
 </div>
 <div id="links" class="section level2" number="1.6">
 <h2><span class="header-section-number">1.6</span> Links</h2>
+<div id="assigning-ids" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Assigning implicit or explicit ID names</h3>
+<p>Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of “automatic-and-manually-assigned-ids”. This is an implicit id.</p>
+<p>Because automatic ids change with the text, and because they can get long, it is generally better to assign explicit ids manually to chapters, sections, and sub-sections if you need to link to them.</p>
+<p>Images and links are not given implicit ids, but can be assigned explicit ids if necessary. Here is an example of assigning an explicit id for a chapter:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="warhorn-classics-books.html#cb16-1" aria-hidden="true"></a><span class="fu"># My very long chapter title that I don&#39;t want to have to type often {#long-chapter}</span></span></code></pre></div>
+<p>To assign an id to an arbitrary location in the text (for the purposes of linking to a particular paragraph deep within a section, for example), you need something that can be assigned an id. If there is no image or heading to receive an ID, a workaround is to create an empty link and assign it an explicit id.</p>
+<p>At the end of this sentence is a link without any text or destination that creates a named ID. <a href="" id="namedEmptyLink"></a> You will not see it, but it will exist in the HTML, allowing us to link to it from the <a href="warhorn-classics-books.html#references">references section</a> below. (TODO: Test this feature is in ePub and PDF.) The markdown to create it looks like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="warhorn-classics-books.html#cb17-1" aria-hidden="true"></a>A sentence ending with a named empty link. [](){#namedEmptyLink}</span></code></pre></div>
+</div>
+<div id="external-links" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> External links</h3>
 <p>Links are easily added using standard markdown like so:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="warhorn-classics-books.html#cb17-1" aria-hidden="true"></a>This text needs a link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>.</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="warhorn-classics-books.html#cb18-1" aria-hidden="true"></a>This text needs a link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>.</span></code></pre></div>
+<p>External links can also be named (given an ID) as detailed <a href="warhorn-classics-books.html#assigning-ids">above</a>. For example:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="warhorn-classics-books.html#cb19-1" aria-hidden="true"></a>This text needs a named link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>{#my-named-link-id}.</span></code></pre></div>
+<p>Linking to any sort of content within the book itself is called a reference and is addressed next.</p>
 </div>
-<div id="references" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> References</h2>
-<p>If the author refers to another chapter or section of his book, we can add a link to it without an actual url. All that is necessary is that the we know the chapter or section name. There are two ways to link at that point. If the title of the section or chapter is used verbatim in the text, we can simply surround it in brackets and it will link automatically:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="warhorn-classics-books.html#cb18-1" aria-hidden="true"></a>Here is how I would add a link to the section titled <span class="co">[</span><span class="ot">Foreign languages</span><span class="co">]</span>.</span></code></pre></div>
-<p>Otherwise, if the exact title isn’t used, simply bracket the words you want to link, and then add another set of brackets with the name of the section you want to link to like so:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="warhorn-classics-books.html#cb19-1" aria-hidden="true"></a>Here is how I would add a link to the section about <span class="co">[</span><span class="ot">non-english content</span><span class="co">][Foreign languages]</span>.</span></code></pre></div>
-<p>If the section is actually we can We can then either simply include the name in brackets and it will automatically link to the section of chapter with that name</p>
+<div id="references" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> References (ie internal links)</h3>
+<p>If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on <a href="warhorn-classics-books.html#chapters-sections-and-more">sections</a> and on <a href="warhorn-classics-books.html#assigning-ids">assigning ids</a>). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. It’s easier to see in an example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="warhorn-classics-books.html#cb20-1" aria-hidden="true"></a>Here is how I would add a link to the next section, which is about <span class="co">[</span><span class="ot">non-english content</span><span class="co">](#foreign-languages)</span> when the section has an id (whether implicit or explicit) of &quot;foreign-languages&quot;.</span></code></pre></div>
+<p>Here is how I would add a link to the section later in this guide which is about <a href="warhorn-classics-books.html#foreign-languages">non-english content</a> since its (implicit) id is “foreign-languages”.</p>
+<p>In the section about assigning ids, we mentioned that it is possible to insert an anchor for linking to any arbitrary spot by creating an empty, named link. <a href="warhorn-classics-books.html#namedEmptyLink">Here</a> is a link back to the end of the sentence above. The markdown looks like this:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="warhorn-classics-books.html#cb21-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">Here</span><span class="co">](#namedEmptyLink)</span> is a link back to the arbitrary location with a custom name </span></code></pre></div>
 </div>
-<div id="foreign-languages" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Foreign languages</h2>
-<p>Any text in a foreign language, regardless of how long or short, should be indicated as such with the appropriate two-letter language code, which can be <a href="https://www.w3schools.com/tags/ref_language_codes.asp">found here</a>. Here is the what the markup looks like for a couple of the most common languages you might need.</p>
-<p><strong>Latin:</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="warhorn-classics-books.html#cb20-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">sacramentum</span><span class="co">]</span>{lang=la}</span></code></pre></div>
-<p><strong>Greek:</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="warhorn-classics-books.html#cb21-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">μυστηριον</span><span class="co">]</span>{lang=el}</span></code></pre></div>
-</div>
-<div id="typos" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Typos</h2>
-<p>Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="warhorn-classics-books.html#cb22-1" aria-hidden="true"></a><span class="co">&lt;!-- Original typo: &quot;profssing&quot; --&gt;</span></span></code></pre></div>
-<p>Stylistic changes, such as switching from British to American quotes are not considered typos and do not need to be noted.</p>
-<p>However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.</p>
-</div>
-<div id="images" class="section level2" number="1.10">
-<h2><span class="header-section-number">1.10</span> Images</h2>
-<p>Images are likely to be rare, but when used, Pandoc’s built-in functionality is not enough. Images are to be placed in a sub-folder called “images” and included using knitr commands:</p>
-<p><strong>Centered and 50% width image:</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="warhorn-classics-books.html#cb23-1" aria-hidden="true"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
-<span id="cb23-2"><a href="warhorn-classics-books.html#cb23-2" aria-hidden="true"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
-<span id="cb23-3"><a href="warhorn-classics-books.html#cb23-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
-<p>Here is what it looks like when used:</p>
-<p><img src="images/sepialogo.png" width="50%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="footnotes" class="section level2" number="1.11">
-<h2><span class="header-section-number">1.11</span> Footnotes</h2>
-<p>Footnotes can added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
-<p>Please put footnotes in the source directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<div id="footnotes" class="section level3" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Footnotes</h3>
+<p>Footnotes are a special kind of link that can be added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
+<p>Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p>The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named “01.01”. The third footnote in the fifth chapter would be “05.03”. A footnote in the intro could be named “intro.01”.</p>
 <p><strong>Simple footnote syntax:</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
-<span id="cb24-2"><a href="warhorn-classics-books.html#cb24-2" aria-hidden="true"></a></span>
-<span id="cb24-3"><a href="warhorn-classics-books.html#cb24-3" aria-hidden="true"></a><span class="ot">[^01.01]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
-<span id="cb24-4"><a href="warhorn-classics-books.html#cb24-4" aria-hidden="true"></a></span>
-<span id="cb24-5"><a href="warhorn-classics-books.html#cb24-5" aria-hidden="true"></a>Now the main text of the book continues.</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="warhorn-classics-books.html#cb22-1" aria-hidden="true"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
+<span id="cb22-2"><a href="warhorn-classics-books.html#cb22-2" aria-hidden="true"></a></span>
+<span id="cb22-3"><a href="warhorn-classics-books.html#cb22-3" aria-hidden="true"></a><span class="ot">[^01.01]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
+<span id="cb22-4"><a href="warhorn-classics-books.html#cb22-4" aria-hidden="true"></a></span>
+<span id="cb22-5"><a href="warhorn-classics-books.html#cb22-5" aria-hidden="true"></a>Now the main text of the book continues.</span></code></pre></div>
 <p>If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity’s sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: “01.01.01”, “01.01.02”, etc., throughout chapter 1, section 1; then “01.02.01”, “01.02.02”, etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.</p>
 <p><strong>Multi-paragraph footnote:</strong></p>
 <p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
-<span id="cb25-2"><a href="warhorn-classics-books.html#cb25-2" aria-hidden="true"></a></span>
-<span id="cb25-3"><a href="warhorn-classics-books.html#cb25-3" aria-hidden="true"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
-<span id="cb25-4"><a href="warhorn-classics-books.html#cb25-4" aria-hidden="true"></a></span>
-<span id="cb25-5"><a href="warhorn-classics-books.html#cb25-5" aria-hidden="true"></a><span class="in">    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.</span></span>
-<span id="cb25-6"><a href="warhorn-classics-books.html#cb25-6" aria-hidden="true"></a>  </span>
-<span id="cb25-7"><a href="warhorn-classics-books.html#cb25-7" aria-hidden="true"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="warhorn-classics-books.html#cb23-1" aria-hidden="true"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
+<span id="cb23-2"><a href="warhorn-classics-books.html#cb23-2" aria-hidden="true"></a></span>
+<span id="cb23-3"><a href="warhorn-classics-books.html#cb23-3" aria-hidden="true"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb23-4"><a href="warhorn-classics-books.html#cb23-4" aria-hidden="true"></a></span>
+<span id="cb23-5"><a href="warhorn-classics-books.html#cb23-5" aria-hidden="true"></a><span class="in">    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.</span></span>
+<span id="cb23-6"><a href="warhorn-classics-books.html#cb23-6" aria-hidden="true"></a>  </span>
+<span id="cb23-7"><a href="warhorn-classics-books.html#cb23-7" aria-hidden="true"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
 <p><strong>Warning</strong>: Multi-paragraph footnotes <em>cannot</em> occur inside bold or italic text or chapter or section headers, because of <a href="https://github.com/jgm/pandoc/issues/6733">a bug</a> in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: <code>! Paragraph ended before \text@command was complete.</code> If you find another place where multi-paragraph footnotes don’t work, please update this documentation.</p>
+</div>
+<div id="endnotes" class="section level3" number="1.6.5">
+<h3><span class="header-section-number">1.6.5</span> Endnotes</h3>
+<p>Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. Customarily we have used the lowest level of header for the endnote title, unnumbered, with an explicit ID like so:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a><span class="fu">###### NOTE 2, p. 21  {- #en.p1.02}</span></span></code></pre></div>
+<p>The endnote ID should be named as follows:</p>
+<p>en.chapternumabbrev.endnotenumber</p>
+<p>So the above endnote is the second endnote in opening of Part 1 before you get to chapter one. Here’s how you’d name the ID for the third endnote in chapter 1:</p>
+<p>#en.ch01.03</p>
+<p>To link to the endnote from within the text, simply follow the instructions for references (internal links) <a href="warhorn-classics-books.html#references">above</a>. Here is an example of what it looks like to link to an endnote in the markdown:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>Sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="foreign-languages" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Foreign languages</h2>
+<p>Any text in a foreign language, regardless of how long or short, should be indicated as such with the appropriate two-letter language code, which can be <a href="https://www.w3schools.com/tags/ref_language_codes.asp">found here</a>. Here is the what the markup looks like for a couple of the most common languages you might need.</p>
+<p><strong>Latin:</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="warhorn-classics-books.html#cb26-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">sacramentum</span><span class="co">]</span>{lang=la}</span></code></pre></div>
+<p><strong>Greek:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb27-1"><a href="warhorn-classics-books.html#cb27-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">μυστηριον</span><span class="co">]</span>{lang=el}</span></code></pre></div>
+</div>
+<div id="typos-in-the-original" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Typos in the original</h2>
+<p>Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb28-1"><a href="warhorn-classics-books.html#cb28-1" aria-hidden="true"></a><span class="co">&lt;!-- Original typo: &quot;profssing&quot; --&gt;</span></span></code></pre></div>
+<p>Stylistic changes, such as switching from British to American quotes are not considered typos and do not need to be noted.</p>
+<p>However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.</p>
+</div>
+<div id="images" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Images</h2>
+<p>Images are likely to be rare, but when used, Pandoc’s built-in functionality is not enough. Images are to be placed in a sub-folder called “images” and included using knitr commands:</p>
+<p><strong>Centered and 50% width image:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb29-1"><a href="warhorn-classics-books.html#cb29-1" aria-hidden="true"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
+<span id="cb29-2"><a href="warhorn-classics-books.html#cb29-2" aria-hidden="true"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
+<span id="cb29-3"><a href="warhorn-classics-books.html#cb29-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
+<p>Here is what it looks like when used:</p>
+<p><img src="images/sepialogo.png" width="50%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -526,6 +564,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
