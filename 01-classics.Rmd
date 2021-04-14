@@ -354,10 +354,16 @@ Here is the next paragraph of the book. It is no longer part of the footnote.
 
 ### Endnotes
 
-Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. Customarily we have used the lowest level of header for the endnote title, unnumbered, with an explicit ID like so:
+Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. 
+
+#### Creating an endnote
+
+To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan's *justification*. Each endnote has a title in that book, such as "Note 2, p. 21", so we used the lowest level of header for the endnote title, and gave it an explicit ID like so:
 
 ```markdown
 ###### NOTE 2, p. 21  {- #en.p1.02}
+
+endnote text goes here...
 ```
 
 The endnote ID should be named as follows:
@@ -368,10 +374,12 @@ So the above endnote is the second endnote in opening of Part 1 before you get t
 
 #en.ch01.03
 
+#### Linking to an endnote
+
 To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references). Here is an example of what it looks like to link to an endnote in the markdown:
 
 ```markdown
-Sentence ends with a linked endnote in parentheses.([2](#en.p1.02))
+This sentence ends with a linked endnote in parentheses.([2](#en.p1.02))
 ```
 
 
