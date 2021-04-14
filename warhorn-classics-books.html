@@ -476,14 +476,23 @@ Here is a backslash \ in the middle of a sentence.</p>
 </div>
 <div id="endnotes" class="section level3" number="1.6.5">
 <h3><span class="header-section-number">1.6.5</span> Endnotes</h3>
-<p>Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. Customarily we have used the lowest level of header for the endnote title, unnumbered, with an explicit ID like so:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a><span class="fu">###### NOTE 2, p. 21  {- #en.p1.02}</span></span></code></pre></div>
+<p>Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes.</p>
+<div id="creating-an-endnote" class="section level4" number="1.6.5.1">
+<h4><span class="header-section-number">1.6.5.1</span> Creating an endnote</h4>
+<p>To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan’s <em>justification</em>. Each endnote has a title in that book, such as “Note 2, p. 21”, so we used the lowest level of header for the endnote title, and gave it an explicit ID like so:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="warhorn-classics-books.html#cb24-1" aria-hidden="true"></a><span class="fu">###### NOTE 2, p. 21  {- #en.p1.02}</span></span>
+<span id="cb24-2"><a href="warhorn-classics-books.html#cb24-2" aria-hidden="true"></a></span>
+<span id="cb24-3"><a href="warhorn-classics-books.html#cb24-3" aria-hidden="true"></a>endnote text goes here...</span></code></pre></div>
 <p>The endnote ID should be named as follows:</p>
 <p>en.chapternumabbrev.endnotenumber</p>
 <p>So the above endnote is the second endnote in opening of Part 1 before you get to chapter one. Here’s how you’d name the ID for the third endnote in chapter 1:</p>
 <p>#en.ch01.03</p>
+</div>
+<div id="linking-to-an-endnote" class="section level4" number="1.6.5.2">
+<h4><span class="header-section-number">1.6.5.2</span> Linking to an endnote</h4>
 <p>To link to the endnote from within the text, simply follow the instructions for references (internal links) <a href="warhorn-classics-books.html#references">above</a>. Here is an example of what it looks like to link to an endnote in the markdown:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>Sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>This sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>)</span></code></pre></div>
+</div>
 </div>
 </div>
 <div id="foreign-languages" class="section level2" number="1.7">
