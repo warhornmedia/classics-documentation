@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="endnotes-demonstration.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,6 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.8" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#typos-in-the-original"><i class="fa fa-check"></i><b>1.8</b> Typos in the original</a></li>
 <li class="chapter" data-level="1.9" data-path="warhorn-classics-books.html"><a href="warhorn-classics-books.html#images"><i class="fa fa-check"></i><b>1.9</b> Images</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="endnotes-demonstration.html"><a href="endnotes-demonstration.html"><i class="fa fa-check"></i><b>2</b> Endnotes Demonstration</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -476,7 +477,9 @@ Here is a backslash \ in the middle of a sentence.</p>
 </div>
 <div id="endnotes" class="section level3" number="1.6.5">
 <h3><span class="header-section-number">1.6.5</span> Endnotes</h3>
-<p>Endnotes can be created simply by creating a separate file for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes.</p>
+<p>Endnotes can be created simply by creating a separate file<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (<a href="endnotes-demonstration.html#en.01">1</a>)</p>
+<p><strong>NOTE</strong>: Endnotes do not automatically backlink to the place they are referenced from.</p>
+<p><strong>NOTE 2</strong>: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.</p>
 <div id="creating-an-endnote" class="section level4" number="1.6.5.1">
 <h4><span class="header-section-number">1.6.5.1</span> Creating an endnote</h4>
 <p>To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan’s <em>justification</em>. Each endnote has a title in that book, such as “Note 2, p. 21”, so we used the lowest level of header for the endnote title, and gave it an explicit ID like so:</p>
@@ -490,7 +493,7 @@ Here is a backslash \ in the middle of a sentence.</p>
 </div>
 <div id="linking-to-an-endnote" class="section level4" number="1.6.5.2">
 <h4><span class="header-section-number">1.6.5.2</span> Linking to an endnote</h4>
-<p>To link to the endnote from within the text, simply follow the instructions for references (internal links) <a href="warhorn-classics-books.html#references">above</a>. Here is an example of what it looks like to link to an endnote in the markdown:</p>
+<p>To link to the endnote from within the text, simply follow the instructions for references (internal links) <a href="warhorn-classics-books.html#references">above</a>. Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link “Footnote 1”, though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the “2” in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="warhorn-classics-books.html#cb25-1" aria-hidden="true"></a>This sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>)</span></code></pre></div>
 </div>
 </div>
@@ -522,17 +525,6 @@ Here is a backslash \ in the middle of a sentence.</p>
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="1">
@@ -542,6 +534,7 @@ Here is a backslash \ in the middle of a sentence.</p>
 <li id="fn4"><p>Technically footnotes aren’t numbered in our source. They are <em>named</em>. They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.<a href="warhorn-classics-books.html#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
 <p>See? Second paragraph works just fine. :)<a href="warhorn-classics-books.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>There is an endnote file in this style guide, for demonstrations’ sake. And this is a demonstration of an endnote within a footnote. <a href="endnotes-demonstration.html#en.02">2</a><a href="warhorn-classics-books.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -549,8 +542,8 @@ Here is a backslash \ in the middle of a sentence.</p>
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="endnotes-demonstration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
