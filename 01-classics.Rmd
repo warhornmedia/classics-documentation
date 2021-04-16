@@ -4,6 +4,8 @@ Warhorn Classics uses Bookdown to create all its online versions of books. For t
 
 ## Creating a new book
 
+The first steps of creating a new book from scratch from our book template, including creating the necessary repository on Github, are contained in the [book template](https://warhornmedia.github.io/warhorn-classics-book-template/01-Basic-instructions.html#creating-a-new-repo-for-a-new-book-on-github) itself. Please go and follow those instructions first if no repo exists for the book you are about to start working on. Then come back here.
+
 Once you've followed the instructions and created a new book from the book template, you will need to understand what the files do and how to proceed in customizing the book. The first section below outlines each of the files and what needs to be changed in them when creating a new book. 
 
 ### What are all these files?
