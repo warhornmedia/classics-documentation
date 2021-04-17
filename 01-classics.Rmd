@@ -39,6 +39,8 @@ This will encrypt your token so that only Travis CI can use it. Then it will add
     ```
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
+    
+    You should be good to go now. 
 
 ## Preparing your local build environment
 
@@ -101,7 +103,7 @@ index.Rmd
       - **bookdown::gitbook:**
         - **config:**
           - **toc:**
-            - **before:** This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
+            :  **before:** This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
           - **edit:** where the edit link on each page points to. Should be the GitHub project URL, followed by “/edit/master/%s”
 
 README.md
