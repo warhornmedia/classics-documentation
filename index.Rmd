@@ -2,14 +2,23 @@
 title: "Warhorn Classics Documentation"
 description: "Documenting the decisions we have made about style and how to accomplish them."
 params:
+  scans: ""
   build: "1"
-  version: "0.1"
-  project: "classics-documentation"
-cover-image: ""
 url: "https://warhornmedia.github.io/classics-documentation"
+output: 
+  bookdown::gitbook:
+    config:
+      toc:
+        scroll_highlight: yes
+        before: |
+          <li><a href="https://www.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
+          <li><a href="./">Warhorn Classics Documentation</a></li>
+        after: |
+          <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      edit: https://github.com/warhornmedia/classics-empty-book/edit/master/%s
+documentclass: book
 always_allow_html: yes
 site: bookdown::bookdown_site
-documentclass: book
 ---
 
 ```{r, include=FALSE} 

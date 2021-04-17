@@ -1,19 +1,10 @@
 bookdown::gitbook:
   split_by: chapter
   config:
-    toolbar:
-      position: static
-    toc:
-      scroll_highlight: yes
-      before: |
-        <li><a href="./">Warhorn Classics Documentation</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     fontsettings:
       theme: white
       family: serif
       size: 2
-    edit: https://github.com/warhornmedia/classics-documentation/edit/master/%s
     sharing:
       facebook: no
       github: no
@@ -23,4 +14,16 @@ bookdown::gitbook:
       instapaper: no
       vk: no
       all: no
-    download: []
+    download: ["pdf", "epub", "mobi"]
+  includes:
+    in_header: classics-template-files/html/in_header.html
+    after_body: classics-template-files/html/after_body.html
+bookdown::pdf_book:
+  includes:
+    in_header: classics-template-files/latex/preamble.tex
+    before_body: classics-template-files/latex/before_body.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default
+
