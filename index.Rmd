@@ -1,12 +1,12 @@
 --- 
-title: "Warhorn Media Style Guide"
-description: "This guide contains all the decisions we have made about style in various contexts."
+title: "Warhorn Classics Documentation"
+description: "Documenting the decisions we have made about style and how to accomplish them."
 params:
   build: "1"
   version: "0.1"
-  project: "style-guide"
+  project: "classics-documentation"
 cover-image: ""
-url: "https://warhornmedia.github.io/style-guide"
+url: "https://warhornmedia.github.io/classics-documentation"
 always_allow_html: yes
 site: bookdown::bookdown_site
 documentclass: book
@@ -23,6 +23,6 @@ file.rename("classics-template-files-master", "classics-template-files")
 
 # Preface {-}
 
-This guide is meant to be a repository of information on both *what* we have decided in terms of various style decisions, as well as *how* to accomplish those decisions. Currently the documentation is limited to books, and in particular, those in the Warhorn Classics collection. However, it is possible that additional information will be added both for other kinds of books and for the WarhornMedia.com website. 
+This guide is meant to be a repository of information on both *what* we have decided in terms of various style decisions, as well as *how* to accomplish those decisions. Currently the documentation is limited to books, but it is possible that additional information will be added both for other kinds of works.
 
-Speaking of WarhornMedia.com... post titles are to be in sentence caps. Consider it documented. :)
+Warhorn Classics uses Bookdown to create all its online versions of books. For technical questions about how to accomplish something that is not covered in this guide, [this book](https://bookdown.org/yihui/bookdown/) will likely answer the question or put you on the path to finding out.

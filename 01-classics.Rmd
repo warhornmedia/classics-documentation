@@ -1,14 +1,59 @@
-# Warhorn Classics Books
+# Creating a new book from scratch
 
-Warhorn Classics uses Bookdown to create all its online versions of books. For technical questions about how to accomplish something that is not covered in this guide, [this book](https://bookdown.org/yihui/bookdown/) will likely answer the question or put you on the path to finding out.
+## Creating a new repo for a new book on Github
 
-## Creating a new book
+1. Go to [our empty book repo](https://github.com/warhornmedia/classics-empty-book) on Github and click "Use this template." (You must be logged into Github already.)
 
-The first steps of creating a new book from scratch from our book template, including creating the necessary repository on Github, are contained in the [book template](https://warhornmedia.github.io/warhorn-classics-book-template/01-Basic-instructions.html#creating-a-new-repo-for-a-new-book-on-github) itself. Please go and follow those instructions first if no repo exists for the book you are about to start working on. Then come back here.
+```{r echo = FALSE, fig.align = 'center', out.width = "65%"}
+knitr::include_graphics('images/screenshot1.png')
+```
+
+2. Change the owner to warhornmedia. Enter a repository name using the format "authorlastname-short-book-title". Set the repository to public. And include all branches. Then click "Create repository from template"
+
+```{r echo = FALSE, fig.align = 'center', out.width = "65%"}
+knitr::include_graphics('images/screenshot2.png')
+```
+
+3. Create an account on travis-ci.com and link it to your github account. Make sure to give it permission for the warhornmedia organization as well.
+
+4. Clone the new repo to your computer and navigate into its folder in Terminal. Then run the following command locally, answering 'yes' to both questions.[^new1] 
+
+    ```
+    travis encrypt GITHUB_PAT=yourTokenGoesHere --com --add -x
+    ```
+
+This will encrypt your token so that only Travis CI can use it. Then it will add it to the end of the .travis.yml file. Because it is encrypted, it doesn't matter that it is available in our public repo in the .travis.yml file. In fact, it has to be there. Without that, Travis CI wouldn't be able to save the updated book files back to Github. 
+
+[^new1]: [Here are instructions](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for creating a Github Personal Access Token if you don't have one yet. (Check the “repo” box under "scopes" to give the necessary permissions.)
+
+    Also, if you don't have [travis](https://github.com/travis-ci/travis.rb#installation) installed on your computer yet, you can install it with this command: 
+
+    ```
+      brew install travis
+    ```
+    
+    Before this will work, you will need to create an account on travis-ci.com and link it to your github account.
+
+    If you don't have [brew](https://brew.sh) installed yet... prepare yourself for some waiting. You can install it with this command:
+
+    ```
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ```
+
+## Preparing your local build environment
+
+1. Download RStudio for desktop [here](https://rstudio.com/products/rstudio/).
+2. Make sure that [LiberationSerif](https://www.fontsquirrel.com/fonts/liberation-serif) is installed. (When we finalize fonts, this will need to be updated. It's possible it's already out of date.)
+
+
+*Congrats!* You now have a new book that will rebuild automatically any time you push changes to github.
+
+For more in-depth instructions on setting up your new book, as well as important information on how to code the book, check out the [style guide](https://warhornmedia.github.io/style-guide).
+
 
 Once you've followed the instructions and created a new book from the book template, you will need to understand what the files do and how to proceed in customizing the book. The first section below outlines each of the files and what needs to be changed in them when creating a new book. 
 
-### What are all these files?
+## What are all these files?
 
 Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is **bold** below, that means you need to customize that field for a new book.
 
@@ -69,7 +114,7 @@ images (folder)
 : This folder **should be deleted** unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
 
 
-### Adding book content
+## Adding book content
 
 To add content to the book, simply add Rmd files. 
 
@@ -92,7 +137,7 @@ The online version of the book will be split up into separate pages, not just on
 [^2]: Supposedly the first file must begin with either a chapter ("# Chapter name") *or* a section ("## Section title"). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.
 
 
-### Chapters, sections, and more
+## Chapters, sections, and more
 
 The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.
 
@@ -120,7 +165,7 @@ Chapters can be broken down further into sections, sub-sections, etc. up to 6 le
 ###### This is the deepest level supported, because <h6> is the deepest header level supported in HTML.
 ```
 
-#### Numbering (or not)
+### Numbering (or not)
 
 Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding "\{-\}" to the end of the line. For example, generally an introduction should not be numbered:
 
@@ -146,20 +191,20 @@ It is possible to assign an ID *and* specify that a section is not to be numbere
 ## Section forty-five {- #sec-45}
 ```
 
-#### IDs
+### IDs
 
 Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the references section. 
 
 
-## Formatting
+# Formatting
 
-### Overview
+## Overview
 
 Formatting should not be used for structural elements such as headers or captions. Our templates will style those elements according to a standard design. Formatting should only be done where the formatting is essential to the text. For example, bold or italics that the author is using for emphasis should be included, whereas if a (sub)section heading is italicized in the source book, that is a question of design.
 
 Formatting is accomplished by using R-markdown. Basically, you can use anything that [Pandoc supports](https://pandoc.org/MANUAL.html#pandocs-markdown). Where Pandoc supports multiple options, we have generally chosen a specific method. If you need to use something not mentioned below, please suggest it be added here.
 
-### Italics
+## Italics
 
 *Italicized text* is indicated by surrounding it with single asterisks.
 
@@ -167,7 +212,7 @@ Formatting is accomplished by using R-markdown. Basically, you can use anything 
 Here are *a couple* in italics.
 ```
 
-### Bold
+## Bold
 
 **Bold text** is indicated by surrounding it with double asterisks.
 
@@ -175,7 +220,7 @@ Here are *a couple* in italics.
 Here are **a few words** in bold.
 ```
 
-### Small caps 
+## Small caps 
 
 I cannot think of any other circumstance where smallcaps should be used except the word [Lord]{.smallcaps}.
 
@@ -183,7 +228,7 @@ I cannot think of any other circumstance where smallcaps should be used except t
 [Lord]{.smallcaps}
 ```
 
-### Centering text
+## Centering text
 
 I cannot think of a place where text would need to be centered in the text of a book.
 
@@ -193,11 +238,11 @@ Republished by Warhorn Classics
 :::
 ```
 
-## Special characters
+# Special characters
 
 There are a number of special characters that are created using a backslash (\\) before another character. These two-character codes are easily visible in the markdown because of the the backslash, where otherwise they would be difficult to notice.
 
-### Non-breaking spaces
+## Non-breaking spaces
 
 Non-breaking spaces prevent two words from being split onto separate lines. There are a variety of cases in which they are necessary, including Scripture references. They are formed by putting a backslash prior to a regular space.
 
@@ -205,7 +250,7 @@ Non-breaking spaces prevent two words from being split onto separate lines. Ther
 1\ Peter\ 1:3 
 ```
 
-### Line breaks
+## Line breaks
 
 Sometimes, you may need to specify that text should start on a new line but remain part of the same paragraph. This can be accomplished by putting a single backslash at the end of a line. 
 
@@ -214,7 +259,7 @@ This paragraph will continue \
 on the next line.
 ```
 
-### Backslashes
+## Backslashes
 
 Because backslashes are are special characters, if one needs to appear for some reason in the actual text of a book, it must be 'escaped' using another backslash. In other words, put two backslashes like so in the markdown followed by the output:
 
@@ -227,7 +272,7 @@ Output:
 Here is a backslash \\ in the middle of a sentence. 
 
 
-## Comments
+# Comments
 
 If you ever need to leave a comment in the source but you don't want it to appear in the built books, you can use the following format. It is the standard HTML comment, but with an extra dash to open it. These comments will not even show up in the HTML source. If you use a regular HTML comment with just two dashes, they will show up in the HTML source.
 
@@ -238,7 +283,7 @@ and here
 -->
 ```
 
-## Poetry
+# Poetry
 
 Poetry should be designated as such so it can be styled differently from the rest of the text:
 
@@ -256,9 +301,9 @@ Poetry should be designated as such so it can be styled differently from the res
 Precede each line of poetry with a hyphen and a space. If a line of poetry should appear indented in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.
 
 
-## Links
+# Links
 
-### Assigning implicit or explicit ID names {#assigning-ids}
+## Assigning implicit or explicit ID names {#assigning-ids}
 
 Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of "automatic-and-manually-assigned-ids". This is an implicit id. 
 
@@ -279,7 +324,7 @@ A sentence ending with a named empty link. [](){#namedEmptyLink}
 ```
 
 
-### External links
+## External links
 
 Links are easily added using standard markdown like so:
 
@@ -296,7 +341,7 @@ This text needs a named link [here](http://google.com){#my-named-link-id}.
 Linking to any sort of content within the book itself is called a reference and is addressed next.
 
 
-### References (ie internal links) {#references}
+## References (ie internal links) {#references}
 
 If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on [sections](#chapters-sections-and-more) and on [assigning ids](#assigning-ids)). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. It's easier to see in an example:
 
@@ -312,7 +357,7 @@ In the section about assigning ids, we mentioned that it is possible to insert a
 [Here](#namedEmptyLink) is a link back to the arbitrary location with a custom name 
 ```
 
-### Footnotes
+## Footnotes
 
 Footnotes are a special kind of link that can be added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below). 
 
@@ -354,7 +399,7 @@ Here is the next paragraph of the book. It is no longer part of the footnote.
 
 **Warning**: Multi-paragraph footnotes *cannot* occur inside bold or italic text or chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
 
-### Endnotes
+## Endnotes
 
 Endnotes can be created simply by creating a separate file[^5] for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01))
 
@@ -365,7 +410,7 @@ Endnotes can be created simply by creating a separate file[^5] for them, and giv
 [^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02)
 
 
-#### Creating an endnote
+### Creating an endnote
 
 To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan's *justification*. Each endnote has a title in that book, such as "Note 2, p. 21", so we used the lowest level of header for the endnote title, and gave it an explicit ID like so:
 
@@ -383,7 +428,7 @@ So the above endnote is the second endnote in opening of Part 1 before you get t
 
 #en.ch01.03
 
-#### Linking to an endnote
+### Linking to an endnote
 
 To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references). Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link "Footnote 1", though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the "2" in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown:
 
@@ -392,7 +437,7 @@ This sentence ends with a linked endnote in parentheses.([2](#en.p1.02))
 ```
 
 
-## Foreign languages
+# Foreign languages
 
 Any text in a foreign language, regardless of how long or short, should be indicated as such with the appropriate two-letter language code, which can be [found here](https://www.w3schools.com/tags/ref_language_codes.asp). Here is the what the markup looks like for a couple of the most common languages you might need.
 
@@ -409,7 +454,7 @@ Any text in a foreign language, regardless of how long or short, should be indic
 ```
 
 
-## Typos in the original
+# Typos in the original
 
 Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.
 
@@ -422,7 +467,7 @@ Stylistic changes, such as switching from British to American quotes are not con
 However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.
 
 
-## Images
+# Images
 
 Images are likely to be rare, but when used, Pandoc's built-in functionality is not enough. Images are to be placed in a sub-folder called "images" and included using knitr commands:
 

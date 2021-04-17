@@ -1,4 +1,4 @@
-# Endnotes Demonstration
+# Endnotes {-}
 
 ###### NOTE 1 {- #en.01}
 
