@@ -51,6 +51,12 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!--- include Adobe Fonts web project stylesheet -->
+<link rel="stylesheet" href="https://use.typekit.net/uix0fgg.css">
+<!--- Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 
 <style type="text/css">
@@ -130,6 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
+<li><a href="https://www.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
 <li><a href="./">Warhorn Classics Documentation</a></li>
 
 <li class="divider"></li>
@@ -205,6 +212,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Stylistic changes, such as switching from British to American quotes are not considered typos and do not need to be noted.</p>
 <p>However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.</p>
 </div>
+<script> 
+ 	 var refTagger = {
+ 	 	 settings: { 
+ 	 	 	 bibleVersion: "ESV"   
+ 	 	 }  
+ 	 }; 
+ 	 (function(d, t) { 
+ 	 	 var g = d.createElement(t), s = d.getElementsByTagName(t)[0]; 
+ 	 	 g.src = '//api.reftagger.com/v2/RefTagger.js'; 
+ 	 	 s.parentNode.insertBefore(g, s); 
+ 	 }(document, 'script')); 
+</script>
+
+<!-- Fix for "split_by: rmd" putting footnotes and arrows in wrong place sometimes -->
+<script>
+   $(document).ready(function () {
+      $(".footnotes").detach().appendTo('#section-');
+      $(".navigation-prev").detach().appendTo('.book-body');
+      $(".navigation-next").detach().appendTo('.book-body');
+   });
+</script>
+
+<!--- make it so en dashes never break, ORIGINAL script using .nobreak CSS span::: problem: breaks popup functionality of refTagger, even though the RegEx avoids messing with any refTagger refs; problem is with the script targeting any element which includes the refTagger, even if the RegEx avoids doing anything to the refTagger link HTML itself. It does not seem possible to use selectors to select everything but avoid selecting <a> tags with class "rtBibleRef". Problem is that if you select the <p> which has the link in it, you can't avoid selecting the <a> inside it. Script doesn't break reftagger if it is loaded on document.ready. Solution seems to be to find a way to use document.ready and somehow avoid Scripture ref en dashes. Maybe borrow reftagger's bible book regex, but that seems hopeless, esp. since I don't believe there's general browser support for negative lookbehind RegEx...
+<script>
+    $(window).load(function() {
+        $("section.normal").html(function(_, html) {
+            return  html.replace(/(–.)(?!([^<^>]+>)|(\d*<\/a>))/g, '<span class="nobreak">$1</span>')
+        });
+    });
+</script>
+-->
+
+<!--- en dash script using HTML word-joiner entity --
+<script>
+    $(window).load(function() {
+        $("body").html(function(_, html) {
+            return  html.replace(/(–)(.)(?![^<^>]+>)/g, '$1&#8288;$2')
+        });
+    });
+</script>
+-->
             </section>
 
           </div>
@@ -243,7 +291,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/warhornmedia/classics-documentation/edit/master/01-classics.Rmd",
+"link": "https://github.com/warhornmedia/classics-empty-book/edit/master/01-classics.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -254,13 +302,10 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": {},
+"download": ["Classics_Documentation.pdf", "Classics_Documentation.epub", "Classics_Documentation.mobi"],
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
-},
-"toolbar": {
-"position": "static"
 }
 });
 });
