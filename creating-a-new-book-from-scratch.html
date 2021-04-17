@@ -311,10 +311,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>config:</strong>
 <ul>
-<li><strong>toc:</strong>
-<ul>
-<li><strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.</li>
-</ul></li>
+<li><dl>
+<dt><strong>toc:</strong></dt>
+<dd><strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
+</dd>
+</dl></li>
 <li><strong>edit:</strong> where the edit link on each page points to. Should be the GitHub project URL, followed by “/edit/master/%s”</li>
 </ul></li>
 </ul></li>
@@ -382,7 +383,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
+<ol start="1">
+<li id="fn1"><p><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token">Here are instructions</a> for creating a Github Personal Access Token if you don’t have one yet. (Check the “repo” box under “scopes” to give the necessary permissions.)</p>
+<p>Also, if you don’t have <a href="https://github.com/travis-ci/travis.rb#installation">travis</a> installed on your computer yet, you can install it with this command:</p>
+<pre><code>  brew install travis</code></pre>
+<p>Before this will work, you will need to create an account on travis-ci.com and link it to your github account.</p>
+<p>If you don’t have <a href="https://brew.sh">brew</a> installed yet… prepare yourself for some waiting. You can install it with this command:</p>
+<pre><code>  /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</code></pre>
+<p>You should be good to go now.<a href="creating-a-new-book-from-scratch.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="creating-a-new-book-from-scratch.html#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Supposedly the first file must begin with either a chapter (“# Chapter name”) <em>or</em> a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.<a href="creating-a-new-book-from-scratch.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>The bookdown documentation says it is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents do not get any “part” information, so we do not support this option in our books.<a href="creating-a-new-book-from-scratch.html#fnref4" class="footnote-back">↩︎</a></p></li>
