@@ -78,6 +78,16 @@ _bookdown.yml
 :  
 : Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
 
+_editorial-notes.Rmd
+: Contains two sections that must be updated throughout the editorial process, and is automatically included in the front matter of the book.
+: 
+: Contents: 
+:
+: - **Text Status** This section should be updated by moving the "**Current status:** -->" to the front of the appropriate line as the project progresses.
+:
+: - **Editorial Notes** Any noteworthy editorial decisions should be added to this section.
+
+
 _output.yml
 : Contains a number of settings for the various output formats. You shouldn’t need to make changes to this file.
 
