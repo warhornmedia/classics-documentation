@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Formatting | Warhorn Classics Documentation</title>
+  <title>Chapter 10 Troubleshooting | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
   <meta name="generator" content="bookdown 0.21.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Formatting | Warhorn Classics Documentation" />
+  <meta property="og:title" content="Chapter 10 Troubleshooting | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://warhornmedia.github.io/classics-documentation" />
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Formatting | Warhorn Classics Documentation" />
+  <meta name="twitter:title" content="Chapter 10 Troubleshooting | Warhorn Classics Documentation" />
   
   <meta name="twitter:description" content="Documenting the decisions we have made about style and how to accomplish them." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="creating-a-new-book-from-scratch.html"/>
-<link rel="next" href="special-characters.html"/>
+<link rel="prev" href="images.html"/>
+<link rel="next" href="endnotes-1.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -208,35 +208,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="formatting" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Formatting</h1>
-<div id="overview" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Overview</h2>
-<p>Formatting should not be used for structural elements such as headers or captions. Our templates will style those elements according to a standard design. Formatting should only be done where the formatting is essential to the text. For example, bold or italics that the author is using for emphasis should be included, whereas if a (sub)section heading is italicized in the source book, that is a question of design.</p>
-<p>Formatting is accomplished by using R-markdown. Basically, you can use anything that <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc supports</a>. Where Pandoc supports multiple options, we have generally chosen a specific method. If you need to use something not mentioned below, please suggest it be added here.</p>
-</div>
-<div id="italics" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Italics</h2>
-<p><em>Italicized text</em> is indicated by surrounding it with single asterisks.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="formatting.html#cb10-1" aria-hidden="true"></a>Here are *a couple* in italics.</span></code></pre></div>
-</div>
-<div id="bold" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Bold</h2>
-<p><strong>Bold text</strong> is indicated by surrounding it with double asterisks.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="formatting.html#cb11-1" aria-hidden="true"></a>Here are **a few words** in bold.</span></code></pre></div>
-</div>
-<div id="small-caps" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Small caps</h2>
-<p>I cannot think of any other circumstance where smallcaps should be used except the word <span class="smallcaps">Lord</span>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="formatting.html#cb12-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">Lord</span><span class="co">]</span>{.smallcaps}</span></code></pre></div>
-</div>
-<div id="centering-text" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Centering text</h2>
-<p>I cannot think of a place where text would need to be centered in the text of a book.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="formatting.html#cb13-1" aria-hidden="true"></a>::: {.center}</span>
-<span id="cb13-2"><a href="formatting.html#cb13-2" aria-hidden="true"></a>Republished by Warhorn Classics</span>
-<span id="cb13-3"><a href="formatting.html#cb13-3" aria-hidden="true"></a>:::</span></code></pre></div>
-</div>
+<div id="troubleshooting" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Troubleshooting</h1>
+<p>What to do if your build is failing:</p>
+<ol style="list-style-type: decimal">
+<li>Especially if you just added the OCR’d text of the book, do a search for backslashes in the text. They are a special character and will cause problems unless they are used for the specific things mentioned <a href="special-characters.html#backslashes">above</a>.</li>
+<li>Make sure every .Rmd file starts with a # or ##.</li>
+<li>If you are working on footnotes, make sure you didn’t try to insert a footnote reference inside bold or italic text or from within chapter or section headers <em>if</em> the footnote itself has multiple paragraphs. (See warning in <a href="links.html#footnotes">footnote section</a>.)</li>
+</ol>
+
 </div>
 <script> 
  	 var refTagger = {
@@ -284,8 +264,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="creating-a-new-book-from-scratch.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="special-characters.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="images.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="endnotes-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

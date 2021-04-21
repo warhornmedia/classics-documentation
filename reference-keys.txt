@@ -1,6 +1,6 @@
 creating-a-new-book-from-scratch
 creating-a-new-repo-for-a-new-book-on-github
-preparing-your-local-build-environment
+optional-preparing-and-using-a-local-build-environment
 what-are-all-these-files
 adding-book-content
 chapters-sections-and-more
@@ -29,3 +29,4 @@ linking-to-an-endnote
 foreign-languages
 typos-in-the-original
 images
+troubleshooting
