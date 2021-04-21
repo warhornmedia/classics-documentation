@@ -2,6 +2,8 @@
 
 ## Creating a new repo for a new book on Github
 
+NOTE: This guide assumes you already have the ability to work with Git repositories on Github, including checking out repos, as well as making and pushing commits. (Also, if you are not a power user of Git, we recommend [Github's desktop tool](https://desktop.github.com). It makes it simple to work with repos without memorizing command-line syntax, and it handles most simple scenarios.)
+
 1. Go to [our empty book repo](https://github.com/warhornmedia/classics-empty-book) on Github and click "Use this template." (You must be logged into Github already.)
 
 ```{r echo = FALSE, fig.align = 'center', out.width = "65%"}
@@ -42,18 +44,22 @@ This will encrypt your token so that only Travis CI can use it. Then it will add
     
     You should be good to go now. 
 
-## Preparing your local build environment
-
-1. Download RStudio for desktop [here](https://rstudio.com/products/rstudio/).
-2. Make sure that [LiberationSerif](https://www.fontsquirrel.com/fonts/liberation-serif) is installed. (When we finalize fonts, this will need to be updated. It's possible it's already out of date.)
-
-
 *Congrats!* You now have a new book that will rebuild automatically any time you push changes to github.
 
-For more in-depth instructions on setting up your new book, as well as important information on how to code the book, check out the [style guide](https://warhornmedia.github.io/style-guide).
+Your next task will be to update all of these files, and then to add the book content. You will find this information in the following sections.
 
+### (Optional) Preparing and using a local build environment
 
-Once you've followed the instructions and created a new book from the book template, you will need to understand what the files do and how to proceed in customizing the book. The first section below outlines each of the files and what needs to be changed in them when creating a new book. 
+Being able to build a book locally can save time so you don't have to wait for the book to be rebuilt by continuous integration. Typically a local build is done in under 10 seconds, and an online build takes 2-3 minutes. This can really add up if there is a problem you are trying to fix through trial and error. 
+
+**Instructions:**
+
+1. Download RStudio for desktop [here](https://rstudio.com/products/rstudio/).
+2. Make sure that [LiberationSerif](https://www.fontsquirrel.com/fonts/liberation-serif) is installed. (TODO: When we finalize fonts, this will need to be updated. It's possible it's already out of date.)
+
+Now you can open the file that ends in .Rproj, and you should be able to 
+
+**A note on classics-template-files:** When you first build the book locally, a new folder will be created in the book folder called classics-template-files. These files come from a separate repository by the same name. They allow us to make changes to the style and front matter of every book from one central location. But once you have these files in your local book folder, they will not be updated with new changes to the design unless you delete the whole classics-template-files folder. (This folder is  excluded from tracking git, so you don't need to worry about deleting it or updating it before committing changes to the book.) Thus, if you have not worked on a book for a while, it makes sense to delete this folder from your local book repo before you next work on it.
 
 ## What are all these files?
 
@@ -128,9 +134,15 @@ images (folder)
 
 ## Adding book content
 
-To add content to the book, simply add Rmd files. 
+To add content to the book, simply add .Rmd files. .Rmd files are just text files written in R-markdown. R-markdown is just normal markdown with some extra features supported. The details of the features we support are outlined below. (TODO: We should probably add to this documentation the basic rules about how we want our markdown formatted.)
 
-All the Rmd files will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. Here is an example list of files in the order they will end up in the book. 
+Note: The filename must end with .Rmd, not .md, if you want it included in the book. That is why the README.md file is not build into the book. 
+
+All the markdown files found in the main directory will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter. 
+
+To *exclude* a file from the book, simply preface the filename with an underscore. For example, "_excludedfile.Rmd" will not be added to the book by default, even if it is in the main directory with all the other Rmd files.
+
+Here is an example list of files in the order they will end up in the book. 
 
 ```
 index.Rmd
@@ -142,7 +154,9 @@ index.Rmd
 
 Note that the numbers at the beginning of each filename are *only* used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.
 
-The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^1] Thus, in most cases a new .rmd file should be created for each chapter. Each .rmd file must begin with the title of the chapter it contains. (The proper syntax is described in the next section.)[^2] 
+The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.[^1] Thus, in most cases a new .rmd file should be created for each chapter. 
+
+**NOTE:** Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)[^2] 
 
 [^1]: This [can be changed](https://bookdown.org/yihui/bookdown/html.html#gitbook-style), if necessary, to split by chapter or section, or even turned off completely.
 
@@ -355,18 +369,19 @@ Linking to any sort of content within the book itself is called a reference and 
 
 ## References (ie internal links) {#references}
 
-If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on [sections](#chapters-sections-and-more) and on [assigning ids](#assigning-ids)). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. It's easier to see in an example:
+If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on [sections](#chapters-sections-and-more) and on [assigning ids](#assigning-ids)). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. Here are a couple of examples.
 
 ```markdown
-Here is how I would add a link to the next section, which is about [non-english content](#foreign-languages) when the section has an id (whether implicit or explicit) of "foreign-languages".
+Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its (implicit) id is "foreign-languages".
 ```
 
+**Output:**
 Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its (implicit) id is "foreign-languages".
 
-In the section about assigning ids, we mentioned that it is possible to insert an anchor for linking to any arbitrary spot by creating an empty, named link. [Here](#namedEmptyLink) is a link back to the end of the sentence above. The markdown looks like this:
+In the section about assigning ids, we mentioned that it is possible to insert an anchor for linking to any arbitrary spot by creating an empty, named link. [Here](#namedEmptyLink) is a link back to that named empty link above. The markdown looks like this:
 
 ```markdown
-[Here](#namedEmptyLink) is a link back to the arbitrary location with a custom name 
+[Here](#namedEmptyLink) is a link back to the arbitrary location with a custom name. 
 ```
 
 ## Footnotes
@@ -375,7 +390,7 @@ Footnotes are a special kind of link that can be added to any content in a book,
 
 Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. [Because of (potential) bugs](https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741), every footnote in the book *must* have a unique name.[^fnnaming]
 
-[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named*. They are assigned consecutive numbers per chapter when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
+[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named*. They are then assigned consecutive numbers per chapter automatically when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
 
 The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named "01.01". The third footnote in the fifth chapter would be "05.03". A footnote in the intro could be named "intro.01".
 
@@ -409,7 +424,7 @@ Longer footnotes can also appear in books.[^01.02]
 Here is the next paragraph of the book. It is no longer part of the footnote.
 ```
 
-**Warning**: Multi-paragraph footnotes *cannot* occur inside bold or italic text or chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
+**Warning**: Multi-paragraph footnotes *cannot* be referenced inside bold or italic text or from within chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
 
 ## Endnotes
 
@@ -496,3 +511,12 @@ Here is what it looks like when used:
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
 knitr::include_graphics("images/sepialogo.png")
 ```
+
+
+# Troubleshooting
+
+What to do if your build is failing:
+
+1. Especially if you just added the OCR'd text of the book, do a search for backslashes in the text. They are a special character and will cause problems unless they are used for the specific things mentioned [above](#backslashes).
+2. Make sure every .Rmd file starts with a # or ##.
+3. If you are working on footnotes, make sure you didn't try to insert a footnote reference inside bold or italic text or from within chapter or section headers *if* the footnote itself has multiple paragraphs. (See warning in [footnote section](#footnotes).)
