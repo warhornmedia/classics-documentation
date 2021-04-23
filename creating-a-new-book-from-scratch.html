@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Creating a new book from scratch | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
-  <meta name="generator" content="bookdown 0.21.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Creating a new book from scratch | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
@@ -222,11 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><img src="images/screenshot2.png" width="65%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Create an account on travis-ci.com and link it to your github account. Make sure to give it permission for the warhornmedia organization as well.</p></li>
-<li><p>Clone the new repo to your computer and navigate into its folder in Terminal. Then run the following command locally, answering ‘yes’ to both questions.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<pre><code>travis encrypt GITHUB_PAT=yourTokenGoesHere --com --add -x</code></pre></li>
+<li>Clone the new repo to your computer and begin making changes</li>
 </ol>
-<p>This will encrypt your token so that only Travis CI can use it. Then it will add it to the end of the .travis.yml file. Because it is encrypted, it doesn’t matter that it is available in our public repo in the .travis.yml file. In fact, it has to be there. Without that, Travis CI wouldn’t be able to save the updated book files back to Github.</p>
 <p><em>Congrats!</em> You now have a new book that will rebuild automatically any time you push changes to github.</p>
 <p>Your next task will be to update all of these files, and then to add the book content. You will find this information in the following sections.</p>
 <div id="optional-preparing-and-using-a-local-build-environment" class="section level3" number="1.1.1">
@@ -237,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Download RStudio for desktop <a href="https://rstudio.com/products/rstudio/">here</a>.</li>
 <li>Make sure that <a href="https://www.fontsquirrel.com/fonts/liberation-serif">LiberationSerif</a> is installed. (TODO: When we finalize fonts, this will need to be updated. It’s possible it’s already out of date.)</li>
 </ol>
-<p>Now you can open the file that ends in .Rproj, and you should be able to</p>
+<p>Now you can open the file that ends in .Rproj, and you should be able to click “Build Book” in the “Build” tab in the upper right.</p>
 <p><strong>A note on classics-template-files:</strong> When you first build the book locally, a new folder will be created in the book folder called classics-template-files. These files come from a separate repository by the same name. They allow us to make changes to the style and front matter of every book from one central location. But once you have these files in your local book folder, they will not be updated with new changes to the design unless you delete the whole classics-template-files folder. (This folder is excluded from tracking git, so you don’t need to worry about deleting it or updating it before committing changes to the book.) Thus, if you have not worked on a book for a while, it makes sense to delete this folder from your local book repo before you next work on it.</p>
 </div>
 </div>
@@ -245,11 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">1.2</span> What are all these files?</h2>
 <p>Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is <strong>bold</strong> below, that means you need to customize that field for a new book.</p>
 <dl>
-<dt>.gitignore</dt>
-<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings.
+<dt>.github folder</dt>
+<dd>contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, you normally won’t see it at all if you are working on a Mac.
 </dd>
-<dt>.travis.yml</dt>
-<dd>Imports the actual travis build instructions from the classics-template-files project, and contains the encrypted personal access token that allows TravisCI to push the built books back to GitHub. If you followed the instructions for the template book, you shouldn’t need to do anything else to this file.
+<dt>.gitignore</dt>
+<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, you normally won’t see it at all if you are working on a Mac.
 </dd>
 <dt>01-Basic-instructions.Rmd</dt>
 <dd>Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
@@ -294,9 +291,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </dd>
 <dt>cover.jpg</dt>
 <dd><strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
-</dd>
-<dt>DESCRIPTION</dt>
-<dd>A necessary file for bookdown to work properly on Travis CI. Ignore.
 </dd>
 <dt>index.Rmd</dt>
 <dd>Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
@@ -359,9 +353,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>book_project.Rproj</dt>
 <dd>This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
 </dd>
-<dt>images (folder)</dt>
-<dd>This folder <strong>should be deleted</strong> unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
-</dd>
 </dl>
 </div>
 <div id="adding-book-content" class="section level2" number="1.3">
@@ -377,38 +368,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 02-The-Sacrament-of-Baptism.Rmd
 03-The-Sacrament-of-the-Lords-Supper.Rmd</code></pre>
 <p>Note that the numbers at the beginning of each filename are <em>only</em> used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.</p>
-<p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
-<p><strong>NOTE:</strong> Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
+<p><strong>NOTE:</strong> Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="chapters-sections-and-more" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Chapters, sections, and more</h2>
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
-<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="creating-a-new-book-from-scratch.html#cb2-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
 <p>The chapter title will be given an &lt;h1&gt; tag in HTML, with similar results in other formats.</p>
 <p>Chapters can be broken down further into sections, sub-sections, etc. up to 6 levels total, using additional levels of headers and titles:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
-<span id="cb6-2"><a href="creating-a-new-book-from-scratch.html#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="creating-a-new-book-from-scratch.html#cb6-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
-<span id="cb6-4"><a href="creating-a-new-book-from-scratch.html#cb6-4" aria-hidden="true"></a></span>
-<span id="cb6-5"><a href="creating-a-new-book-from-scratch.html#cb6-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
-<span id="cb6-6"><a href="creating-a-new-book-from-scratch.html#cb6-6" aria-hidden="true"></a></span>
-<span id="cb6-7"><a href="creating-a-new-book-from-scratch.html#cb6-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="creating-a-new-book-from-scratch.html#cb3-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
+<span id="cb3-2"><a href="creating-a-new-book-from-scratch.html#cb3-2" aria-hidden="true"></a></span>
+<span id="cb3-3"><a href="creating-a-new-book-from-scratch.html#cb3-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
+<span id="cb3-4"><a href="creating-a-new-book-from-scratch.html#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="creating-a-new-book-from-scratch.html#cb3-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
+<span id="cb3-6"><a href="creating-a-new-book-from-scratch.html#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="creating-a-new-book-from-scratch.html#cb3-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
 <div id="numbering-or-not" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Numbering (or not)</h3>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="creating-a-new-book-from-scratch.html#cb7-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
-<span id="cb7-2"><a href="creating-a-new-book-from-scratch.html#cb7-2" aria-hidden="true"></a></span>
-<span id="cb7-3"><a href="creating-a-new-book-from-scratch.html#cb7-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="creating-a-new-book-from-scratch.html#cb4-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
+<span id="cb4-2"><a href="creating-a-new-book-from-scratch.html#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="creating-a-new-book-from-scratch.html#cb4-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
 <p>Or perhaps the subsections in the book are not numbered:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="creating-a-new-book-from-scratch.html#cb8-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
-<span id="cb8-2"><a href="creating-a-new-book-from-scratch.html#cb8-2" aria-hidden="true"></a></span>
-<span id="cb8-3"><a href="creating-a-new-book-from-scratch.html#cb8-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
-<span id="cb8-4"><a href="creating-a-new-book-from-scratch.html#cb8-4" aria-hidden="true"></a></span>
-<span id="cb8-5"><a href="creating-a-new-book-from-scratch.html#cb8-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
+<span id="cb5-2"><a href="creating-a-new-book-from-scratch.html#cb5-2" aria-hidden="true"></a></span>
+<span id="cb5-3"><a href="creating-a-new-book-from-scratch.html#cb5-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
+<span id="cb5-4"><a href="creating-a-new-book-from-scratch.html#cb5-4" aria-hidden="true"></a></span>
+<span id="cb5-5"><a href="creating-a-new-book-from-scratch.html#cb5-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="creating-a-new-book-from-scratch.html#cb9-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
 </div>
 <div id="ids" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> IDs</h3>
@@ -419,16 +410,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p><a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token">Here are instructions</a> for creating a Github Personal Access Token if you don’t have one yet. (Check the “repo” box under “scopes” to give the necessary permissions.)</p>
-<p>Also, if you don’t have <a href="https://github.com/travis-ci/travis.rb#installation">travis</a> installed on your computer yet, you can install it with this command:</p>
-<pre><code>  brew install travis</code></pre>
-<p>Before this will work, you will need to create an account on travis-ci.com and link it to your github account.</p>
-<p>If you don’t have <a href="https://brew.sh">brew</a> installed yet… prepare yourself for some waiting. You can install it with this command:</p>
-<pre><code>  /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</code></pre>
-<p>You should be good to go now.<a href="creating-a-new-book-from-scratch.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="creating-a-new-book-from-scratch.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Supposedly the first file must begin with either a chapter (“# Chapter name”) <em>or</em> a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.<a href="creating-a-new-book-from-scratch.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>The bookdown documentation says it is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents do not get any “part” information, so we do not support this option in our books.<a href="creating-a-new-book-from-scratch.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="creating-a-new-book-from-scratch.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Supposedly the first file must begin with either a chapter (“# Chapter name”) <em>or</em> a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.<a href="creating-a-new-book-from-scratch.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The bookdown documentation says it is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents do not get any “part” information, so we do not support this option in our books.<a href="creating-a-new-book-from-scratch.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script> 

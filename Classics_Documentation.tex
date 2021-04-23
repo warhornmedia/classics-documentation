@@ -32,7 +32,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{fancyvrb}
 \usepackage{xcolor}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
@@ -41,7 +40,6 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\VerbatimFootnotes % allow verbatim text in footnotes
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -206,33 +204,10 @@ NOTE: This guide assumes you already have the ability to work with Git repositor
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
+\tightlist
 \item
-  Create an account on travis-ci.com and link it to your github account. Make sure to give it permission for the warhornmedia organization as well.
-\item
-  Clone the new repo to your computer and navigate into its folder in Terminal. Then run the following command locally, answering `yes' to both questions.\footnote{\href{https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token}{Here are instructions} for creating a Github Personal Access Token if you don't have one yet. (Check the ``repo'' box under ``scopes'' to give the necessary permissions.)
-
-    Also, if you don't have \href{https://github.com/travis-ci/travis.rb\#installation}{travis} installed on your computer yet, you can install it with this command:
-
-\begin{Verbatim}
-  brew install travis
-\end{Verbatim}
-
-    Before this will work, you will need to create an account on travis-ci.com and link it to your github account.
-
-    If you don't have \href{https://brew.sh}{brew} installed yet\ldots{} prepare yourself for some waiting. You can install it with this command:
-
-\begin{Verbatim}
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-\end{Verbatim}
-
-    You should be good to go now.}
-
-\begin{verbatim}
-travis encrypt GITHUB_PAT=yourTokenGoesHere --com --add -x
-\end{verbatim}
+  Clone the new repo to your computer and begin making changes
 \end{enumerate}
-
-This will encrypt your token so that only Travis CI can use it. Then it will add it to the end of the .travis.yml file. Because it is encrypted, it doesn't matter that it is available in our public repo in the .travis.yml file. In fact, it has to be there. Without that, Travis CI wouldn't be able to save the updated book files back to Github.
 
 \emph{Congrats!} You now have a new book that will rebuild automatically any time you push changes to github.
 
@@ -254,7 +229,7 @@ Being able to build a book locally can save time so you don't have to wait for t
   Make sure that \href{https://www.fontsquirrel.com/fonts/liberation-serif}{LiberationSerif} is installed. (TODO: When we finalize fonts, this will need to be updated. It's possible it's already out of date.)
 \end{enumerate}
 
-Now you can open the file that ends in .Rproj, and you should be able to
+Now you can open the file that ends in .Rproj, and you should be able to click ``Build Book'' in the ``Build'' tab in the upper right.
 
 \textbf{A note on classics-template-files:} When you first build the book locally, a new folder will be created in the book folder called classics-template-files. These files come from a separate repository by the same name. They allow us to make changes to the style and front matter of every book from one central location. But once you have these files in your local book folder, they will not be updated with new changes to the design unless you delete the whole classics-template-files folder. (This folder is excluded from tracking git, so you don't need to worry about deleting it or updating it before committing changes to the book.) Thus, if you have not worked on a book for a while, it makes sense to delete this folder from your local book repo before you next work on it.
 
@@ -264,10 +239,10 @@ Now you can open the file that ends in .Rproj, and you should be able to
 Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is \textbf{bold} below, that means you need to customize that field for a new book.
 
 \begin{description}
+\item[.github folder]
+contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn't need to mess with this folder. In fact, you normally won't see it at all if you are working on a Mac.
 \item[.gitignore]
-Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (\_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings.
-\item[.travis.yml]
-Imports the actual travis build instructions from the classics-template-files project, and contains the encrypted personal access token that allows TravisCI to push the built books back to GitHub. If you followed the instructions for the template book, you shouldn't need to do anything else to this file.
+Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (\_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn't need to mess with this file. In fact, you normally won't see it at all if you are working on a Mac.
 \item[01-Basic-instructions.Rmd]
 Contains the content of the first chapter of the template book. \textbf{Should be deleted or renamed} and its content replaced with the first chapter of the new book. See
 \item[\_bookdown.yml]
@@ -305,8 +280,6 @@ Contents:
 Contains a number of settings for the various output formats. You shouldn't need to make changes to this file.
 \item[cover.jpg]
 \textbf{Should be replaced} with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
-\item[DESCRIPTION]
-A necessary file for bookdown to work properly on Travis CI. Ignore.
 \item[index.Rmd]
 Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
 
@@ -386,8 +359,6 @@ Contents:
 The description of the repo that will be displayed on the Github project page. \textbf{Update this} with some simple info and a link to the readable book.
 \item[book\_project.Rproj]
 This file can be ignored. If you use the Rstudio IDE, this is your project file, and you'll probably want to rename it to the book title just so you don't get confused which book project you are working on.
-\item[images (folder)]
-This folder \textbf{should be deleted} unless the book you are working on has images. In which case, delete the images that came in the template, and add the new images from the book.
 \end{description}
 
 \hypertarget{adding-book-content}{%
