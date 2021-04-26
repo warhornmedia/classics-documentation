@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://www.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
+<li><a href="https://classics.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
 <li><a href="./">Warhorn Classics Documentation</a></li>
 
 <li class="divider"></li>
@@ -147,7 +147,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#optional-preparing-and-using-a-local-build-environment"><i class="fa fa-check"></i><b>1.1.1</b> (Optional) Preparing and using a local build environment</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#what-are-all-these-files"><i class="fa fa-check"></i><b>1.2</b> What are all these files?</a></li>
+<li class="chapter" data-level="1.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#what-are-all-these-files"><i class="fa fa-check"></i><b>1.2</b> What are all these files?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#files-you-must-modify"><i class="fa fa-check"></i><b>1.2.1</b> Files you must modify</a></li>
+<li class="chapter" data-level="1.2.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#other-files"><i class="fa fa-check"></i><b>1.2.2</b> Other files</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#adding-book-content"><i class="fa fa-check"></i><b>1.3</b> Adding book content</a></li>
 <li class="chapter" data-level="1.4" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#chapters-sections-and-more"><i class="fa fa-check"></i><b>1.4</b> Chapters, sections, and more</a>
 <ul>
@@ -241,13 +245,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="what-are-all-these-files" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> What are all these files?</h2>
 <p>Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is <strong>bold</strong> below, that means you need to customize that field for a new book.</p>
+<div id="files-you-must-modify" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Files you must modify</h3>
 <dl>
-<dt>.github folder</dt>
-<dd>contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, you normally won’t see it at all if you are working on a Mac.
-</dd>
-<dt>.gitignore</dt>
-<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, you normally won’t see it at all if you are working on a Mac.
-</dd>
 <dt>01-Basic-instructions.Rmd</dt>
 <dd>Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
 </dd>
@@ -286,9 +286,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Editorial Notes</strong> Any noteworthy editorial decisions should be added to this section.</li>
 </ul>
 </dd>
-<dt>_output.yml</dt>
-<dd>Contains a number of settings for the various output formats. You shouldn’t need to make changes to this file.
-</dd>
 <dt>cover.jpg</dt>
 <dd><strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
 </dd>
@@ -314,7 +311,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </dd>
 <dd><ul>
-<li><strong>scans:</strong> Enter a link to scanned images of the original public domain work on Google books, Archive.org, or elsewhere.</li>
+<li><strong>pubinfo:</strong> This appears in the front matter and should be updated with the original publication info.</li>
+</ul>
+</dd>
+<dd><ul>
+<li><strong>scans:</strong> Enter a link to scanned images of the original public domain work on Archive.org, Google books, or elsewhere.</li>
 </ul>
 </dd>
 <dd><ul>
@@ -326,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </dd>
 <dd><ul>
-<li><strong>url:</strong> the page where the book is hosted. <a href="https://github.com/rstudio/bookdown/issues/963">Currently</a> must end with a “/“.</li>
+<li><strong>url:</strong> the page where the book is hosted. Should be <a href="https://warhornmedia.github.io/your-new-github-project-name/" class="uri">https://warhornmedia.github.io/your-new-github-project-name/</a> Replace the last part with your project name. <a href="https://github.com/rstudio/bookdown/issues/963">Currently</a> that ending “/“ is necessary.</li>
 </ul>
 </dd>
 <dd><ul>
@@ -350,10 +351,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <dt>README.md</dt>
 <dd>The description of the repo that will be displayed on the Github project page. <strong>Update this</strong> with some simple info and a link to the readable book.
 </dd>
+</dl>
+</div>
+<div id="other-files" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Other files</h3>
+<dl>
+<dt>_output.yml</dt>
+<dd>Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won’t build or has problems, simply remove it from the list.
+</dd>
+<dd>
+</dd>
+<dd><ul>
+<li><pre><code>download: [&quot;pdf&quot;, &quot;epub&quot;, &quot;mobi&quot;]</code></pre></li>
+</ul>
+</dd>
 <dt>book_project.Rproj</dt>
 <dd>This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
 </dd>
+<dt>.github folder</dt>
+<dd>contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+</dd>
+<dt>.gitignore</dt>
+<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+</dd>
 </dl>
+</div>
 </div>
 <div id="adding-book-content" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Adding book content</h2>
@@ -376,30 +398,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
 <p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="creating-a-new-book-from-scratch.html#cb2-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="creating-a-new-book-from-scratch.html#cb3-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
 <p>The chapter title will be given an &lt;h1&gt; tag in HTML, with similar results in other formats.</p>
 <p>Chapters can be broken down further into sections, sub-sections, etc. up to 6 levels total, using additional levels of headers and titles:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="creating-a-new-book-from-scratch.html#cb3-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
-<span id="cb3-2"><a href="creating-a-new-book-from-scratch.html#cb3-2" aria-hidden="true"></a></span>
-<span id="cb3-3"><a href="creating-a-new-book-from-scratch.html#cb3-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
-<span id="cb3-4"><a href="creating-a-new-book-from-scratch.html#cb3-4" aria-hidden="true"></a></span>
-<span id="cb3-5"><a href="creating-a-new-book-from-scratch.html#cb3-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
-<span id="cb3-6"><a href="creating-a-new-book-from-scratch.html#cb3-6" aria-hidden="true"></a></span>
-<span id="cb3-7"><a href="creating-a-new-book-from-scratch.html#cb3-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="creating-a-new-book-from-scratch.html#cb4-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
+<span id="cb4-2"><a href="creating-a-new-book-from-scratch.html#cb4-2" aria-hidden="true"></a></span>
+<span id="cb4-3"><a href="creating-a-new-book-from-scratch.html#cb4-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
+<span id="cb4-4"><a href="creating-a-new-book-from-scratch.html#cb4-4" aria-hidden="true"></a></span>
+<span id="cb4-5"><a href="creating-a-new-book-from-scratch.html#cb4-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
+<span id="cb4-6"><a href="creating-a-new-book-from-scratch.html#cb4-6" aria-hidden="true"></a></span>
+<span id="cb4-7"><a href="creating-a-new-book-from-scratch.html#cb4-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
 <div id="numbering-or-not" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Numbering (or not)</h3>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="creating-a-new-book-from-scratch.html#cb4-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
-<span id="cb4-2"><a href="creating-a-new-book-from-scratch.html#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="creating-a-new-book-from-scratch.html#cb4-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
-<p>Or perhaps the subsections in the book are not numbered:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
 <span id="cb5-2"><a href="creating-a-new-book-from-scratch.html#cb5-2" aria-hidden="true"></a></span>
-<span id="cb5-3"><a href="creating-a-new-book-from-scratch.html#cb5-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
-<span id="cb5-4"><a href="creating-a-new-book-from-scratch.html#cb5-4" aria-hidden="true"></a></span>
-<span id="cb5-5"><a href="creating-a-new-book-from-scratch.html#cb5-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
+<span id="cb5-3"><a href="creating-a-new-book-from-scratch.html#cb5-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
+<p>Or perhaps the subsections in the book are not numbered:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
+<span id="cb6-2"><a href="creating-a-new-book-from-scratch.html#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="creating-a-new-book-from-scratch.html#cb6-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
+<span id="cb6-4"><a href="creating-a-new-book-from-scratch.html#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="creating-a-new-book-from-scratch.html#cb6-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="creating-a-new-book-from-scratch.html#cb7-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
 </div>
 <div id="ids" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> IDs</h3>

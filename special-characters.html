@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://www.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
+<li><a href="https://classics.warhornmedia.com/"><img src="classics-template-files/images/warhornlogo.png" width="260"></a></li>
 <li><a href="./">Warhorn Classics Documentation</a></li>
 
 <li class="divider"></li>
@@ -147,7 +147,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#optional-preparing-and-using-a-local-build-environment"><i class="fa fa-check"></i><b>1.1.1</b> (Optional) Preparing and using a local build environment</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#what-are-all-these-files"><i class="fa fa-check"></i><b>1.2</b> What are all these files?</a></li>
+<li class="chapter" data-level="1.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#what-are-all-these-files"><i class="fa fa-check"></i><b>1.2</b> What are all these files?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#files-you-must-modify"><i class="fa fa-check"></i><b>1.2.1</b> Files you must modify</a></li>
+<li class="chapter" data-level="1.2.2" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#other-files"><i class="fa fa-check"></i><b>1.2.2</b> Other files</a></li>
+</ul></li>
 <li class="chapter" data-level="1.3" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#adding-book-content"><i class="fa fa-check"></i><b>1.3</b> Adding book content</a></li>
 <li class="chapter" data-level="1.4" data-path="creating-a-new-book-from-scratch.html"><a href="creating-a-new-book-from-scratch.html#chapters-sections-and-more"><i class="fa fa-check"></i><b>1.4</b> Chapters, sections, and more</a>
 <ul>
@@ -214,19 +218,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="non-breaking-spaces" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Non-breaking spaces</h2>
 <p>Non-breaking spaces prevent two words from being split onto separate lines. There are a variety of cases in which they are necessary, including Scripture references. They are formed by putting a backslash prior to a regular space.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="special-characters.html#cb11-1" aria-hidden="true"></a>1\ Peter\ 1:3 </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="special-characters.html#cb12-1" aria-hidden="true"></a>1\ Peter\ 1:3 </span></code></pre></div>
 </div>
 <div id="line-breaks" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Line breaks</h2>
 <p>Sometimes, you may need to specify that text should start on a new line but remain part of the same paragraph. This can be accomplished by putting a single backslash at the end of a line.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="special-characters.html#cb12-1" aria-hidden="true"></a>This paragraph will continue \</span>
-<span id="cb12-2"><a href="special-characters.html#cb12-2" aria-hidden="true"></a>on the next line.</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="special-characters.html#cb13-1" aria-hidden="true"></a>This paragraph will continue \</span>
+<span id="cb13-2"><a href="special-characters.html#cb13-2" aria-hidden="true"></a>on the next line.</span></code></pre></div>
 </div>
 <div id="backslashes" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Backslashes</h2>
 <p>Because backslashes are are special characters, if one needs to appear for some reason in the actual text of a book, it must be ‘escaped’ using another backslash. In other words, put two backslashes like so in the markdown followed by the output:</p>
 <p>Markdown:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="special-characters.html#cb13-1" aria-hidden="true"></a>Here is a backslash <span class="sc">\\</span> in the middle of a sentence. </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="special-characters.html#cb14-1" aria-hidden="true"></a>Here is a backslash <span class="sc">\\</span> in the middle of a sentence. </span></code></pre></div>
 <p>Output:
 Here is a backslash \ in the middle of a sentence.</p>
 </div>

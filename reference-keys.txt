@@ -2,6 +2,8 @@ creating-a-new-book-from-scratch
 creating-a-new-repo-for-a-new-book-on-github
 optional-preparing-and-using-a-local-build-environment
 what-are-all-these-files
+files-you-must-modify
+other-files
 adding-book-content
 chapters-sections-and-more
 numbering-or-not
