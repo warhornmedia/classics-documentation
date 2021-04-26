@@ -78,7 +78,7 @@ index.Rmd
 :    - **scans:** Enter a link to scanned images of the original public domain work on Archive.org, Google books, or elsewhere.
 :    - build: This can be any number. Change the build number if you ever want to force the book to rebuild but haven’t changed anything else. It’s used for no other purpose.
 :  - **cover-image:** the name of the image file being used as the cover for the book. Make sure to include the extension, such as cover.jpg, or cover.png.
-:  - **url:** the page where the book is hosted. [Currently](https://github.com/rstudio/bookdown/issues/963) must end with a “/“. 
+:  - **url:** the page where the book is hosted. Should be https://warhornmedia.github.io/your-new-github-project-name/ Replace the last part with your project name. [Currently](https://github.com/rstudio/bookdown/issues/963) that ending “/“ is necessary. 
 :  - **output:**
       - **bookdown::gitbook:**
         - **config:**
