@@ -492,5 +492,6 @@ knitr::include_graphics("images/sepialogo.png")
 What to do if your build is failing:
 
 1. Especially if you just added the OCR'd text of the book, do a search for backslashes in the text. They are a special character and will cause problems unless they are used for the specific things mentioned [above](#backslashes).
-2. Make sure every .Rmd file starts with a # or ##.
-3. If you are working on footnotes, make sure you didn't try to insert a footnote reference inside bold or italic text or from within chapter or section headers *if* the footnote itself has multiple paragraphs. (See warning in [footnote section](#footnotes).)2. Make sure every .Rmd file starts with either # or ##.
+2. Make sure every .Rmd file starts with either # or ##.
+3. If you are working on footnotes, make sure you didn't try to insert a footnote reference inside bold or italic text or from within chapter or section headers *if* the footnote itself has multiple paragraphs. (See warning in [footnote section](#footnotes).)
+4. Take a look at the log in the Github Action tab, and see if you can find where it failed. (Look for a red line.) Sometimes it will tell you what went wrong, but often the best hint is a number of lines earlier, so scroll up a bit looking for a root cause.
