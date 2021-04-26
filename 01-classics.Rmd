@@ -74,7 +74,8 @@ index.Rmd
 :  - **title, author, and date** must all be changed and should be self-explanatory
 :  - **description:** Short description of the book. Don't use copyrighted content here. Write your own description. This field is useful for SEO. Also, it is displayed together with the cover image when the book is shared on certain social media.
 :  - **params:**
-:    - **scans:** Enter a link to scanned images of the original public domain work on Google books, Archive.org, or elsewhere.
+:    - **pubinfo:** This appears in the front matter and should be updated with the original publication info. 
+:    - **scans:** Enter a link to scanned images of the original public domain work on Archive.org, Google books, or elsewhere.
 :    - build: This can be any number. Change the build number if you ever want to force the book to rebuild but haven’t changed anything else. It’s used for no other purpose.
 :  - **cover-image:** the name of the image file being used as the cover for the book. Make sure to include the extension, such as cover.jpg, or cover.png.
 :  - **url:** the page where the book is hosted. [Currently](https://github.com/rstudio/bookdown/issues/963) must end with a “/“. 
