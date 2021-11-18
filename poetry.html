@@ -218,15 +218,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="poetry" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Poetry</h1>
 <p>Poetry should be designated as such so it can be styled differently from the rest of the text:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="poetry.html#cb16-1" aria-hidden="true"></a>::: {.poetry}</span>
-<span id="cb16-2"><a href="poetry.html#cb16-2" aria-hidden="true"></a><span class="ss">- </span>Oh when a mother meets on high</span>
-<span id="cb16-3"><a href="poetry.html#cb16-3" aria-hidden="true"></a><span class="ss">- </span>The babe she lost in infancy,</span>
-<span id="cb16-4"><a href="poetry.html#cb16-4" aria-hidden="true"></a><span class="ss">- </span>Hath she not then for pains and fears,</span>
-<span id="cb16-5"><a href="poetry.html#cb16-5" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ The day of woe, the watchful night,</span>
-<span id="cb16-6"><a href="poetry.html#cb16-6" aria-hidden="true"></a><span class="ss">- </span>For all her sorrows, all her tears,</span>
-<span id="cb16-7"><a href="poetry.html#cb16-7" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ An over-payment of delight?</span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="poetry.html#cb16-1" aria-hidden="true"></a>::: {.poetry data-latex=&quot;&quot;}</span>
+<span id="cb16-2"><a href="poetry.html#cb16-2" aria-hidden="true"></a>| Oh when a mother meets on high</span>
+<span id="cb16-3"><a href="poetry.html#cb16-3" aria-hidden="true"></a>| The babe she lost in infancy,</span>
+<span id="cb16-4"><a href="poetry.html#cb16-4" aria-hidden="true"></a>| Hath she not then for pains and fears,</span>
+<span id="cb16-5"><a href="poetry.html#cb16-5" aria-hidden="true"></a>| \ \ \ \ The day of woe, the watchful night,</span>
+<span id="cb16-6"><a href="poetry.html#cb16-6" aria-hidden="true"></a>| For all her sorrows, all her tears,</span>
+<span id="cb16-7"><a href="poetry.html#cb16-7" aria-hidden="true"></a>|     An over-payment of delight?</span>
 <span id="cb16-8"><a href="poetry.html#cb16-8" aria-hidden="true"></a>:::</span></code></pre></div>
-<p>Precede each line of poetry with a hyphen and a space. (This makes poems into lists, technically. Perhaps this is not the best way of styling them. If we do something else, then line breaks will need to be added manually with a backslash (\) at the end of each line, or the lines need to be double-spaced in order to make each line its own paragraph. For now, this method is working, except in the PDF the lines start with bullet points.) If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.</p>
+<p>Precede each line of poetry with a | and a space. (This makes a <a href="#https://pandoc.org/MANUAL.html#line-blocks">line block</a> so there are line breaks between consecutive lines. We could also use a backslashe (\) at the end of each line to do the same.)</p>
+<p>If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces, which are entered as spaces preceded by backslashes. If you are using the line block method, spaces at the start of the line will be respected, regardless of whether you add the backslash. Both methods are shown above.</p>
 </div>
 <script> 
  	 var refTagger = {
