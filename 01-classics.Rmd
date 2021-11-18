@@ -299,7 +299,7 @@ Poetry should be designated as such so it can be styled differently from the res
 :::
 ```
 
-Precede each line of poetry with a hyphen and a space. If a line of poetry should appear indented in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.
+Precede each line of poetry with a hyphen and a space. (This makes poems into lists, technically. Perhaps this is not the best way of styling them. If we do something else, then line breaks will need to be added manually with a backslash (\\) at the end of each line, or the lines need to be double-spaced in order to make each line its own paragraph. For now, this method is working, except in the PDF the lines start with bullet points.) If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.
 
 
 # Links
