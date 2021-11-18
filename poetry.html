@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Poetry | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Poetry | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,9 @@
   
 <link rel="prev" href="comments.html"/>
 <link rel="next" href="links.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,16 +49,17 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <link rel="shortcut icon" href="classics-template-files/images/icon-blackletter.png">
 <!--- include Adobe Fonts web project stylesheet -->
-<link rel="stylesheet" href="https://use.typekit.net/uix0fgg.css">
+<link rel="stylesheet" href="https://use.typekit.net/faq7axi.css">
 <!--- Google Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap" rel="stylesheet">
 
 
 <style type="text/css">
@@ -224,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-6"><a href="poetry.html#cb16-6" aria-hidden="true"></a><span class="ss">- </span>For all her sorrows, all her tears,</span>
 <span id="cb16-7"><a href="poetry.html#cb16-7" aria-hidden="true"></a><span class="ss">- </span>\ \ \ \ An over-payment of delight?</span>
 <span id="cb16-8"><a href="poetry.html#cb16-8" aria-hidden="true"></a>:::</span></code></pre></div>
-<p>Precede each line of poetry with a hyphen and a space. If a line of poetry should appear indented in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.</p>
+<p>Precede each line of poetry with a hyphen and a space. (This makes poems into lists, technically. Perhaps this is not the best way of styling them. If we do something else, then line breaks will need to be added manually with a backslash (\) at the end of each line, or the lines need to be double-spaced in order to make each line its own paragraph. For now, this method is working, except in the PDF the lines start with bullet points.) If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.</p>
 </div>
 <script> 
  	 var refTagger = {
@@ -277,7 +279,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -317,6 +318,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Classics_Documentation.pdf", "Classics_Documentation.epub", "Classics_Documentation.mobi"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
