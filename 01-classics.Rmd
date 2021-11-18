@@ -289,17 +289,19 @@ and here
 Poetry should be designated as such so it can be styled differently from the rest of the text:
 
 ```markdown
-::: {.poetry}
-- Oh when a mother meets on high
-- The babe she lost in infancy,
-- Hath she not then for pains and fears,
-- \ \ \ \ The day of woe, the watchful night,
-- For all her sorrows, all her tears,
-- \ \ \ \ An over-payment of delight?
+::: {.poetry data-latex=""}
+| Oh when a mother meets on high
+| The babe she lost in infancy,
+| Hath she not then for pains and fears,
+| \ \ \ \ The day of woe, the watchful night,
+| For all her sorrows, all her tears,
+|     An over-payment of delight?
 :::
 ```
 
-Precede each line of poetry with a hyphen and a space. (This makes poems into lists, technically. Perhaps this is not the best way of styling them. If we do something else, then line breaks will need to be added manually with a backslash (\\) at the end of each line, or the lines need to be double-spaced in order to make each line its own paragraph. For now, this method is working, except in the PDF the lines start with bullet points.) If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces (after the hyphen and space at the start of the line), which are entered as spaces preceded by backslashes.
+Precede each line of poetry with a | and a space. (This makes a [line block](#https://pandoc.org/MANUAL.html#line-blocks) so there are line breaks between consecutive lines. We could also use a backslashe (\\) at the end of each line to do the same.) 
+
+If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces, which are entered as spaces preceded by backslashes. If you are using the line block method, spaces at the start of the line will be respected, regardless of whether you add the backslash. Both methods are shown above.
 
 
 # Links
