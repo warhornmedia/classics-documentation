@@ -234,14 +234,14 @@ I cannot think of any other circumstance where smallcaps should be used except t
 I cannot think of a place where text would need to be centered in the text of a book.
 
 ```markdown
-::: {.center}
+::: {.center data-latex=""}
 Republished by Warhorn Classics
 :::
 ```
 
 Output:
 
-::: {.center}
+::: {.center data-latex=""}
 Republished by Warhorn Classics
 :::
 
