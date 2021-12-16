@@ -310,6 +310,17 @@ Poetry should be designated as such so it can be styled differently from the res
 :::
 ```
 
+Output: 
+
+::: {.poetry data-latex=""}
+| Oh when a mother meets on high
+| The babe she lost in infancy,
+| Hath she not then for pains and fears,
+|     The day of woe, the watchful night,
+| For all her sorrows, all her tears,
+|     An over-payment of delight?
+:::
+
 Precede each line of poetry with a | and a space. (This makes a [line block](https://pandoc.org/MANUAL.html#line-blocks) so line breaks are respected. We used to use a backslash (\\) at the end of each line to do the same.) 
 
 If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with spaces. In line blocks, spaces at the start of a line are respected and preserved as simple spaces, and we don't need to force them by using non-breaking spaces.
