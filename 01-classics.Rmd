@@ -194,7 +194,7 @@ It is possible to assign an ID *and* specify that a section is not to be numbere
 
 ### IDs
 
-Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the references section. 
+Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the [references section](#references). 
 
 
 # Formatting
@@ -239,6 +239,12 @@ Republished by Warhorn Classics
 :::
 ```
 
+Output:
+::: {.center}
+Republished by Warhorn Classics
+:::
+
+
 # Special characters
 
 There are a number of special characters that are created using a backslash (\\) before another character. These two-character codes are easily visible in the markdown because of the the backslash, where otherwise they would be difficult to notice.
@@ -251,6 +257,8 @@ Non-breaking spaces prevent two words from being split onto separate lines. Ther
 1\ Peter\ 1:3 
 ```
 
+Output: 1\ Peter\ 1:3 
+
 ## Line breaks
 
 Sometimes, you may need to specify that text should start on a new line but remain part of the same paragraph. This can be accomplished by putting a single backslash at the end of a line. 
@@ -259,6 +267,9 @@ Sometimes, you may need to specify that text should start on a new line but rema
 This paragraph will continue \
 on the next line.
 ```
+
+Output: This paragraph will continue \
+on the next line.
 
 ## Backslashes
 
@@ -286,22 +297,22 @@ and here
 
 # Poetry
 
-Poetry should be designated as such so it can be styled differently from the rest of the text:
+Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a [fenced div](https://pandoc.org/MANUAL.html#divs-and-spans), with the .poetry class, and specify the attribute data-latex="". Here is an example.
 
 ```markdown
 ::: {.poetry data-latex=""}
 | Oh when a mother meets on high
 | The babe she lost in infancy,
 | Hath she not then for pains and fears,
-| \ \ \ \ The day of woe, the watchful night,
+|     The day of woe, the watchful night,
 | For all her sorrows, all her tears,
 |     An over-payment of delight?
 :::
 ```
 
-Precede each line of poetry with a | and a space. (This makes a [line block](#https://pandoc.org/MANUAL.html#line-blocks) so there are line breaks between consecutive lines. We could also use a backslashe (\\) at the end of each line to do the same.) 
+Precede each line of poetry with a | and a space. (This makes a [line block](https://pandoc.org/MANUAL.html#line-blocks) so line breaks are respected. We used to use a backslash (\\) at the end of each line to do the same.) 
 
-If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces, which are entered as spaces preceded by backslashes. If you are using the line block method, spaces at the start of the line will be respected, regardless of whether you add the backslash. Both methods are shown above.
+If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with spaces. In line blocks, spaces at the start of a line are respected and preserved as simple spaces, and we don't need to force them by using non-breaking spaces.
 
 
 # Links
@@ -405,9 +416,9 @@ Here is the next paragraph of the book. It is no longer part of the footnote.
 
 ## Endnotes
 
-Endnotes can be created simply by creating a separate file[^5] for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01))
+Endnotes can be created simply by creating a separate .Rmd file[^5] for them, and giving them named IDs and then [linking to them](#linking-to-an-endnote) as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01))
 
-**NOTE**: Endnotes do not automatically backlink to the place they are referenced from. 
+**NOTE**: Endnotes created in this manner do *not* automatically backlink to the place they are referenced from. 
 
 **NOTE 2**: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.
 
@@ -432,7 +443,7 @@ So the above endnote is the second endnote in opening of Part 1 before you get t
 
 #en.ch01.03
 
-### Linking to an endnote
+### Linking to an endnote {#linking-to-an-endnote}
 
 To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references). Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link "Footnote 1", though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the "2" in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown:
 
@@ -498,3 +509,9 @@ What to do if your build is failing:
 2. Make sure every .Rmd file starts with either # or ##.
 3. If you are working on footnotes, make sure you didn't try to insert a footnote reference inside bold or italic text or from within chapter or section headers *if* the footnote itself has multiple paragraphs. (See warning in [footnote section](#footnotes).)
 4. Take a look at the log in the Github Action tab, and see if you can find where it failed. (Look for a red line.) Sometimes it will tell you what went wrong, but often the best hint is a number of lines earlier, so scroll up a bit looking for a root cause.
+
+
+# Editorial Policies
+
+Convert British spelling?
+Convert British or antiquated quotation styles?
