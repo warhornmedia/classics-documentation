@@ -489,7 +489,7 @@ It is possible to assign an ID \emph{and} specify that a section is not to be nu
 \hypertarget{ids}{%
 \subsection{IDs}\label{ids}}
 
-Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the references section.
+Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the \protect\hyperlink{references}{references section}.
 
 \hypertarget{formatting}{%
 \chapter{Formatting}\label{formatting}}
@@ -547,6 +547,11 @@ I cannot think of a place where text would need to be centered in the text of a 
 \end{Highlighting}
 \end{Shaded}
 
+Output:
+::: \{.center\}
+Republished by Warhorn Classics
+:::
+
 \hypertarget{special-characters}{%
 \chapter{Special characters}\label{special-characters}}
 
@@ -563,6 +568,8 @@ Non-breaking spaces prevent two words from being split onto separate lines. Ther
 \end{Highlighting}
 \end{Shaded}
 
+Output: 1~Peter~1:3
+
 \hypertarget{line-breaks}{%
 \section{Line breaks}\label{line-breaks}}
 
@@ -574,6 +581,9 @@ Sometimes, you may need to specify that text should start on a new line but rema
 \NormalTok{on the next line.}
 \end{Highlighting}
 \end{Shaded}
+
+Output: This paragraph will continue\\
+on the next line.
 
 \hypertarget{backslashes}{%
 \section{Backslashes}\label{backslashes}}
@@ -608,7 +618,7 @@ If you ever need to leave a comment in the source but you don't want it to appea
 \hypertarget{poetry}{%
 \chapter{Poetry}\label{poetry}}
 
-Poetry should be designated as such so it can be styled differently from the rest of the text:
+Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a \href{https://pandoc.org/MANUAL.html\#divs-and-spans}{fenced div}, with the .poetry class, and specify the attribute data-latex="". Here is an example.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -616,16 +626,16 @@ Poetry should be designated as such so it can be styled differently from the res
 \NormalTok{| Oh when a mother meets on high}
 \NormalTok{| The babe she lost in infancy,}
 \NormalTok{| Hath she not then for pains and fears,}
-\NormalTok{| \textbackslash{} \textbackslash{} \textbackslash{} \textbackslash{} The day of woe, the watchful night,}
+\NormalTok{|     The day of woe, the watchful night,}
 \NormalTok{| For all her sorrows, all her tears,}
 \NormalTok{|     An over{-}payment of delight?}
 \NormalTok{:::}
 \end{Highlighting}
 \end{Shaded}
 
-Precede each line of poetry with a \textbar{} and a space. (This makes a \protect\hyperlink{https:ux2fux2fpandoc.orgux2fMANUAL.htmlux5cux23line-blocks}{line block} so there are line breaks between consecutive lines. We could also use a backslashe (\textbackslash) at the end of each line to do the same.)
+Precede each line of poetry with a \textbar{} and a space. (This makes a \href{https://pandoc.org/MANUAL.html\#line-blocks}{line block} so line breaks are respected. We used to use a backslash (\textbackslash) at the end of each line to do the same.)
 
-If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with non-breaking spaces, which are entered as spaces preceded by backslashes. If you are using the line block method, spaces at the start of the line will be respected, regardless of whether you add the backslash. Both methods are shown above.
+If a line of poetry should appear indented further than the other lines in its final form, precede the text of the indented line with spaces. In line blocks, spaces at the start of a line are respected and preserved as simple spaces, and we don't need to force them by using non-breaking spaces.
 
 \hypertarget{links}{%
 \chapter{Links}\label{links}}
@@ -744,9 +754,9 @@ Indent latter paragraph(s) in a footnote by four spaces to indicate that the foo
 \hypertarget{endnotes}{%
 \section{Endnotes}\label{endnotes}}
 
-Endnotes can be created simply by creating a separate file\footnote{There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. \protect\hyperlink{en.02}{2}} for them, and giving them named IDs and then linking to them as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (\protect\hyperlink{en.01}{1})
+Endnotes can be created simply by creating a separate .Rmd file\footnote{There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. \protect\hyperlink{en.02}{2}} for them, and giving them named IDs and then \protect\hyperlink{linking-to-an-endnote}{linking to them} as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (\protect\hyperlink{en.01}{1})
 
-\textbf{NOTE}: Endnotes do not automatically backlink to the place they are referenced from.
+\textbf{NOTE}: Endnotes created in this manner do \emph{not} automatically backlink to the place they are referenced from.
 
 \textbf{NOTE 2}: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.
 
@@ -854,6 +864,12 @@ What to do if your build is failing:
 \item
   Take a look at the log in the Github Action tab, and see if you can find where it failed. (Look for a red line.) Sometimes it will tell you what went wrong, but often the best hint is a number of lines earlier, so scroll up a bit looking for a root cause.
 \end{enumerate}
+
+\hypertarget{editorial-policies}{%
+\chapter{Editorial Policies}\label{editorial-policies}}
+
+Convert British spelling?
+Convert British or antiquated quotation styles?
 
 \hypertarget{endnotes-1}{%
 \chapter*{Endnotes}\label{endnotes-1}}

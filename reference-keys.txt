@@ -32,3 +32,4 @@ foreign-languages
 typos-in-the-original
 images
 troubleshooting
+editorial-policies
