@@ -433,7 +433,7 @@ Endnotes can be created simply by creating a separate .Rmd file[^5] for them, an
 
 **NOTE 2**: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.
 
-[^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02{#en.02.backlink})
+[^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02){#en.02.backlink}
 
 
 ### Creating an endnote
