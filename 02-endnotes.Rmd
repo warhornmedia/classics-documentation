@@ -1,9 +1,9 @@
 # Endnotes {-}
 
-###### NOTE 1 {- #en.01}
+###### [NOTE 1](#en.01.backlink) {- #en.01}
 
 Here is the text of an endnote.
 
-###### NOTE 2 {- #en.02}
+###### [NOTE 2](#en.02.backlink) {- #en.02}
 
 Here is the text of an endnote that is referenced from a footnote.
