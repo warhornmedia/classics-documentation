@@ -438,10 +438,10 @@ Endnotes can be created simply by creating a separate .Rmd file[^5] for them, an
 
 ### Creating an endnote
 
-To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan's *justification*. Each endnote has a title in that book, such as "Note 2, p. 21", so we used the lowest level of header for the endnote title, and gave it an explicit ID like so:
+To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan's *Justification*. Each endnote has a title in that book, such as "Note 2, p. 21", so we used the lowest level of header for the endnote title, backlinked it, and gave it an explicit ID like so:
 
 ```markdown
-###### NOTE 2, p. 21  {- #en.p1.02}
+###### [NOTE 2, p. 21](#en.p1.02.backlink) {- #en.p1.02}
 
 endnote text goes here...
 ```
@@ -456,10 +456,10 @@ So the above endnote is the second endnote in opening of Part 1 before you get t
 
 ### Linking to an endnote {#linking-to-an-endnote}
 
-To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references). Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link "Footnote 1", though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the "2" in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown:
+To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references), and use an explicit id so it can be backlinked. Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link "Footnote 1", though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the "2" in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown, along with :
 
 ```markdown
-This sentence ends with a linked endnote in parentheses.([2](#en.p1.02))
+This sentence ends with a linked endnote in parentheses.([2](#en.p1.02){#en.p1.02.backlink})
 ```
 
 
