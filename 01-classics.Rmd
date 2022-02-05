@@ -427,13 +427,13 @@ Here is the next paragraph of the book. It is no longer part of the footnote.
 
 ## Endnotes
 
-Endnotes can be created simply by creating a separate .Rmd file[^5] for them, and giving them named IDs and then [linking to them](#linking-to-an-endnote) as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01))
+Endnotes can be created simply by creating a separate .Rmd file[^5] for them, and giving them named IDs and then [linking to them](#linking-to-an-endnote) as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01){#en.01.backlink})
 
 **NOTE**: Endnotes created in this manner do *not* automatically backlink to the place they are referenced from. 
 
 **NOTE 2**: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.
 
-[^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02)
+[^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02{#en.02.backlink})
 
 
 ### Creating an endnote
