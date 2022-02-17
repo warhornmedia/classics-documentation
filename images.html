@@ -66,6 +66,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -220,9 +221,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> Images</h1>
 <p>Images are likely to be rare, but when used, Pandoc’s built-in functionality is not enough. Images are to be placed in a sub-folder called “images” and included using knitr commands:</p>
 <p><strong>Centered and 50% width image:</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="images.html#cb30-1" aria-hidden="true"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
-<span id="cb30-2"><a href="images.html#cb30-2" aria-hidden="true"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
-<span id="cb30-3"><a href="images.html#cb30-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="images.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
+<span id="cb30-2"><a href="images.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
+<span id="cb30-3"><a href="images.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>Here is what it looks like when used:</p>
 <p><img src="images/sepialogo.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>

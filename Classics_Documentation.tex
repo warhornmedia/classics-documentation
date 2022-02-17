@@ -4,10 +4,10 @@
 %
 \documentclass[
 ]{book}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -80,7 +80,8 @@
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\usepackage{longtable,booktabs}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
 \makeatletter
@@ -160,7 +161,7 @@
 \makeatother
 
 \frontmatter
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
@@ -404,7 +405,7 @@ Note: The filename must end with .Rmd, not .md, if you want it included in the b
 
 All the markdown files found in the main directory will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter.
 
-To \emph{exclude} a file from the book, simply preface the filename with an underscore. For example, "\_excludedfile.Rmd" will not be added to the book by default, even if it is in the main directory with all the other Rmd files.
+To \emph{exclude} a file from the book, simply preface the filename with an underscore. For example, ``\_excludedfile.Rmd'' will not be added to the book by default, even if it is in the main directory with all the other Rmd files.
 
 Here is an example list of files in the order they will end up in the book.
 
@@ -619,7 +620,7 @@ If you ever need to leave a comment in the source but you don't want it to appea
 \hypertarget{poetry}{%
 \chapter{Poetry}\label{poetry}}
 
-Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a \href{https://pandoc.org/MANUAL.html\#divs-and-spans}{fenced div}, with the .poetry class, and specify the attribute data-latex="". Here is an example.
+Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a \href{https://pandoc.org/MANUAL.html\#divs-and-spans}{fenced div}, with the .poetry class, and specify the attribute data-latex=``\,``. Here is an example.
 
 \begin{Shaded}
 \begin{Highlighting}[]

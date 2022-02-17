@@ -66,6 +66,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -253,88 +254,115 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.2.1</span> Files you must modify</h3>
 <dl>
 <dt>01-Basic-instructions.Rmd</dt>
-<dd>Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
+<dd>
+Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
 </dd>
 <dt>_bookdown.yml</dt>
-<dd>contains some settings for bookdown.
+<dd>
+contains some settings for bookdown.
 </dd>
 <dd>
-</dd>
-<dd>Contents:
+
 </dd>
 <dd>
+Contents:
 </dd>
-<dd><ul>
+<dd>
+
+</dd>
+<dd>
+<ul>
 <li><strong>book_filename:</strong> Change this to give book downloads, such as PDFs, appropriate filenames. Don’t use spaces. Standard: author’s last name followed by short title, like so:<br />
 <code>book_filename: "Ryle-Duties_of_Parents"</code></li>
 </ul>
 </dd>
 <dd>
-</dd>
-<dd>Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
-</dd>
-<dt>_editorial-notes.Rmd</dt>
-<dd>Contains two sections that must be updated throughout the editorial process, and is automatically included in the front matter of the book.
+
 </dd>
 <dd>
+Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
 </dd>
-<dd>Contents:
+<dt>_editorial-notes.Rmd</dt>
+<dd>
+Contains two sections that must be updated throughout the editorial process, and is automatically included in the front matter of the book.
+</dd>
+<dd>
+
+</dd>
+<dd>
+Contents:
 :
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>Text Status</strong> This section should be updated by moving the “<strong>Current status:</strong> –&gt;” to the front of the appropriate line as the project progresses.
 :</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>Editorial Notes</strong> Any noteworthy editorial decisions should be added to this section.</li>
 </ul>
 </dd>
 <dt>cover.jpg</dt>
-<dd><strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
+<dd>
+<strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
 </dd>
 <dt>index.Rmd</dt>
-<dd>Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
+<dd>
+Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
 </dd>
 <dd>
-</dd>
-<dd>Contents:
+
 </dd>
 <dd>
+Contents:
 </dd>
-<dd><ul>
+<dd>
+
+</dd>
+<dd>
+<ul>
 <li><strong>title, author, and date</strong> must all be changed and should be self-explanatory</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>description:</strong> Short description of the book. Don’t use copyrighted content here. Write your own description. This field is useful for SEO. Also, it is displayed together with the cover image when the book is shared on certain social media.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>params:</strong></li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>pubinfo:</strong> This appears in the front matter and should be updated with the original publication info.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>scans:</strong> Enter a link to scanned images of the original public domain work on Archive.org, Google books, or elsewhere.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li>build: This can be any number. Change the build number if you ever want to force the book to rebuild but haven’t changed anything else. It’s used for no other purpose.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>cover-image:</strong> the name of the image file being used as the cover for the book. Make sure to include the extension, such as cover.jpg, or cover.png.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>url:</strong> the page where the book is hosted. Should be <a href="https://warhornmedia.github.io/your-new-github-project-name/" class="uri">https://warhornmedia.github.io/your-new-github-project-name/</a> Replace the last part with your project name. <a href="https://github.com/rstudio/bookdown/issues/963">Currently</a> that ending “/“ is necessary.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>output:</strong>
 <ul>
 <li><strong>bookdown::gitbook:</strong>
@@ -343,7 +371,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><dl>
 <dt><strong>toc:</strong></dt>
-<dd><strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
+<dd>
+<strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
 </dd>
 </dl></li>
 <li><strong>edit:</strong> where the edit link on each page points to. Should be the GitHub project URL, followed by “/edit/master/%s”</li>
@@ -353,7 +382,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </dd>
 <dt>README.md</dt>
-<dd>The description of the repo that will be displayed on the Github project page. <strong>Update this</strong> with some simple info and a link to the readable book.
+<dd>
+The description of the repo that will be displayed on the Github project page. <strong>Update this</strong> with some simple info and a link to the readable book.
 </dd>
 </dl>
 </div>
@@ -361,22 +391,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.2.2</span> Other files</h3>
 <dl>
 <dt>_output.yml</dt>
-<dd>Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won’t build or has problems, simply remove it from the list.
+<dd>
+Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won’t build or has problems, simply remove it from the list.
 </dd>
 <dd>
+
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><pre><code>download: [&quot;pdf&quot;, &quot;epub&quot;, &quot;mobi&quot;]</code></pre></li>
 </ul>
 </dd>
 <dt>book_project.Rproj</dt>
-<dd>This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
+<dd>
+This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
 </dd>
 <dt>.github folder</dt>
-<dd>contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+<dd>
+contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
 </dd>
 <dt>.gitignore</dt>
-<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+<dd>
+Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
 </dd>
 </dl>
 </div>
@@ -386,7 +422,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To add content to the book, simply add .Rmd files. .Rmd files are just text files written in R-markdown. R-markdown is just normal markdown with some extra features supported. The details of the features we support are outlined below. (TODO: We should probably add to this documentation the basic rules about how we want our markdown formatted.)</p>
 <p>Note: The filename must end with .Rmd, not .md, if you want it included in the book. That is why the README.md file is not build into the book.</p>
 <p>All the markdown files found in the main directory will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter.</p>
-<p>To <em>exclude</em> a file from the book, simply preface the filename with an underscore. For example, "_excludedfile.Rmd" will not be added to the book by default, even if it is in the main directory with all the other Rmd files.</p>
+<p>To <em>exclude</em> a file from the book, simply preface the filename with an underscore. For example, “_excludedfile.Rmd” will not be added to the book by default, even if it is in the main directory with all the other Rmd files.</p>
 <p>Here is an example list of files in the order they will end up in the book.</p>
 <pre><code>index.Rmd
 00-preface.Rmd
@@ -394,52 +430,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 02-The-Sacrament-of-Baptism.Rmd
 03-The-Sacrament-of-the-Lords-Supper.Rmd</code></pre>
 <p>Note that the numbers at the beginning of each filename are <em>only</em> used to get the files into the proper order in the book. It is handy if they can correspond to the chapter number just to prevent confusion, but it is not necessary.</p>
-<p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
-<p><strong>NOTE:</strong> Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="endnotes-1.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
+<p><strong>NOTE:</strong> Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)<a href="endnotes-1.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="chapters-sections-and-more" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Chapters, sections, and more</h2>
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
-<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="endnotes-1.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="creating-a-new-book-from-scratch.html#cb3-1" aria-hidden="true"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="creating-a-new-book-from-scratch.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># A Long-expected chapter title</span></span></code></pre></div>
 <p>The chapter title will be given an &lt;h1&gt; tag in HTML, with similar results in other formats.</p>
 <p>Chapters can be broken down further into sections, sub-sections, etc. up to 6 levels total, using additional levels of headers and titles:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="creating-a-new-book-from-scratch.html#cb4-1" aria-hidden="true"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
-<span id="cb4-2"><a href="creating-a-new-book-from-scratch.html#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="creating-a-new-book-from-scratch.html#cb4-3" aria-hidden="true"></a><span class="fu">### Here is a sub-section.</span></span>
-<span id="cb4-4"><a href="creating-a-new-book-from-scratch.html#cb4-4" aria-hidden="true"></a></span>
-<span id="cb4-5"><a href="creating-a-new-book-from-scratch.html#cb4-5" aria-hidden="true"></a><span class="fu">#### And now a sub-sub-section</span></span>
-<span id="cb4-6"><a href="creating-a-new-book-from-scratch.html#cb4-6" aria-hidden="true"></a></span>
-<span id="cb4-7"><a href="creating-a-new-book-from-scratch.html#cb4-7" aria-hidden="true"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="creating-a-new-book-from-scratch.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## This is a section. (It will receive an &lt;h2&gt; tag in HTML.)</span></span>
+<span id="cb4-2"><a href="creating-a-new-book-from-scratch.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="creating-a-new-book-from-scratch.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Here is a sub-section.</span></span>
+<span id="cb4-4"><a href="creating-a-new-book-from-scratch.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="creating-a-new-book-from-scratch.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">#### And now a sub-sub-section</span></span>
+<span id="cb4-6"><a href="creating-a-new-book-from-scratch.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="creating-a-new-book-from-scratch.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
 <div id="numbering-or-not" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Numbering (or not)</h3>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true"></a><span class="fu"># Introduction {-}</span></span>
-<span id="cb5-2"><a href="creating-a-new-book-from-scratch.html#cb5-2" aria-hidden="true"></a></span>
-<span id="cb5-3"><a href="creating-a-new-book-from-scratch.html#cb5-3" aria-hidden="true"></a>Text of the introduction goes here...</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {-}</span></span>
+<span id="cb5-2"><a href="creating-a-new-book-from-scratch.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="creating-a-new-book-from-scratch.html#cb5-3" aria-hidden="true" tabindex="-1"></a>Text of the introduction goes here...</span></code></pre></div>
 <p>Or perhaps the subsections in the book are not numbered:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true"></a><span class="fu"># How to write a book</span></span>
-<span id="cb6-2"><a href="creating-a-new-book-from-scratch.html#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="creating-a-new-book-from-scratch.html#cb6-3" aria-hidden="true"></a><span class="fu">## Getting started</span></span>
-<span id="cb6-4"><a href="creating-a-new-book-from-scratch.html#cb6-4" aria-hidden="true"></a></span>
-<span id="cb6-5"><a href="creating-a-new-book-from-scratch.html#cb6-5" aria-hidden="true"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="creating-a-new-book-from-scratch.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># How to write a book</span></span>
+<span id="cb6-2"><a href="creating-a-new-book-from-scratch.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="creating-a-new-book-from-scratch.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Getting started</span></span>
+<span id="cb6-4"><a href="creating-a-new-book-from-scratch.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="creating-a-new-book-from-scratch.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Arranging your pencils {-}</span></span></code></pre></div>
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="creating-a-new-book-from-scratch.html#cb7-1" aria-hidden="true"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="creating-a-new-book-from-scratch.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
 </div>
 <div id="ids" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> IDs</h3>
 <p>Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the <a href="links.html#references">references section</a>.</p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>This <a href="https://bookdown.org/yihui/bookdown/html.html#gitbook-style">can be changed</a>, if necessary, to split by chapter or section, or even turned off completely.<a href="creating-a-new-book-from-scratch.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Supposedly the first file must begin with either a chapter (“# Chapter name”) <em>or</em> a section (“## Section title”). However, it appears that it must be a chapter, as starting with a section causes an error. Latter files may start with a section, instead, if necessary, to split the book into appropriate-length webpages.<a href="creating-a-new-book-from-scratch.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>The bookdown documentation says it is <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#special-headers">also possible</a> to split a book into “parts” made up of multiple chapters, as well as add a special “part” called “appendix.” However, ebooks and Word documents do not get any “part” information, so we do not support this option in our books.<a href="creating-a-new-book-from-scratch.html#fnref3" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 <script> 
  	 var refTagger = {
