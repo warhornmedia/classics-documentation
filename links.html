@@ -249,7 +249,7 @@ Here is how I would add a link to the section later in this guide which is about
 <div id="footnotes" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Footnotes</h2>
 <p>Footnotes are a special kind of link that can be added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
-<p>Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="endnotes-1.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p>The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named “01.01”. The third footnote in the fifth chapter would be “05.03”. A footnote in the intro could be named “intro.01”.</p>
 <p><strong>Simple footnote syntax:</strong></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="links.html#cb23-1" aria-hidden="true" tabindex="-1"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
@@ -259,7 +259,7 @@ Here is how I would add a link to the section later in this guide which is about
 <span id="cb23-5"><a href="links.html#cb23-5" aria-hidden="true" tabindex="-1"></a>Now the main text of the book continues.</span></code></pre></div>
 <p>If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity’s sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: “01.01.01”, “01.01.02”, etc., throughout chapter 1, section 1; then “01.02.01”, “01.02.02”, etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.</p>
 <p><strong>Multi-paragraph footnote:</strong></p>
-<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="endnotes-1.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="links.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
 <span id="cb24-2"><a href="links.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="links.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
@@ -271,7 +271,7 @@ Here is how I would add a link to the section later in this guide which is about
 </div>
 <div id="endnotes" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Endnotes</h2>
-<p>Endnotes can be created simply by creating a separate .Rmd file<a href="endnotes-1.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> for them, and giving them named IDs and then <a href="links.html#linking-to-an-endnote">linking to them</a> as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (<a href="endnotes-1.html#en.01" id="en.01.backlink">1</a>)</p>
+<p>Endnotes can be created simply by creating a separate .Rmd file<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> for them, and giving them named IDs and then <a href="links.html#linking-to-an-endnote">linking to them</a> as references from the body of the main text. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (<a href="endnotes-1.html#en.01" id="en.01.backlink">1</a>)</p>
 <p><strong>NOTE</strong>: Endnotes created in this manner do <em>not</em> automatically backlink to the place they are referenced from.</p>
 <p><strong>NOTE 2</strong>: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.</p>
 <div id="creating-an-endnote" class="section level3" number="6.5.1">
@@ -291,6 +291,15 @@ Here is how I would add a link to the section later in this guide which is about
 <div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="links.html#cb26-1" aria-hidden="true" tabindex="-1"></a>This sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>{#en.p1.02.backlink})</span></code></pre></div>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Technically footnotes aren’t numbered in our source. They are <em>named</em>. They are then assigned consecutive numbers per chapter automatically when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.<a href="links.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
+<p>See? Second paragraph works just fine. :)<a href="links.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>There is an endnote file in this style guide, for demonstrations’ sake. And this is a demonstration of an endnote within a footnote. <a href="endnotes-1.html#en.02" id="en.02.backlink">2</a><a href="links.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 <script> 
  	 var refTagger = {
