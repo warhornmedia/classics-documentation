@@ -223,13 +223,19 @@ Here are **a few words** in bold.
 
 ## Small caps 
 
+**NOTE: [This still](https://github.com/warhornmedia/classics-documentation/issues/3) needs to be implemented in the HTML version. It works in PDF, ePub, and Mobi**
+
 I cannot think of any other circumstance where smallcaps should be used except the word [Lord]{.smallcaps}.
 
 ```markdown
-[Lord]{.smallcaps}
+The [Lord]{.smallcaps} said to my Lord, "Sit at my right hand..."
 ```
 
+Output: The [Lord]{.smallcaps} said to my Lord, "Sit at my right hand..."
+
 ## Centering text
+
+**NOTE: [This still](https://github.com/warhornmedia/classics-documentation/issues/7) needs to be implemented in the HTML, Mobi, and ePub versions. It works in PDF**
 
 I cannot think of a place where text would need to be centered in the text of a book.
 
@@ -296,6 +302,8 @@ and here
 ```
 
 # Poetry
+
+**Note: [This still](https://github.com/warhornmedia/classics-documentation/issues/4) needs to be nicely formatted.
 
 Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a [fenced div](https://pandoc.org/MANUAL.html#divs-and-spans), with the .poetry class, and specify the attribute data-latex="". Here is an example.
 
@@ -470,15 +478,18 @@ Any text in a foreign language, regardless of how long or short, should be indic
 **Latin:**
 
 ```markdown
-[sacramentum]{lang=la}
+In Latin, the word "[sacramentum]{lang=la}" means "mystery."
 ```
+
+Output: In Latin, the word "[sacramentum]{lang=la}" means "mystery."
 
 **Greek:**
 
 ```markdown
-[μυστηριον]{lang=el}
+In English, we have transliterated the Greek word "[μυστηριον]{lang=el}" as "mystery."
 ```
 
+Output: In English, we have transliterated the Greek word "[μυστηριον]{lang=el}" as "mystery."
 
 # Typos in the original
 
