@@ -3,6 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  english,
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -37,6 +38,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Warhorn Classics Documentation},
+  pdflang={en},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -161,6 +163,23 @@
 \makeatother
 
 \frontmatter
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+  \setotherlanguage[]{latin}
+  \setotherlanguage[]{greek}
+\else
+  \usepackage[latin,greek,main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+  \providecommand{\textlatin}{}
+  \renewcommand{\textlatin}[2][]{\foreignlanguage{latin}{#2}}
+  \newenvironment{latin}[2][]{\begin{otherlanguage}{latin}}{\end{otherlanguage}}
+  \newcommand{\textgreek}[2][]{\foreignlanguage{greek}{#2}}
+  \newenvironment{greek}[2][]{\begin{otherlanguage}{greek}}{\end{otherlanguage}}
+\fi
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -527,16 +546,22 @@ Formatting is accomplished by using R-markdown. Basically, you can use anything 
 \hypertarget{small-caps}{%
 \section{Small caps}\label{small-caps}}
 
+\textbf{NOTE: \href{https://github.com/warhornmedia/classics-documentation/issues/3}{This still} needs to be implemented in the HTML version. It works in PDF, ePub, and Mobi}
+
 I cannot think of any other circumstance where smallcaps should be used except the word \textsc{Lord}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{[}\OtherTok{Lord}\CommentTok{]}\NormalTok{\{.smallcaps\}}
+\NormalTok{The }\CommentTok{[}\OtherTok{Lord}\CommentTok{]}\NormalTok{\{.smallcaps\} said to my Lord, "Sit at my right hand..."}
 \end{Highlighting}
 \end{Shaded}
 
+Output: The \textsc{Lord} said to my Lord, ``Sit at my right hand\ldots{}''
+
 \hypertarget{centering-text}{%
 \section{Centering text}\label{centering-text}}
+
+\textbf{NOTE: \href{https://github.com/warhornmedia/classics-documentation/issues/7}{This still} needs to be implemented in the HTML, Mobi, and ePub versions. It works in PDF}
 
 I cannot think of a place where text would need to be centered in the text of a book.
 
@@ -619,6 +644,8 @@ If you ever need to leave a comment in the source but you don't want it to appea
 
 \hypertarget{poetry}{%
 \chapter{Poetry}\label{poetry}}
+
+**Note: \href{https://github.com/warhornmedia/classics-documentation/issues/4}{This still} needs to be nicely formatted.
 
 Poetry should be designated as such so it can be styled differently from the rest of the text. Please use a \href{https://pandoc.org/MANUAL.html\#divs-and-spans}{fenced div}, with the .poetry class, and specify the attribute data-latex=``\,``. Here is an example.
 
@@ -816,17 +843,21 @@ Any text in a foreign language, regardless of how long or short, should be indic
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{[}\OtherTok{sacramentum}\CommentTok{]}\NormalTok{\{lang=la\}}
+\NormalTok{In Latin, the word "}\CommentTok{[}\OtherTok{sacramentum}\CommentTok{]}\NormalTok{\{lang=la\}" means "mystery."}
 \end{Highlighting}
 \end{Shaded}
+
+Output: In Latin, the word ``\textlatin{sacramentum}'' means ``mystery.''
 
 \textbf{Greek:}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{[}\OtherTok{μυστηριον}\CommentTok{]}\NormalTok{\{lang=el\}}
+\NormalTok{In English, we have transliterated the Greek word "}\CommentTok{[}\OtherTok{μυστηριον}\CommentTok{]}\NormalTok{\{lang=el\}" as "mystery."}
 \end{Highlighting}
 \end{Shaded}
+
+Output: In English, we have transliterated the Greek word ``\textgreek{μυστηριον}'' as ``mystery.''
 
 \hypertarget{typos-in-the-original}{%
 \chapter{Typos in the original}\label{typos-in-the-original}}
