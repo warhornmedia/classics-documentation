@@ -1,4 +1,5 @@
 bookdown::gitbook:
+  css: classics-template-files/css/warhorn-classics.css
   split_by: chapter
   config:
     fontsettings:
