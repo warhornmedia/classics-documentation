@@ -182,14 +182,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="poetry.html"><a href="poetry.html"><i class="fa fa-check"></i><b>5</b> Poetry</a></li>
 <li class="chapter" data-level="6" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>6</b> Links</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="links.html"><a href="links.html#assigning-ids"><i class="fa fa-check"></i><b>6.1</b> Assigning implicit or explicit ID names</a></li>
-<li class="chapter" data-level="6.2" data-path="links.html"><a href="links.html#external-links"><i class="fa fa-check"></i><b>6.2</b> External links</a></li>
-<li class="chapter" data-level="6.3" data-path="links.html"><a href="links.html#references"><i class="fa fa-check"></i><b>6.3</b> References (ie internal links)</a></li>
-<li class="chapter" data-level="6.4" data-path="links.html"><a href="links.html#footnotes"><i class="fa fa-check"></i><b>6.4</b> Footnotes</a></li>
-<li class="chapter" data-level="6.5" data-path="links.html"><a href="links.html#endnotes"><i class="fa fa-check"></i><b>6.5</b> Endnotes</a>
+<li class="chapter" data-level="6.1" data-path="links.html"><a href="links.html#external-links"><i class="fa fa-check"></i><b>6.1</b> External links</a></li>
+<li class="chapter" data-level="6.2" data-path="links.html"><a href="links.html#references"><i class="fa fa-check"></i><b>6.2</b> References (ie internal links)</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="links.html"><a href="links.html#creating-an-endnote"><i class="fa fa-check"></i><b>6.5.1</b> Creating an endnote</a></li>
-<li class="chapter" data-level="6.5.2" data-path="links.html"><a href="links.html#linking-to-an-endnote"><i class="fa fa-check"></i><b>6.5.2</b> Linking to an endnote</a></li>
+<li class="chapter" data-level="6.2.1" data-path="links.html"><a href="links.html#assigning-ids"><i class="fa fa-check"></i><b>6.2.1</b> Assigning implicit or explicit IDs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="links.html"><a href="links.html#footnotes"><i class="fa fa-check"></i><b>6.3</b> Footnotes</a></li>
+<li class="chapter" data-level="6.4" data-path="links.html"><a href="links.html#endnotes"><i class="fa fa-check"></i><b>6.4</b> Endnotes</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="links.html"><a href="links.html#creating-an-endnote"><i class="fa fa-check"></i><b>6.4.1</b> Creating an endnote</a></li>
+<li class="chapter" data-level="6.4.2" data-path="links.html"><a href="links.html#linking-to-an-endnote"><i class="fa fa-check"></i><b>6.4.2</b> Linking to an endnote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="foreign-languages.html"><a href="foreign-languages.html"><i class="fa fa-check"></i><b>7</b> Foreign languages</a></li>
@@ -220,85 +222,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="links" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Links</h1>
-<div id="assigning-ids" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Assigning implicit or explicit ID names</h2>
-<p>Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of “automatic-and-manually-assigned-ids”. This is an implicit id.</p>
-<p>Because automatic ids change with the text, and because they can get long, it is generally better to assign explicit ids manually to chapters, sections, and sub-sections if you need to link to them.</p>
-<p>Images and links are not given implicit ids, but can be assigned explicit ids if necessary. Here is an example of assigning an explicit id for a chapter:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="links.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My very long chapter title that I don&#39;t want to have to type often {#long-chapter}</span></span></code></pre></div>
-<p>To assign an id to an arbitrary location in the text (for the purposes of linking to a particular paragraph deep within a section, for example), you need something that can be assigned an id. If there is no image or heading to receive an ID, a workaround is to create an empty link and assign it an explicit id.</p>
-<p>At the end of this sentence is a link without any text or destination that creates a named ID. <a href="" id="namedEmptyLink"></a> You will not see it, but it will exist in the HTML, allowing us to link to it from the <a href="links.html#references">references section</a> below. (TODO: Test this feature is in ePub and PDF.) The markdown to create it looks like this:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="links.html#cb18-1" aria-hidden="true" tabindex="-1"></a>A sentence ending with a named empty link. [](){#namedEmptyLink}</span></code></pre></div>
-</div>
-<div id="external-links" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> External links</h2>
+<div id="external-links" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> External links</h2>
 <p>Links are easily added using standard markdown like so:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="links.html#cb19-1" aria-hidden="true" tabindex="-1"></a>This text needs a link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>.</span></code></pre></div>
-<p>External links can also be named (given an ID) as detailed <a href="links.html#assigning-ids">above</a>. For example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="links.html#cb20-1" aria-hidden="true" tabindex="-1"></a>This text needs a named link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>{#my-named-link-id}.</span></code></pre></div>
-<p>Linking to any sort of content within the book itself is called a reference and is addressed next.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="links.html#cb17-1" aria-hidden="true" tabindex="-1"></a>This text needs a link <span class="co">[</span><span class="ot">here</span><span class="co">](http://google.com)</span>.</span></code></pre></div>
+<p>Linking to any place within the book itself is called a reference and is addressed next.</p>
 </div>
-<div id="references" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> References (ie internal links)</h2>
-<p>If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on <a href="creating-a-new-book-from-scratch.html#chapters-sections-and-more">sections</a> and on <a href="links.html#assigning-ids">assigning ids</a>). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. Here are a couple of examples.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="links.html#cb21-1" aria-hidden="true" tabindex="-1"></a>Here is how I would add a link to the section later in this guide which is about <span class="co">[</span><span class="ot">non-english content</span><span class="co">](#foreign-languages)</span> since its (implicit) id is &quot;foreign-languages&quot;.</span></code></pre></div>
+<div id="references" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> References (ie internal links)</h2>
+<p>It is possible to link to content within the book itself without a full URL. For example, if the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we have the ID of whatever we want to reference. <a href="links.html#assigning-ids">Keep reading</a> for details on how to get or assign ids.</p>
+<p><strong>Reference syntax:</strong></p>
+<p>Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. Here is an example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="links.html#cb18-1" aria-hidden="true" tabindex="-1"></a>Here is how I would add a link to the section later in this guide which is about <span class="co">[</span><span class="ot">non-english content</span><span class="co">](#foreign-languages)</span> since its id is &quot;foreign-languages&quot;.</span></code></pre></div>
 <p><strong>Output:</strong>
-Here is how I would add a link to the section later in this guide which is about <a href="foreign-languages.html#foreign-languages">non-english content</a> since its (implicit) id is “foreign-languages”.</p>
-<p>In the section about assigning ids, we mentioned that it is possible to insert an anchor for linking to any arbitrary spot by creating an empty, named link. <a href="links.html#namedEmptyLink">Here</a> is a link back to that named empty link above. The markdown looks like this:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="links.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Here</span><span class="co">](#namedEmptyLink)</span> is a link back to the arbitrary location with a custom name. </span></code></pre></div>
+Here is how I would add a link to the section later in this guide which is about <a href="foreign-languages.html#foreign-languages">non-english content</a> since its id is “foreign-languages”.</p>
+<div id="assigning-ids" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Assigning implicit or explicit IDs</h3>
+<p>Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text, with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of “assigning-implicit-or-explicit-ids”. That is an <em>implicit id</em>.</p>
+<p>If you’re not sure what exactly an implicit id will be, and you need to use it, you can build the book and then hover over the chapter or section and the link will include an anchor name which is the id. You can then use it in the text.</p>
+<p>However, it is easier to simply assign a manual explicit ID to the section or chapter you want to refer to. In fact, because these automatic implicit ids change with the text, can be hard to know exactly what they will be, and because they can get long, it is generally better to manually assign explicit ids to chapters, sections, and sub-sections if you need to link to them.</p>
+<p>Here is an example of assigning an explicit id for a chapter:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="links.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My very long chapter title that I don&#39;t want to have to type often {#long-chapter}</span></span></code></pre></div>
+<p>Images and links are not given implicit ids, but can be assigned explicit ids if necessary. As we will see, endnotes make extensive use of links with explicit ids.</p>
+<p>This is the syntax for assigning an id to a link:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="links.html#cb20-1" aria-hidden="true" tabindex="-1"></a>Here is a <span class="co">[</span><span class="ot">link</span><span class="co">](https://www.google.com)</span>{#my-google-link-id} (to Google) with its own id.</span></code></pre></div>
+<p>Here is a <a href="https://www.google.com" id="my-link-id">link</a> (to Google) with its own id.</p>
+<p>Internal links use the same syntax. For example:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="links.html#cb21-1" aria-hidden="true" tabindex="-1"></a>Here is <span class="co">[</span><span class="ot">a link</span><span class="co">](#comments)</span>{#another-link-id} with its own id to the comments section of this book.</span></code></pre></div>
+<p><strong>Linking to arbitrary locations</strong></p>
+<p>You can even assign an explicit id to an arbitrary location in the text, for the purposes of linking to any particular spot in the text, even if there is no section heading nearby, for example. But we still need something that can be assigned an id. If there is no convenient image or heading to receive an id, a workaround is to create an empty link and assign it an explicit id.</p>
+<p>At the end of this sentence is a link without any text or destination that creates a named ID. <a href="" id="namedEmptyLink"></a> You will not see it, but it will exist in the HTML, allowing us to link to it below. The markdown to create it looks like this:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="links.html#cb22-1" aria-hidden="true" tabindex="-1"></a>A sentence ending with a named empty link. [](){#namedEmptyLink}</span></code></pre></div>
+<p>The markdown to reference (link to) that named empty link looks like so:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="links.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Here</span><span class="co">](#namedEmptyLink)</span> is a reference to that named empty link. </span></code></pre></div>
+<p>Here’s what it looks like when it is output:</p>
+<p><a href="links.html#namedEmptyLink">Here</a> is a reference to that named empty link.</p>
 </div>
-<div id="footnotes" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Footnotes</h2>
-<p>Footnotes are a special kind of link that can be added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
-<p>Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">Because of (potential) bugs</a>, every footnote in the book <em>must</em> have a unique name.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
-<p>The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named “01.01”. The third footnote in the fifth chapter would be “05.03”. A footnote in the intro could be named “intro.01”.</p>
-<p><strong>Simple footnote syntax:</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="links.html#cb23-1" aria-hidden="true" tabindex="-1"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
-<span id="cb23-2"><a href="links.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="links.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^01.01]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
-<span id="cb23-4"><a href="links.html#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="links.html#cb23-5" aria-hidden="true" tabindex="-1"></a>Now the main text of the book continues.</span></code></pre></div>
+</div>
+<div id="footnotes" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Footnotes</h2>
+<p>Footnotes are a special kind of link made up of two parts—the link to the footnote and the content of the footnote. The links are <em>named</em> in the markdown source text, but when processed, those names aren’t seen. Instead, they are auto-numbered consecutively throughout a chapter. Then, the content of each footnote is also numbered and properly placed at the bottom of the page. Footnotes also automatically have a backlink so you can return to where you were reading when you clicked the footnote.</p>
+<p>Footnote <em>links</em> can be added to a book anywhere, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below).</p>
+<p>The <em>content</em> of that footnote is put in its own paragraph, indicated with special sytanx (see below). In the markdown source text, please put the <em>content</em> of the footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. Remember, after processing it will show up at the bottom of the page, as expected. To prevent confusion (and <a href="https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741">because of potential bugs</a>), every footnote in the book <em>must</em> have a unique name.</p>
+<p><strong>Footnote naming</strong> should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named “01.01”. The third footnote in the fifth chapter would be “05.03”. A footnote in the intro could be named “intro.01”.</p>
 <p>If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity’s sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: “01.01.01”, “01.01.02”, etc., throughout chapter 1, section 1; then “01.02.01”, “01.02.02”, etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.</p>
-<p><strong>Multi-paragraph footnote:</strong></p>
-<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="links.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
+<p>Remember, we use this pattern of consecutive numbers for the names in order to simplify the process of editing as well as to guarantee unique names. However, these names are not used in the final book. Automatic consecutive numbers are. So if you accidentally skip a number, the markdown source text numbers will <em>not</em> match the numbers in the processed book from that point to the end of the chapter. (Automatic footnote numbering restarts at 1 at the beginning of each chapter.)</p>
+<p><strong>Simple footnote syntax:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="links.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Footnotes are often found at the end of a sentence like so.<span class="ot">[^01.01]</span></span>
 <span id="cb24-2"><a href="links.html#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="links.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb24-3"><a href="links.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^01.01]: </span>Here is the footnote&#39;s content, in its own paragraph with a blank line above and below.</span>
 <span id="cb24-4"><a href="links.html#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="links.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="in">    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.</span></span>
-<span id="cb24-6"><a href="links.html#cb24-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb24-7"><a href="links.html#cb24-7" aria-hidden="true" tabindex="-1"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
-<p><strong>Warning</strong>: Multi-paragraph footnotes <em>cannot</em> be referenced inside bold or italic text or from within chapter or section headers, because of <a href="https://github.com/jgm/pandoc/issues/6733">a bug</a> in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: <code>! Paragraph ended before \text@command was complete.</code> If you find another place where multi-paragraph footnotes don’t work, please update this documentation.</p>
-</div>
-<div id="endnotes" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Endnotes</h2>
-<p>Endnotes can be created simply by creating a separate .Rmd file<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> for them, and giving them named IDs and then <a href="links.html#linking-to-an-endnote">linking to them</a> as references from the body of the main text, and creating backlinks. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (<a href="endnotes-1.html#en.01" id="en.01.backlink">1</a>)</p>
-<p><strong>NOTE</strong>: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.</p>
-<div id="creating-an-endnote" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Creating an endnote</h3>
-<p>To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan’s <em>Justification</em>. Each endnote has a title in that book, such as “Note 2, p. 21”, so we used the lowest level of header for the endnote title, backlinked it, and gave it an explicit ID like so:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="links.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">###### [NOTE 2, p. 21](#en.p1.02.backlink) {- #en.p1.02}</span></span>
+<span id="cb24-5"><a href="links.html#cb24-5" aria-hidden="true" tabindex="-1"></a>Now the main text of the book continues.</span></code></pre></div>
+<p><strong>Multi-paragraph footnote:</strong></p>
+<p>Indent latter paragraph(s) in a footnote by four spaces to indicate that the footnote is continuing.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="links.html#cb25-1" aria-hidden="true" tabindex="-1"></a>Longer footnotes can also appear in books.<span class="ot">[^01.02]</span></span>
 <span id="cb25-2"><a href="links.html#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="links.html#cb25-3" aria-hidden="true" tabindex="-1"></a>endnote text goes here...</span></code></pre></div>
+<span id="cb25-3"><a href="links.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^01.02]: </span>Another (longer) footnote. It is possible to have multiple paragraphs in a footnote.</span>
+<span id="cb25-4"><a href="links.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="links.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="in">    Simply put four spaces before the next paragraph(s) to indicate that the footnote is continuing.</span></span>
+<span id="cb25-6"><a href="links.html#cb25-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-7"><a href="links.html#cb25-7" aria-hidden="true" tabindex="-1"></a>Here is the next paragraph of the book. It is no longer part of the footnote.</span></code></pre></div>
+<p><strong>Warning</strong>: Multi-paragraph footnote links <em>cannot</em> be put inside bold or italic text or in chapter or section headers, because of <a href="https://github.com/jgm/pandoc/issues/6733">a bug</a> in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: <code>! Paragraph ended before \text@command was complete.</code> If you find another place where multi-paragraph footnotes don’t work, please update this documentation.</p>
+</div>
+<div id="endnotes" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Endnotes</h2>
+<p>Endnotes are like footnotes that appear at the end of the book instead of the bottom of the page. However, Bookdown only supports one type of “note” by default. All of the notes in a book will be either treated as footnotes or endnotes, depending on the settings. Since our settings instruct Bookdown to treat notes as footnotes, the process of adding endnotes is a bit more manual. In fact, endnotes are not special links at all. We are just making use of Bookdown’s references (ie internal links) feature to standardize a process of creating bi-directional links to and from the end of the book where the endnotes are.</p>
+<p>The first step in the process is to create a separate endnotes.Rmd file<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. This will result in a separate chapter at the end of the book for the content of the footnotes. Then, two separate named links need to be created that point to each other. The first is in the text of the book where the endnote reference is. The second is in the endnote file at the beginning of the endnote. This creates a link to the endnote from the body of the main text, and as well as a backlink, so you can return to where you were reading. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. (<a href="endnotes-1.html#en.01" id="en.01.backlink">1</a>)</p>
+<p><strong>NOTE</strong>: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation. If a text contains both footnotes and endnotes, we will likely need to figure out how to distinguish between footnotes and endnotes a bit more clearly in the main body of the text, since both will simply be numbers.</p>
+<div id="creating-an-endnote" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Creating an endnote</h3>
+<p>To make it so we can link to endnotes, we need to give each one an ID. The only book with endnotes so far is Buchanan’s <em>Justification</em>. Each endnote has a title in that book, such as “Note 2, p. 21”, so we used the lowest level of header for the endnote title, backlinked it, and gave it an explicit ID like so:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="links.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">###### [NOTE 2, p. 21](#en.p1.02.backlink) {- #en.p1.02}</span></span>
+<span id="cb26-2"><a href="links.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="links.html#cb26-3" aria-hidden="true" tabindex="-1"></a>endnote text goes here...</span></code></pre></div>
 <p>The endnote ID should be named as follows:</p>
 <p>en.chapternumabbrev.endnotenumber</p>
 <p>So the above endnote is the second endnote in opening of Part 1 before you get to chapter one. Here’s how you’d name the ID for the third endnote in chapter 1:</p>
 <p>#en.ch01.03</p>
 </div>
-<div id="linking-to-an-endnote" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Linking to an endnote</h3>
+<div id="linking-to-an-endnote" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Linking to an endnote</h3>
 <p>To link to the endnote from within the text, simply follow the instructions for references (internal links) <a href="links.html#references">above</a>, and use an explicit id so it can be backlinked. Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link “Footnote 1”, though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the “2” in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown, along with providing a named reference so a backlink can be created:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="links.html#cb26-1" aria-hidden="true" tabindex="-1"></a>This sentence ends with a linked endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>{#en.p1.02.backlink})</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb27-1"><a href="links.html#cb27-1" aria-hidden="true" tabindex="-1"></a>This sentence ends with a link to an endnote in parentheses.(<span class="co">[</span><span class="ot">2</span><span class="co">](#en.p1.02)</span>{#en.p1.02.backlink})</span></code></pre></div>
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="4">
-<li id="fn4"><p>Technically footnotes aren’t numbered in our source. They are <em>named</em>. They are then assigned consecutive numbers per chapter automatically when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.<a href="links.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
-<p>See? Second paragraph works just fine. :)<a href="links.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>There is an endnote file in this style guide, for demonstrations’ sake. And this is a demonstration of an endnote within a footnote. <a href="endnotes-1.html#en.02" id="en.02.backlink">2</a><a href="links.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Here is my multiparagraph footnote, just to prove that it works.</p>
+<p>See? Second paragraph works just fine. :)<a href="links.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>There is an endnote file in this style guide, for demonstrations’ sake. And this is a demonstration of an endnote within a footnote. <a href="endnotes-1.html#en.02" id="en.02.backlink">2</a><a href="links.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script> 

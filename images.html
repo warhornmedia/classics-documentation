@@ -182,14 +182,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="poetry.html"><a href="poetry.html"><i class="fa fa-check"></i><b>5</b> Poetry</a></li>
 <li class="chapter" data-level="6" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>6</b> Links</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="links.html"><a href="links.html#assigning-ids"><i class="fa fa-check"></i><b>6.1</b> Assigning implicit or explicit ID names</a></li>
-<li class="chapter" data-level="6.2" data-path="links.html"><a href="links.html#external-links"><i class="fa fa-check"></i><b>6.2</b> External links</a></li>
-<li class="chapter" data-level="6.3" data-path="links.html"><a href="links.html#references"><i class="fa fa-check"></i><b>6.3</b> References (ie internal links)</a></li>
-<li class="chapter" data-level="6.4" data-path="links.html"><a href="links.html#footnotes"><i class="fa fa-check"></i><b>6.4</b> Footnotes</a></li>
-<li class="chapter" data-level="6.5" data-path="links.html"><a href="links.html#endnotes"><i class="fa fa-check"></i><b>6.5</b> Endnotes</a>
+<li class="chapter" data-level="6.1" data-path="links.html"><a href="links.html#external-links"><i class="fa fa-check"></i><b>6.1</b> External links</a></li>
+<li class="chapter" data-level="6.2" data-path="links.html"><a href="links.html#references"><i class="fa fa-check"></i><b>6.2</b> References (ie internal links)</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="links.html"><a href="links.html#creating-an-endnote"><i class="fa fa-check"></i><b>6.5.1</b> Creating an endnote</a></li>
-<li class="chapter" data-level="6.5.2" data-path="links.html"><a href="links.html#linking-to-an-endnote"><i class="fa fa-check"></i><b>6.5.2</b> Linking to an endnote</a></li>
+<li class="chapter" data-level="6.2.1" data-path="links.html"><a href="links.html#assigning-ids"><i class="fa fa-check"></i><b>6.2.1</b> Assigning implicit or explicit IDs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="links.html"><a href="links.html#footnotes"><i class="fa fa-check"></i><b>6.3</b> Footnotes</a></li>
+<li class="chapter" data-level="6.4" data-path="links.html"><a href="links.html#endnotes"><i class="fa fa-check"></i><b>6.4</b> Endnotes</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="links.html"><a href="links.html#creating-an-endnote"><i class="fa fa-check"></i><b>6.4.1</b> Creating an endnote</a></li>
+<li class="chapter" data-level="6.4.2" data-path="links.html"><a href="links.html#linking-to-an-endnote"><i class="fa fa-check"></i><b>6.4.2</b> Linking to an endnote</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="foreign-languages.html"><a href="foreign-languages.html"><i class="fa fa-check"></i><b>7</b> Foreign languages</a></li>
@@ -222,9 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 9</span> Images</h1>
 <p>Images are likely to be rare, but when used, Pandoc’s built-in functionality is not enough. Images are to be placed in a sub-folder called “images” and included using knitr commands:</p>
 <p><strong>Centered and 50% width image:</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="images.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
-<span id="cb30-2"><a href="images.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
-<span id="cb30-3"><a href="images.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb31-1"><a href="images.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, fig.align=&#39;center&#39;, out.width=&#39;50%&#39;}</span></span>
+<span id="cb31-2"><a href="images.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(&quot;images/sepialogo.png&quot;)</span></span>
+<span id="cb31-3"><a href="images.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>Here is what it looks like when used:</p>
 <p><img src="images/sepialogo.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>

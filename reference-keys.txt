@@ -21,9 +21,9 @@ backslashes
 comments
 poetry
 links
-assigning-ids
 external-links
 references
+assigning-ids
 footnotes
 endnotes
 creating-an-endnote
