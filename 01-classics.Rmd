@@ -334,27 +334,6 @@ If a line of poetry should appear indented further than the other lines in its f
 
 # Links
 
-## Assigning implicit or explicit ID names {#assigning-ids}
-
-Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of "automatic-and-manually-assigned-ids". This is an implicit id. 
-
-Because automatic ids change with the text, and because they can get long, it is generally better to assign explicit ids manually to chapters, sections, and sub-sections if you need to link to them. 
-
-Images and links are not given implicit ids, but can be assigned explicit ids if necessary. Here is an example of assigning an explicit id for a chapter:
-
-```markdown
-# My very long chapter title that I don't want to have to type often {#long-chapter}
-```
-
-To assign an id to an arbitrary location in the text (for the purposes of linking to a particular paragraph deep within a section, for example), you need something that can be assigned an id. If there is no image or heading to receive an ID, a workaround is to create an empty link and assign it an explicit id. 
-
-At the end of this sentence is a link without any text or destination that creates a named ID. [](){#namedEmptyLink} You will not see it, but it will exist in the HTML, allowing us to link to it from the [references section](#references) below. (TODO: Test this feature is in ePub and PDF.) The markdown to create it looks like this:
-
-```markdown
-A sentence ending with a named empty link. [](){#namedEmptyLink}
-```
-
-
 ## External links
 
 Links are easily added using standard markdown like so:
@@ -363,41 +342,87 @@ Links are easily added using standard markdown like so:
 This text needs a link [here](http://google.com).
 ```
 
-External links can also be named (given an ID) as detailed [above](#assigning-ids). For example:
-
-```markdown
-This text needs a named link [here](http://google.com){#my-named-link-id}.
-```
-
-Linking to any sort of content within the book itself is called a reference and is addressed next.
+Linking to any place within the book itself is called a reference and is addressed next.
 
 
 ## References (ie internal links) {#references}
 
-If the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we know the assigned ID of what we want to reference (see above sections on [sections](#chapters-sections-and-more) and on [assigning ids](#assigning-ids)). Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. Here are a couple of examples.
+It is possible to link to content within the book itself without a full URL. For example, if the author refers to another chapter or section of his book, we can add a link to it without needing an actual url. All that is necessary is that we have the ID of whatever we want to reference. [Keep reading](#assigning-ids) for details on how to get or assign ids. 
+
+**Reference syntax:**
+
+Simply bracket the words you want to link, followed by a set of parentheses with a pound sign and the id you want to link to. Here is an example:
 
 ```markdown
-Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its (implicit) id is "foreign-languages".
+Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its id is "foreign-languages".
 ```
 
 **Output:**
-Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its (implicit) id is "foreign-languages".
+Here is how I would add a link to the section later in this guide which is about [non-english content](#foreign-languages) since its id is "foreign-languages".
 
-In the section about assigning ids, we mentioned that it is possible to insert an anchor for linking to any arbitrary spot by creating an empty, named link. [Here](#namedEmptyLink) is a link back to that named empty link above. The markdown looks like this:
+### Assigning implicit or explicit IDs {#assigning-ids}
+
+Chapters, sections, and sub-sections are automatically assigned ids using their full (lowercase) text, with spaces replaced by dashes and punctuation dropped. For example, this section would be automatically assigned an id of "assigning-implicit-or-explicit-ids". That is an *implicit id*. 
+
+If you're not sure what exactly an implicit id will be, and you need to use it, you can build the book and then hover over the chapter or section and the link will include an anchor name which is the id. You can then use it in the text. 
+
+However, it is easier to simply assign a manual explicit ID to the section or chapter you want to refer to. In fact, because these automatic implicit ids change with the text, can be hard to know exactly what they will be, and because they can get long, it is generally better to manually assign explicit ids to chapters, sections, and sub-sections if you need to link to them. 
+
+Here is an example of assigning an explicit id for a chapter:
 
 ```markdown
-[Here](#namedEmptyLink) is a link back to the arbitrary location with a custom name. 
+# My very long chapter title that I don't want to have to type often {#long-chapter}
 ```
+
+Images and links are not given implicit ids, but can be assigned explicit ids if necessary. As we will see, endnotes make extensive use of links with explicit ids.
+
+This is the syntax for assigning an id to a link:
+
+```markdown
+Here is a [link](https://www.google.com){#my-google-link-id} (to Google) with its own id.
+```
+
+Here is a [link](https://www.google.com){#my-link-id} (to Google) with its own id.
+
+Internal links use the same syntax. For example:
+
+```markdown
+Here is [a link](#comments){#another-link-id} with its own id to the comments section of this book.
+```
+
+**Linking to arbitrary locations** 
+
+You can even assign an explicit id to an arbitrary location in the text, for the purposes of linking to any particular spot in the text, even if there is no section heading nearby, for example. But we still need something that can be assigned an id. If there is no convenient image or heading to receive an id, a workaround is to create an empty link and assign it an explicit id. 
+
+At the end of this sentence is a link without any text or destination that creates a named ID. [](){#namedEmptyLink} You will not see it, but it will exist in the HTML, allowing us to link to it below. The markdown to create it looks like this:
+
+```markdown
+A sentence ending with a named empty link. [](){#namedEmptyLink}
+```
+
+The markdown to reference (link to) that named empty link looks like so:
+
+```markdown
+[Here](#namedEmptyLink) is a reference to that named empty link. 
+```
+
+Here's what it looks like when it is output:
+
+[Here](#namedEmptyLink) is a reference to that named empty link.
 
 ## Footnotes
 
-Footnotes are a special kind of link that can be added to any content in a book, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below). 
+Footnotes are a special kind of link made up of two parts—the link to the footnote and the content of the footnote. The links are *named* in the markdown source text, but when processed, those names aren't seen. Instead, they are auto-numbered consecutively throughout a chapter. Then, the content of each footnote is also numbered and properly placed at the bottom of the page. Footnotes also automatically have a backlink so you can return to where you were reading when you clicked the footnote. 
 
-Please put footnotes in the markdown source text directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. [Because of (potential) bugs](https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741), every footnote in the book *must* have a unique name.[^fnnaming]
+Footnote *links* can be added to a book anywhere, including section headings or chapter titles (but see warning concerning multi-paragraph footnotes below). 
 
-[^fnnaming]: Technically footnotes aren't numbered in our source. They are *named*. They are then assigned consecutive numbers per chapter automatically when the book is built. We use numbers for the names in order to simplify the process of editing as well as to guarantee unique names.
+The *content* of that footnote is put in its own paragraph, indicated with special sytanx (see below). In the markdown source text, please put the *content* of the footnotes directly under the paragraph where the footnote occurs. This will make it much easier to find and edit the footnote in the source document. Remember, after processing it will show up at the bottom of the page, as expected. To prevent confusion (and [because of potential bugs](https://community.rstudio.com/t/how-can-i-enable-the-file-scope-option/83741)), every footnote in the book *must* have a unique name.
 
-The naming should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named "01.01". The third footnote in the fifth chapter would be "05.03". A footnote in the intro could be named "intro.01".
+**Footnote naming** should follow this pattern: chapter number, period, footnote number. So the first footnote in the first chapter would be named "01.01". The third footnote in the fifth chapter would be "05.03". A footnote in the intro could be named "intro.01".
+
+If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity's sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: "01.01.01", "01.01.02", etc., throughout chapter 1, section 1; then "01.02.01", "01.02.02", etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.
+
+Remember, we use this pattern of consecutive numbers for the names in order to simplify the process of editing as well as to guarantee unique names. However, these names are not used in the final book. Automatic consecutive numbers are. So if you accidentally skip a number, the markdown source text numbers will *not* match the numbers in the processed book from that point to the end of the chapter. (Automatic footnote numbering restarts at 1 at the beginning of each chapter.)
 
 **Simple footnote syntax:**
 
@@ -408,8 +433,6 @@ Footnotes are often found at the end of a sentence like so.[^01.01]
 
 Now the main text of the book continues.
 ```
-
-If the structure of a particular book demands a more detailed naming of footnotes, it may be appropriate to lengthen footnote names for clarity's sake. For example, a book with lengthy sections within chapters might have footnotes named as follows: "01.01.01", "01.01.02", etc., throughout chapter 1, section 1; then "01.02.01", "01.02.02", etc., throughout chapter 1, section 2. The most important thing is that each footnote have a unique name.
 
 **Multi-paragraph footnote:**
 
@@ -429,13 +452,16 @@ Longer footnotes can also appear in books.[^01.02]
 Here is the next paragraph of the book. It is no longer part of the footnote.
 ```
 
-**Warning**: Multi-paragraph footnotes *cannot* be referenced inside bold or italic text or from within chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
+**Warning**: Multi-paragraph footnote links *cannot* be put inside bold or italic text or in chapter or section headers, because of [a bug](https://github.com/jgm/pandoc/issues/6733) in Pandoc. However, they do work within blockquotes. There may be other similar places yet to be found. Check for footnotes inside formatted text if rendering the PDF fails with an error something like this: `! Paragraph ended before \text@command was complete.` If you find another place where multi-paragraph footnotes don't work, please update this documentation.
+
 
 ## Endnotes
 
-Endnotes can be created simply by creating a separate .Rmd file[^5] for them, and giving them named IDs and then [linking to them](#linking-to-an-endnote) as references from the body of the main text, and creating backlinks. In this way, they are not special links, and they are compatible with footnotes. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01){#en.01.backlink})
+Endnotes are like footnotes that appear at the end of the book instead of the bottom of the page. However, Bookdown only supports one type of "note" by default. All of the notes in a book will be either treated as footnotes or endnotes, depending on the settings. Since our settings instruct Bookdown to treat notes as footnotes, the process of adding endnotes is a bit more manual. In fact, endnotes are not special links at all. We are just making use of Bookdown's references (ie internal links) feature to standardize a process of creating bi-directional links to and from the end of the book where the endnotes are.
 
-**NOTE**: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation.
+The first step in the process is to create a separate endnotes.Rmd file[^5]. This will result in a separate chapter at the end of the book for the content of the footnotes. Then, two separate named links need to be created that point to each other. The first is in the text of the book where the endnote reference is. The second is in the endnote file at the beginning of the endnote. This creates a link to the endnote from the body of the main text, and as well as a backlink, so you can return to where you were reading. The end of this sentence has an endnote to demonstrate what an endnote normally looks like. ([1](#en.01){#en.01.backlink})
+
+**NOTE**: Since endnotes are simply internal links, they are not able to be styled differently (such as being in superscript) by default. If need be, there may be ways around this limitation. If a text contains both footnotes and endnotes, we will likely need to figure out how to distinguish between footnotes and endnotes a bit more clearly in the main body of the text, since both will simply be numbers.
 
 [^5]: There is an endnote file in this style guide, for demonstrations' sake. And this is a demonstration of an endnote within a footnote. [2](#en.02){#en.02.backlink}
 
@@ -463,7 +489,7 @@ So the above endnote is the second endnote in opening of Part 1 before you get t
 To link to the endnote from within the text, simply follow the instructions for references (internal links) [above](#references), and use an explicit id so it can be backlinked. Note that the linked text is not automatic in any way, and can be set to any text. For example, you could make the link "Footnote 1", though that might be too disruptive to the flow of the text, and it is not likely that the original book had that. Still, it is important to understand that the "2" in the example below is not meaningful to bookdown, except as the text to be linked. Here is an example of what it looks like to link to an endnote in the markdown, along with providing a named reference so a backlink can be created:
 
 ```markdown
-This sentence ends with a linked endnote in parentheses.([2](#en.p1.02){#en.p1.02.backlink})
+This sentence ends with a link to an endnote in parentheses.([2](#en.p1.02){#en.p1.02.backlink})
 ```
 
 
