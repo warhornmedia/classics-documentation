@@ -92,7 +92,7 @@ README.md
 ### Other files
 
 _output.yml
-: Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won't build or has problems, simply remove it from the list.
+: Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to add or remove links to the various formats if necessary. For example, if the PDF won't build or has problems, simply remove it from the list. Or you can add kfx to the list. Other formats might be possible as well. 
 : 
 : -     download: ["pdf", "epub", "mobi"]
 
