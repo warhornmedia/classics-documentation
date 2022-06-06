@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Creating a new book from scratch | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Creating a new book from scratch | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://warhornmedia.github.io/classics-documentation" />
   
   <meta property="og:description" content="Documenting the decisions we have made about style and how to accomplish them." />
   
@@ -31,7 +30,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="formatting.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +47,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link rel="shortcut icon" href="classics-template-files/images/icon-blackletter.png">
 <!--- include Adobe Fonts web project stylesheet -->
 <link rel="stylesheet" href="https://use.typekit.net/faq7axi.css">
@@ -220,10 +219,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creating-a-new-book-from-scratch" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Creating a new book from scratch</h1>
-<div id="creating-a-new-repo-for-a-new-book-on-github" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Creating a new repo for a new book on Github</h2>
+<div id="creating-a-new-book-from-scratch" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Creating a new book from scratch<a href="creating-a-new-book-from-scratch.html#creating-a-new-book-from-scratch" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="creating-a-new-repo-for-a-new-book-on-github" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Creating a new repo for a new book on Github<a href="creating-a-new-book-from-scratch.html#creating-a-new-repo-for-a-new-book-on-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NOTE: This guide assumes you already have the ability to work with Git repositories on Github, including checking out repos, as well as making and pushing commits. (Also, if you are not a power user of Git, we recommend <a href="https://desktop.github.com">Github’s desktop tool</a>. It makes it simple to work with repos without memorizing command-line syntax, and it handles most simple scenarios.)</p>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://github.com/warhornmedia/classics-empty-book">our empty book repo</a> on Github and click “Use this template.” (You must be logged into Github already.)</li>
@@ -238,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><em>Congrats!</em> You now have a new book that will rebuild automatically any time you push changes to github.</p>
 <p>Your next task will be to update all of these files, and then to add the book content. You will find this information in the following sections.</p>
-<div id="optional-preparing-and-using-a-local-build-environment" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> (Optional) Preparing and using a local build environment</h3>
+<div id="optional-preparing-and-using-a-local-build-environment" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> (Optional) Preparing and using a local build environment<a href="creating-a-new-book-from-scratch.html#optional-preparing-and-using-a-local-build-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Being able to build a book locally can save time so you don’t have to wait for the book to be rebuilt by continuous integration. Typically a local build is done in under 10 seconds, and an online build takes 2-3 minutes. This can really add up if there is a problem you are trying to fix through trial and error.</p>
 <p><strong>Instructions:</strong></p>
 <ol style="list-style-type: decimal">
@@ -250,95 +249,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>A note on classics-template-files:</strong> When you first build the book locally, a new folder will be created in the book folder called classics-template-files. These files come from a separate repository by the same name. They allow us to make changes to the style and front matter of every book from one central location. But once you have these files in your local book folder, they will not be updated with new changes to the design unless you delete the whole classics-template-files folder. (This folder is excluded from tracking git, so you don’t need to worry about deleting it or updating it before committing changes to the book.) Thus, if you have not worked on a book for a while, it makes sense to delete this folder from your local book repo before you next work on it.</p>
 </div>
 </div>
-<div id="what-are-all-these-files" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> What are all these files?</h2>
+<div id="what-are-all-these-files" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> What are all these files?<a href="creating-a-new-book-from-scratch.html#what-are-all-these-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is a list of the files in the book template, along with a description of that file and the contents. If the name of a field inside a file is <strong>bold</strong> below, that means you need to customize that field for a new book.</p>
-<div id="files-you-must-modify" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Files you must modify</h3>
+<div id="files-you-must-modify" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Files you must modify<a href="creating-a-new-book-from-scratch.html#files-you-must-modify" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <dl>
 <dt>01-Basic-instructions.Rmd</dt>
-<dd>Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
+<dd>
+Contains the content of the first chapter of the template book. <strong>Should be deleted or renamed</strong> and its content replaced with the first chapter of the new book. See
 </dd>
 <dt>_bookdown.yml</dt>
-<dd>contains some settings for bookdown.
+<dd>
+contains some settings for bookdown.
 </dd>
 <dd>
-</dd>
-<dd>Contents:
+
 </dd>
 <dd>
+Contents:
 </dd>
-<dd><ul>
+<dd>
+
+</dd>
+<dd>
+<ul>
 <li><strong>book_filename:</strong> Change this to give book downloads, such as PDFs, appropriate filenames. Don’t use spaces. Standard: author’s last name followed by short title, like so:<br />
 <code>book_filename: "Ryle-Duties_of_Parents"</code></li>
 </ul>
 </dd>
 <dd>
-</dd>
-<dd>Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
-</dd>
-<dt>_editorial-notes.Rmd</dt>
-<dd>Contains two sections that must be updated throughout the editorial process, and is automatically included in the front matter of the book.
+
 </dd>
 <dd>
+Don’t change anything else in this file, unless you need “chapters” to be called something else. If so, make sure you check all the output formats thoroughly and report back. This is currently untested in our books.
 </dd>
-<dd>Contents:
+<dt>_editorial-notes.Rmd</dt>
+<dd>
+Contains two sections that must be updated throughout the editorial process, and is automatically included in the front matter of the book.
+</dd>
+<dd>
+
+</dd>
+<dd>
+Contents:
 :
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>Text Status</strong> This section should be updated by moving the “<strong>Current status:</strong> –&gt;” to the front of the appropriate line as the project progresses.
 :</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>Editorial Notes</strong> Any noteworthy editorial decisions should be added to this section.</li>
 </ul>
 </dd>
 <dt>cover.jpg</dt>
-<dd><strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
+<dd>
+<strong>Should be replaced</strong> with an image of the book cover. Alex is working on a simple design that will be able to be used for all of the books. Both JPG and PNG files are supported.
 </dd>
 <dt>index.Rmd</dt>
-<dd>Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
+<dd>
+Contains many settings for the book and the code to automatically include the Classics front matter in each book. Anything not mentioned below should be left unchanged.
 </dd>
 <dd>
-</dd>
-<dd>Contents:
+
 </dd>
 <dd>
+Contents:
 </dd>
-<dd><ul>
+<dd>
+
+</dd>
+<dd>
+<ul>
 <li><strong>title, author, and date</strong> must all be changed and should be self-explanatory</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>description:</strong> Short description of the book. Don’t use copyrighted content here. Write your own description. This field is useful for SEO. Also, it is displayed together with the cover image when the book is shared on certain social media.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>params:</strong></li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>pubinfo:</strong> This appears in the front matter and should be updated with the original publication info.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>scans:</strong> Enter a link to scanned images of the original public domain work on Archive.org, Google books, or elsewhere.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li>build: This can be any number. Change the build number if you ever want to force the book to rebuild but haven’t changed anything else. It’s used for no other purpose.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>cover-image:</strong> the name of the image file being used as the cover for the book. Make sure to include the extension, such as cover.jpg, or cover.png.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>url:</strong> the page where the book is hosted. Should be <a href="https://warhornmedia.github.io/your-new-github-project-name/" class="uri">https://warhornmedia.github.io/your-new-github-project-name/</a> Replace the last part with your project name. <a href="https://github.com/rstudio/bookdown/issues/963">Currently</a> that ending “/“ is necessary.</li>
 </ul>
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><strong>output:</strong>
 <ul>
 <li><strong>bookdown::gitbook:</strong>
@@ -347,7 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><dl>
 <dt><strong>toc:</strong></dt>
-<dd><strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
+<dd>
+<strong>before:</strong> This content is shown above the TOC on the web version of the book. Having the book title (and author last name if it will fit), is helpful for people to know what they are looking at. Change this on the second line.
 </dd>
 </dl></li>
 <li><strong>edit:</strong> where the edit link on each page points to. Should be the GitHub project URL, followed by “/edit/master/%s”</li>
@@ -357,36 +384,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </dd>
 <dt>README.md</dt>
-<dd>The description of the repo that will be displayed on the Github project page. <strong>Update this</strong> with some simple info and a link to the readable book.
+<dd>
+The description of the repo that will be displayed on the Github project page. <strong>Update this</strong> with some simple info and a link to the readable book.
 </dd>
 </dl>
 </div>
-<div id="other-files" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Other files</h3>
+<div id="other-files" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Other files<a href="creating-a-new-book-from-scratch.html#other-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <dl>
 <dt>_output.yml</dt>
-<dd>Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won’t build or has problems, simply remove it from the list.
+<dd>
+Contains a number of settings for the various output formats. You generally shouldn’t need to make changes to this file. However, you can modify the following line to add or remove links to the various formats if necessary. For example, if the PDF won’t build or has problems, simply remove it from the list. Or you can add kfx to the list. Other formats might be possible as well.
 </dd>
 <dd>
+
 </dd>
-<dd><ul>
+<dd>
+<ul>
 <li><pre><code>download: [&quot;pdf&quot;, &quot;epub&quot;, &quot;mobi&quot;]</code></pre></li>
 </ul>
 </dd>
 <dt>book_project.Rproj</dt>
-<dd>This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
+<dd>
+This file can be ignored. If you use the Rstudio IDE, this is your project file, and you’ll probably want to rename it to the book title just so you don’t get confused which book project you are working on.
 </dd>
 <dt>.github folder</dt>
-<dd>contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+<dd>
+contains the Github Actions workflow file that rebuilds the book automatically every time a new commit is pushed to Github. You shouldn’t need to mess with this folder. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
 </dd>
 <dt>.gitignore</dt>
-<dd>Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
+<dd>
+Specifies which files are not to be tracked in git. In particular, we only want to track book source, not output files (_book), files related to RStudio, or external files used in the build process (classics-template-files). This file already has the right settings. You shouldn’t need to mess with this file. In fact, it is a hidden file, so you normally won’t see it at all unless you are working on the command line or Github.
 </dd>
 </dl>
 </div>
 </div>
-<div id="adding-book-content" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Adding book content</h2>
+<div id="adding-book-content" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Adding book content<a href="creating-a-new-book-from-scratch.html#adding-book-content" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To add content to the book, simply add .Rmd files. .Rmd files are just text files written in R-markdown. R-markdown is just normal markdown with some extra features supported. The details of the features we support are outlined below. (TODO: We should probably add to this documentation the basic rules about how we want our markdown formatted.)</p>
 <p>Note: The filename must end with .Rmd, not .md, if you want it included in the book. That is why the README.md file is not build into the book.</p>
 <p>All the markdown files found in the main directory will be combined into a book, ordered by filename. So use numbers at the beginning of the files to indicate the order they should go in. Note that index.rmd will always come first, though, and will automatically include the Warhorn Classics front matter.</p>
@@ -401,8 +435,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The online version of the book will be split up into separate pages, not just one long web page. The split will happen at each new .rmd file.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Thus, in most cases a new .rmd file should be created for each chapter.</p>
 <p><strong>NOTE:</strong> Each .rmd file must begin with the title of the chapter (or section) it contains. (The proper syntax is described in the next section.)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
-<div id="chapters-sections-and-more" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Chapters, sections, and more</h2>
+<div id="chapters-sections-and-more" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Chapters, sections, and more<a href="creating-a-new-book-from-scratch.html#chapters-sections-and-more" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The primary structure in Warhorn Classics books is determined by various levels of headers, and it can easily be seen in the automatically generated table of contents.</p>
 <p>By default, the top level of structure is called a “chapter.” However, this word can be changed in _bookdown.yml if necessary for sermons or other types of works where “chapter” is not appropriate.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>The start of a chapter is specified in the text with a # followed by the title of the chapter. Here is an example of the proper syntax:</p>
@@ -416,8 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="creating-a-new-book-from-scratch.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">#### And now a sub-sub-section</span></span>
 <span id="cb4-6"><a href="creating-a-new-book-from-scratch.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="creating-a-new-book-from-scratch.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">###### This is the deepest level supported, because &lt;h6&gt; is the deepest header level supported in HTML.</span></span></code></pre></div>
-<div id="numbering-or-not" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Numbering (or not)</h3>
+<div id="numbering-or-not" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Numbering (or not)<a href="creating-a-new-book-from-scratch.html#numbering-or-not" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Chapters, sections and subsections will all be automatically numbered, unless you exclude them from numbering by adding “{-}” to the end of the line. For example, generally an introduction should not be numbered:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="creating-a-new-book-from-scratch.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {-}</span></span>
 <span id="cb5-2"><a href="creating-a-new-book-from-scratch.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -431,8 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It is possible to assign an ID <em>and</em> specify that a section is not to be numbered like so:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="creating-a-new-book-from-scratch.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Section forty-five {- #sec-45}</span></span></code></pre></div>
 </div>
-<div id="ids" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> IDs</h3>
+<div id="ids" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> IDs<a href="creating-a-new-book-from-scratch.html#ids" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Chapters and sections always have an ID so they can be linked to. If one is not set explicitly, one will automatically be given (implicitly) based on the title. This will be discussed later in the <a href="links.html#references">references section</a>.</p>
 </div>
 </div>

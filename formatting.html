@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Formatting | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Formatting | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://warhornmedia.github.io/classics-documentation" />
   
   <meta property="og:description" content="Documenting the decisions we have made about style and how to accomplish them." />
   
@@ -31,7 +30,6 @@
   
 <link rel="prev" href="creating-a-new-book-from-scratch.html"/>
 <link rel="next" href="special-characters.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,8 +47,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link rel="shortcut icon" href="classics-template-files/images/icon-blackletter.png">
 <!--- include Adobe Fonts web project stylesheet -->
 <link rel="stylesheet" href="https://use.typekit.net/faq7axi.css">
@@ -220,31 +219,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="formatting" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Formatting</h1>
-<div id="overview" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Overview</h2>
+<div id="formatting" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Formatting<a href="formatting.html#formatting" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="formatting.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Formatting should not be used for structural elements such as headers or captions. Our templates will style those elements according to a standard design. Formatting should only be done where the formatting is essential to the text. For example, bold or italics that the author is using for emphasis should be included, whereas if a (sub)section heading is italicized in the source book, that is a question of design.</p>
 <p>Formatting is accomplished by using R-markdown. Basically, you can use anything that <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc supports</a>. Where Pandoc supports multiple options, we have generally chosen a specific method. If you need to use something not mentioned below, please suggest it be added here.</p>
 </div>
-<div id="italics" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Italics</h2>
+<div id="italics" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Italics<a href="formatting.html#italics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Italicized text</em> is indicated by surrounding it with single asterisks.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="formatting.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Here are *a couple* in italics.</span></code></pre></div>
 </div>
-<div id="bold" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Bold</h2>
+<div id="bold" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Bold<a href="formatting.html#bold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Bold text</strong> is indicated by surrounding it with double asterisks.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="formatting.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Here are **a few words** in bold.</span></code></pre></div>
 </div>
-<div id="small-caps" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Small caps</h2>
+<div id="small-caps" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Small caps<a href="formatting.html#small-caps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>I cannot think of any other circumstance where smallcaps should be used except the word <span class="smallcaps">Lord</span>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="formatting.html#cb10-1" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">Lord</span><span class="co">]</span>{.smallcaps} said to my Lord, &quot;Sit at my right hand...&quot;</span></code></pre></div>
 <p>Output: The <span class="smallcaps">Lord</span> said to my Lord, “Sit at my right hand…”</p>
 </div>
-<div id="centering-text" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Centering text</h2>
+<div id="centering-text" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Centering text<a href="formatting.html#centering-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>NOTE: <a href="https://github.com/warhornmedia/classics-documentation/issues/7">This still</a> needs to be implemented in the Mobi, and ePub versions. It works in PDF and HTML versions.</strong></p>
 <p>I cannot think of a place where text would need to be centered in the text of a book.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="formatting.html#cb11-1" aria-hidden="true" tabindex="-1"></a>::: {.center data-latex=&quot;&quot;}</span>

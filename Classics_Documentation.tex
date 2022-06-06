@@ -3,7 +3,6 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -34,14 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Warhorn Classics Documentation},
-  pdflang={en},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -109,6 +100,17 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+\babelprovide[import]{latin}
+\babelprovide[import]{greek}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % DEFINE PHYSICAL DOCUMENT SETTINGS HD
 % media settings
 \usepackage[paperwidth=5.5in, paperheight=8.5in]{geometry}
@@ -163,26 +165,17 @@
 \makeatother
 
 \frontmatter
-\ifXeTeX
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-  \setotherlanguage[]{latin}
-  \setotherlanguage[]{greek}
-\else
-  \usepackage[latin,greek,main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-  \providecommand{\textlatin}{}
-  \renewcommand{\textlatin}[2][]{\foreignlanguage{latin}{#2}}
-  \newenvironment{latin}[2][]{\begin{otherlanguage}{latin}}{\end{otherlanguage}}
-  \newcommand{\textgreek}[2][]{\foreignlanguage{greek}{#2}}
-  \newenvironment{greek}[2][]{\begin{otherlanguage}{greek}}{\end{otherlanguage}}
-\fi
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Warhorn Classics Documentation},
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Warhorn Classics Documentation}
 \author{}
@@ -399,7 +392,7 @@ The description of the repo that will be displayed on the Github project page. \
 
 \begin{description}
 \item[\_output.yml]
-Contains a number of settings for the various output formats. You generally shouldn't need to make changes to this file. However, you can modify the following line to remove links to any format if necessary. For example, if the PDF won't build or has problems, simply remove it from the list.
+Contains a number of settings for the various output formats. You generally shouldn't need to make changes to this file. However, you can modify the following line to add or remove links to the various formats if necessary. For example, if the PDF won't build or has problems, simply remove it from the list. Or you can add kfx to the list. Other formats might be possible as well.
 
 \begin{itemize}
 \item
@@ -873,7 +866,7 @@ Any text in a foreign language, regardless of how long or short, should be indic
 \end{Highlighting}
 \end{Shaded}
 
-Output: In Latin, the word ``\textlatin{sacramentum}'' means ``mystery.''
+Output: In Latin, the word ``\foreignlanguage{latin}{sacramentum}'' means ``mystery.''
 
 \textbf{Greek:}
 
@@ -883,7 +876,7 @@ Output: In Latin, the word ``\textlatin{sacramentum}'' means ``mystery.''
 \end{Highlighting}
 \end{Shaded}
 
-Output: In English, we have transliterated the Greek word ``\textgreek{μυστηριον}'' as ``mystery.''
+Output: In English, we have transliterated the Greek word ``\foreignlanguage{greek}{μυστηριον}'' as ``mystery.''
 
 \hypertarget{typos-in-the-original}{%
 \chapter{Typos in the original}\label{typos-in-the-original}}
