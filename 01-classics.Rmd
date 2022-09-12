@@ -513,6 +513,8 @@ In English, we have transliterated the Greek word "[μυστηριον]{lang=el}
 
 Output: In English, we have transliterated the Greek word "[μυστηριον]{lang=el}" as "mystery."
 
+**NOTE: Do not mark any words as English (ie. "lang=en").** You might be tempted to when, for example, there are a few words in english in a larger Latin section. The default language of the book is English, and attempting to mark any specific words as English will now cause errors when building the PDF.
+
 # Typos in the original
 
 Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.

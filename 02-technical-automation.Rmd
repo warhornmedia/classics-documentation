@@ -1,0 +1,68 @@
+# Technical details of our automated build system
+
+## Github Actions
+
+We use Github Actions to build books automatically every time a new commit is pushed to a repo. We have our own [custom actions repo](https://github.com/warhornmedia/custom-actions), that can be used together or separately to build books. The workflow that runs is included with the book's files at `(book)->.github->workflows->deploy_bookdown.yml` It simply calls two actions
+
+1. render-classics-work 
+	(see description below)	
+2. github-pages-deploy-action
+    
+    Deploys the final built book to gh-pages branch of the same book's repo. Each repo has Github Pages configured to host a public website of the static files found in its gh-pages branch. So this is the step that takes the newly-built book and updates the publicly accessible website and downloadable files. 
+
+### render-classics-work
+	
+This is a composite action that calls other actions to completely automate building a Warhorn Classics work. In order it does the following:
+
+1. calls our setup-bookdown custom action (see below), which sets up the virtual machine with the necessary software
+2. downloads the Warhorn Classics template files (see below) so they are available for the build process
+3. runs the classics_extras.sh (see below) script which currently just installs whatever fonts we want to be available
+4. calls our build-book custom action (see below) which builds the book
+
+### setup-bookdown
+
+This custom action installs a bunch of software and sets up the environment for building the book. Default versions of software are defined (and can be found in the custom-actions readme). Custom versions can also be specified when the action is called. 
+
+### classics_extras.sh
+
+This script decrypts and installs the fonts included in the classics template files. NOTE: This script is written particularly for MacOS. If we ever want to transition to a Linux VM for our actions, this will need to be modified. 
+
+### build-book 
+
+This custom action runs buildscript.sh (see below), and if the build fails, uploads the book folder as an artifact to help with debugging. 
+
+### buildscript.sh
+
+This script renders whichever versions of the book are specified in the "download" line of the book's _output.yml file. If necessary for the particular files to be produced, this script will install additional software, such as Calibre or kindle-previewer. 
+
+### classics-template-files repo
+
+This repo contains a variety of files that are used by our Warhorn Classics books. 
+
+- css->warhorn-classics.css is the CSS customization we've done to change the look and feel of the web versions of our books. 
+- The fonts folder contains some zipped free fonts, and a zipped and encrypted non-free font that we (can) use in the PDF version of our books.
+- html->after_body.html is included in every page of the web version of the book. 
+	- adds refTagger js so Bible verses are auto-linked with popups of the verse
+	- adds some js that provides a fix for "split_by: rmd" putting footnotes and arrows in wrong place sometimes
+- html->feedback.html *currently unused*
+- html->in_header.html Installs our shortcut icon, Adobe fonts, and Google fonts 
+- images folder has various images used in our designs
+- latex->before_body.tex *currently unused*
+- latex->preamble.tex changes the PDF design to look the way we want
+- rmds->classics-frontmatter.Rmd gets included at the start of every Warhorn Classics book and automatically includes the entire "About this book" page
+
+
+## Making changes to the build system or templates
+
+Any time a change is made to the [custom actions repo](https://github.com/warhornmedia/custom-actions) or the [classics template files](https://github.com/warhornmedia/classics-template-files), the changes should be verified both to be working properly and that nothing else broke. A good test book is [Bannerman's Sacraments](https://github.com/warhornmedia/bannerman-sacraments). Here is an elementary list of things to check: 
+
+Footnotes, endnotes, crossreferences, TOC, 
+
+
+1. Web version 
+	a. Search working
+2. PDF version 
+	a. colored links
+	b. greek words working (including diacritics)
+	c. page numbering
+3. ePub version 
