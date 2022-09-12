@@ -33,3 +33,12 @@ typos-in-the-original
 images
 troubleshooting
 editorial-policies
+technical-details-of-our-automated-build-system
+github-actions
+render-classics-work
+setup-bookdown
+classics_extras.sh
+build-book
+buildscript.sh
+classics-template-files-repo
+making-changes-to-the-build-system-or-templates

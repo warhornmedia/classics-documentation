@@ -114,6 +114,10 @@
 % DEFINE PHYSICAL DOCUMENT SETTINGS HD
 % media settings
 \usepackage[paperwidth=5.5in, paperheight=8.5in]{geometry}
+\geometry{left=.5in}
+\geometry{right=.5in}
+\geometry{bottom=.75in}
+\geometry{top=.75in}
 
 % define link colors
 \usepackage{hyperref}
@@ -125,16 +129,23 @@
     urlcolor=WarhornTeal,
 }
 
-% Not sure what this does
+% Start of default stuff from bookdown
+% format tables for a book
 \usepackage{booktabs}
+
+% typeset theorems
 \usepackage{amsthm}
+
+% fixes spacing or something with theorems, I think
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=8pt plus 2pt minus 4pt
   \thm@postskip=\thm@preskip
 }
+\makeatother
+% End of default stuff from bookdown
 
-% Insert book cover first and format title page after that?
+% Insert book cover first and format title page after that
 \usepackage{titling}
 \usepackage{pdfpages}
 \IfFileExists{./cover.pdf}{
@@ -145,6 +156,7 @@
       \newcommand{\myCover}{./cover.png}}{}
     }
   }
+\makeatletter
 \@ifundefined{myCover}
 {}
 {
@@ -153,17 +165,20 @@
 \usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
 \AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 }
-\clearpage\pagenumbering{roman}
+\makeatother
 
 % poetry styling
 \newenvironment{poetry}[0]{\par\leftskip=2em\rightskip=2em}{\par\medskip}
 
 % specify fonts
-\setmainfont{Calluna}
-\newfontfamily\greekfont[Script=Greek]{LiberationSerif}
+%\babelfont[*Latin]{rm}{Calluna}
+%\babelprovide[import]{greek}
+%\babelfont[*greek]{rm}{Baskerville}
 
-\makeatother
+\usepackage{fontspec}
+\setmainfont{Baskerville}
 
+%specify that what comes next is frontmatter, thus page nums are roman numerals
 \frontmatter
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -184,8 +199,7 @@
 \begin{document}
 \maketitle
 
-\mainmatter
-\pagenumbering{roman}
+
 
 {
 \setcounter{tocdepth}{1}
@@ -878,6 +892,8 @@ Output: In Latin, the word ``\foreignlanguage{latin}{sacramentum}'' means ``myst
 
 Output: In English, we have transliterated the Greek word ``\foreignlanguage{greek}{μυστηριον}'' as ``mystery.''
 
+\textbf{NOTE: Do not mark any words as English (ie. ``lang=en'').} You might be tempted to when, for example, there are a few words in english in a larger Latin section. The default language of the book is English, and attempting to mark any specific words as English will now cause errors when building the PDF.
+
 \hypertarget{typos-in-the-original}{%
 \chapter{Typos in the original}\label{typos-in-the-original}}
 
@@ -935,6 +951,134 @@ What to do if your build is failing:
 
 Convert British spelling?
 Convert British or antiquated quotation styles?
+
+\hypertarget{technical-details-of-our-automated-build-system}{%
+\chapter{Technical details of our automated build system}\label{technical-details-of-our-automated-build-system}}
+
+\hypertarget{github-actions}{%
+\section{Github Actions}\label{github-actions}}
+
+We use Github Actions to build books automatically every time a new commit is pushed to a repo. We have our own \href{https://github.com/warhornmedia/custom-actions}{custom actions repo}, that can be used together or separately to build books. The workflow that runs is included with the book's files at \texttt{(book)-\textgreater{}.github-\textgreater{}workflows-\textgreater{}deploy\_bookdown.yml} It simply calls two actions
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  render-classics-work
+  (see description below)
+\item
+  github-pages-deploy-action
+
+  Deploys the final built book to gh-pages branch of the same book's repo. Each repo has Github Pages configured to host a public website of the static files found in its gh-pages branch. So this is the step that takes the newly-built book and updates the publicly accessible website and downloadable files.
+\end{enumerate}
+
+\hypertarget{render-classics-work}{%
+\subsection{render-classics-work}\label{render-classics-work}}
+
+This is a composite action that calls other actions to completely automate building a Warhorn Classics work. In order it does the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  calls our setup-bookdown custom action (see below), which sets up the virtual machine with the necessary software
+\item
+  downloads the Warhorn Classics template files (see below) so they are available for the build process
+\item
+  runs the classics\_extras.sh (see below) script which currently just installs whatever fonts we want to be available
+\item
+  calls our build-book custom action (see below) which builds the book
+\end{enumerate}
+
+\hypertarget{setup-bookdown}{%
+\subsection{setup-bookdown}\label{setup-bookdown}}
+
+This custom action installs a bunch of software and sets up the environment for building the book. Default versions of software are defined (and can be found in the custom-actions readme). Custom versions can also be specified when the action is called.
+
+\hypertarget{classics_extras.sh}{%
+\subsection{classics\_extras.sh}\label{classics_extras.sh}}
+
+This script decrypts and installs the fonts included in the classics template files. NOTE: This script is written particularly for MacOS. If we ever want to transition to a Linux VM for our actions, this will need to be modified.
+
+\hypertarget{build-book}{%
+\subsection{build-book}\label{build-book}}
+
+This custom action runs buildscript.sh (see below), and if the build fails, uploads the book folder as an artifact to help with debugging.
+
+\hypertarget{buildscript.sh}{%
+\subsection{buildscript.sh}\label{buildscript.sh}}
+
+This script renders whichever versions of the book are specified in the ``download'' line of the book's \_output.yml file. If necessary for the particular files to be produced, this script will install additional software, such as Calibre or kindle-previewer.
+
+\hypertarget{classics-template-files-repo}{%
+\subsection{classics-template-files repo}\label{classics-template-files-repo}}
+
+This repo contains a variety of files that are used by our Warhorn Classics books.
+
+\begin{itemize}
+\tightlist
+\item
+  css-\textgreater warhorn-classics.css is the CSS customization we've done to change the look and feel of the web versions of our books.
+\item
+  The fonts folder contains some zipped free fonts, and a zipped and encrypted non-free font that we (can) use in the PDF version of our books.
+\item
+  html-\textgreater after\_body.html is included in every page of the web version of the book.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    adds refTagger js so Bible verses are auto-linked with popups of the verse
+  \item
+    adds some js that provides a fix for ``split\_by: rmd'' putting footnotes and arrows in wrong place sometimes
+  \end{itemize}
+\item
+  html-\textgreater feedback.html \emph{currently unused}
+\item
+  html-\textgreater in\_header.html Installs our shortcut icon, Adobe fonts, and Google fonts
+\item
+  images folder has various images used in our designs
+\item
+  latex-\textgreater before\_body.tex \emph{currently unused}
+\item
+  latex-\textgreater preamble.tex changes the PDF design to look the way we want
+\item
+  rmds-\textgreater classics-frontmatter.Rmd gets included at the start of every Warhorn Classics book and automatically includes the entire ``About this book'' page
+\end{itemize}
+
+\hypertarget{making-changes-to-the-build-system-or-templates}{%
+\section{Making changes to the build system or templates}\label{making-changes-to-the-build-system-or-templates}}
+
+Any time a change is made to the \href{https://github.com/warhornmedia/custom-actions}{custom actions repo} or the \href{https://github.com/warhornmedia/classics-template-files}{classics template files}, the changes should be verified both to be working properly and that nothing else broke. A good test book is \href{https://github.com/warhornmedia/bannerman-sacraments}{Bannerman's Sacraments}. Here is an elementary list of things to check:
+
+Footnotes, endnotes, crossreferences, TOC,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Web version
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Search working
+  \end{enumerate}
+\item
+  PDF version
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    colored links
+  \item
+    greek words working (including diacritics)
+  \item
+    page numbering
+  \end{enumerate}
+\item
+  ePub version
+\end{enumerate}
 
 \hypertarget{endnotes-1}{%
 \chapter*{Endnotes}\label{endnotes-1}}

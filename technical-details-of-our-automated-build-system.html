@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Typos in the original | Warhorn Classics Documentation</title>
+  <title>Chapter 12 Technical details of our automated build system | Warhorn Classics Documentation</title>
   <meta name="description" content="Documenting the decisions we have made about style and how to accomplish them." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Typos in the original | Warhorn Classics Documentation" />
+  <meta property="og:title" content="Chapter 12 Technical details of our automated build system | Warhorn Classics Documentation" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Documenting the decisions we have made about style and how to accomplish them." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Typos in the original | Warhorn Classics Documentation" />
+  <meta name="twitter:title" content="Chapter 12 Technical details of our automated build system | Warhorn Classics Documentation" />
   
   <meta name="twitter:description" content="Documenting the decisions we have made about style and how to accomplish them." />
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="foreign-languages.html"/>
-<link rel="next" href="images.html"/>
+<link rel="prev" href="editorial-policies.html"/>
+<link rel="next" href="endnotes-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -232,12 +232,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="typos-in-the-original" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Typos in the original<a href="typos-in-the-original.html#typos-in-the-original" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Typos can and do appear in the original source documents at times. Our policy is to correct obvious typos, such as spelling errors, making a note of them in the text like so.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="typos-in-the-original.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Original typo: &quot;profssing&quot; --&gt;</span></span></code></pre></div>
-<p>Stylistic changes, such as switching from British to American quotes are not considered typos and do not need to be noted.</p>
-<p>However, sometimes a word may be missing, or the wrong word inserted. If you believe you have found a typo, but correcting it changes the meaning of the text, please submit it to the editorial team for evaluation. If a change is made in such a circumstance, it will be noted visibly in the text, either through a footnote or an editorial bracket.</p>
+<div id="technical-details-of-our-automated-build-system" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Technical details of our automated build system<a href="technical-details-of-our-automated-build-system.html#technical-details-of-our-automated-build-system" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="github-actions" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Github Actions<a href="technical-details-of-our-automated-build-system.html#github-actions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We use Github Actions to build books automatically every time a new commit is pushed to a repo. We have our own <a href="https://github.com/warhornmedia/custom-actions">custom actions repo</a>, that can be used together or separately to build books. The workflow that runs is included with the book’s files at <code>(book)-&gt;.github-&gt;workflows-&gt;deploy_bookdown.yml</code> It simply calls two actions</p>
+<ol style="list-style-type: decimal">
+<li><p>render-classics-work
+(see description below)</p></li>
+<li><p>github-pages-deploy-action</p>
+<p>Deploys the final built book to gh-pages branch of the same book’s repo. Each repo has Github Pages configured to host a public website of the static files found in its gh-pages branch. So this is the step that takes the newly-built book and updates the publicly accessible website and downloadable files.</p></li>
+</ol>
+<div id="render-classics-work" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> render-classics-work<a href="technical-details-of-our-automated-build-system.html#render-classics-work" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is a composite action that calls other actions to completely automate building a Warhorn Classics work. In order it does the following:</p>
+<ol style="list-style-type: decimal">
+<li>calls our setup-bookdown custom action (see below), which sets up the virtual machine with the necessary software</li>
+<li>downloads the Warhorn Classics template files (see below) so they are available for the build process</li>
+<li>runs the classics_extras.sh (see below) script which currently just installs whatever fonts we want to be available</li>
+<li>calls our build-book custom action (see below) which builds the book</li>
+</ol>
+</div>
+<div id="setup-bookdown" class="section level3 hasAnchor" number="12.1.2">
+<h3><span class="header-section-number">12.1.2</span> setup-bookdown<a href="technical-details-of-our-automated-build-system.html#setup-bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This custom action installs a bunch of software and sets up the environment for building the book. Default versions of software are defined (and can be found in the custom-actions readme). Custom versions can also be specified when the action is called.</p>
+</div>
+<div id="classics_extras.sh" class="section level3 hasAnchor" number="12.1.3">
+<h3><span class="header-section-number">12.1.3</span> classics_extras.sh<a href="technical-details-of-our-automated-build-system.html#classics_extras.sh" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This script decrypts and installs the fonts included in the classics template files. NOTE: This script is written particularly for MacOS. If we ever want to transition to a Linux VM for our actions, this will need to be modified.</p>
+</div>
+<div id="build-book" class="section level3 hasAnchor" number="12.1.4">
+<h3><span class="header-section-number">12.1.4</span> build-book<a href="technical-details-of-our-automated-build-system.html#build-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This custom action runs buildscript.sh (see below), and if the build fails, uploads the book folder as an artifact to help with debugging.</p>
+</div>
+<div id="buildscript.sh" class="section level3 hasAnchor" number="12.1.5">
+<h3><span class="header-section-number">12.1.5</span> buildscript.sh<a href="technical-details-of-our-automated-build-system.html#buildscript.sh" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This script renders whichever versions of the book are specified in the “download” line of the book’s _output.yml file. If necessary for the particular files to be produced, this script will install additional software, such as Calibre or kindle-previewer.</p>
+</div>
+<div id="classics-template-files-repo" class="section level3 hasAnchor" number="12.1.6">
+<h3><span class="header-section-number">12.1.6</span> classics-template-files repo<a href="technical-details-of-our-automated-build-system.html#classics-template-files-repo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This repo contains a variety of files that are used by our Warhorn Classics books.</p>
+<ul>
+<li>css-&gt;warhorn-classics.css is the CSS customization we’ve done to change the look and feel of the web versions of our books.</li>
+<li>The fonts folder contains some zipped free fonts, and a zipped and encrypted non-free font that we (can) use in the PDF version of our books.</li>
+<li>html-&gt;after_body.html is included in every page of the web version of the book.
+<ul>
+<li>adds refTagger js so Bible verses are auto-linked with popups of the verse</li>
+<li>adds some js that provides a fix for “split_by: rmd” putting footnotes and arrows in wrong place sometimes</li>
+</ul></li>
+<li>html-&gt;feedback.html <em>currently unused</em></li>
+<li>html-&gt;in_header.html Installs our shortcut icon, Adobe fonts, and Google fonts</li>
+<li>images folder has various images used in our designs</li>
+<li>latex-&gt;before_body.tex <em>currently unused</em></li>
+<li>latex-&gt;preamble.tex changes the PDF design to look the way we want</li>
+<li>rmds-&gt;classics-frontmatter.Rmd gets included at the start of every Warhorn Classics book and automatically includes the entire “About this book” page</li>
+</ul>
+</div>
+</div>
+<div id="making-changes-to-the-build-system-or-templates" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Making changes to the build system or templates<a href="technical-details-of-our-automated-build-system.html#making-changes-to-the-build-system-or-templates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Any time a change is made to the <a href="https://github.com/warhornmedia/custom-actions">custom actions repo</a> or the <a href="https://github.com/warhornmedia/classics-template-files">classics template files</a>, the changes should be verified both to be working properly and that nothing else broke. A good test book is <a href="https://github.com/warhornmedia/bannerman-sacraments">Bannerman’s Sacraments</a>. Here is an elementary list of things to check:</p>
+<p>Footnotes, endnotes, crossreferences, TOC,</p>
+<ol style="list-style-type: decimal">
+<li>Web version
+<ol style="list-style-type: lower-alpha">
+<li>Search working</li>
+</ol></li>
+<li>PDF version
+<ol style="list-style-type: lower-alpha">
+<li>colored links</li>
+<li>greek words working (including diacritics)</li>
+<li>page numbering</li>
+</ol></li>
+<li>ePub version</li>
+</ol>
+
+</div>
 </div>
 <script> 
  	 var refTagger = {
@@ -285,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="foreign-languages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="images.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="editorial-policies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="endnotes-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -317,7 +387,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/warhornmedia/classics-documentation/edit/master/01-classics.Rmd",
+"link": "https://github.com/warhornmedia/classics-documentation/edit/master/02-technical-automation.Rmd",
 "text": "Edit"
 },
 "history": {
